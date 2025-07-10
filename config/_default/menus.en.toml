@@ -1,0 +1,43 @@
+############# English navigation ##############
+
+# main menu
+[[main]]
+name = "TRANG CHỦ"
+url = "/"
+weight = 1
+
+[[main]]
+name = "WORKSHOP"
+url = "/workshop"
+weight = 2
+
+[[main]]
+name = "KIẾN THỨC THỦ CÔNG"
+url = "/kien-thuc-thu-cong"
+weight = 3
+
+[[main]]
+name = "BLOG"
+url = "/blog"
+weight = 4
+
+[[main]]
+name = "LIÊN HỆ"
+url = "/contact"
+weight = 5
+
+# footer menu
+[[footer]]
+name = "About"
+url = "/about"
+weight = 1
+
+[[footer]]
+name = "Elements"
+url = "/elements"
+weight = 2
+
+[[footer]]
+name = "Privacy Policy"
+url = "/privacy-policy"
+weight = 3
