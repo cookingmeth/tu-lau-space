@@ -4,6 +4,17 @@ html {
 
 body {
   @apply bg-body text-base dark:bg-darkmode-body font-primary font-normal leading-relaxed text-text dark:text-darkmode-text;
+  font-family:
+    'Be Vietnam Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif;
 }
 
 h1,
@@ -18,6 +29,16 @@ h6 {
 h1,
 .h1 {
   @apply text-h1-sm md:text-h1;
+  font-family: 'Be Vietnam Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif;
 }
 
 h2,
@@ -61,8 +82,23 @@ blockquote > p {
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 .h1,
 .h2,
-.h3 {
-  font-family: var(--font-heading);
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Be Vietnam Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif;
 }

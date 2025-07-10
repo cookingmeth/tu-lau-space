@@ -78,6 +78,44 @@
   {{ end }}
   <!-- /Features -->
 
+  <!-- Thrift Shop Section -->
+  {{ with .Params.thrift }}
+    <section class="section bg-cream">
+      <div class="container">
+        <h2 class="mb-4 text-h2 text-center">{{ .title | markdownify }}</h2>
+        <div class="mb-6 text-lg text-center">{{ .content | markdownify }}</div>
+        {{ with .keywords }}
+          <div class="text-center text-xs text-sage mb-2">Từ khóa: {{ delimit . ", " }}</div>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  <!-- /Thrift Shop Section -->
+
+  <!-- Sustainability Section -->
+  {{ with .Params.sustainability }}
+    <section class="section bg-sage">
+      <div class="container">
+        <h2 class="mb-4 text-h2 text-center">{{ .title | markdownify }}</h2>
+        <div class="text-lg text-center">{{ .content | markdownify }}</div>
+      </div>
+    </section>
+  {{ end }}
+  <!-- /Sustainability Section -->
+
+  <!-- CTA Banner Section -->
+  {{ with .Params.ctaBanner }}
+    {{ if .enable }}
+      <section class="section bg-sun">
+        <div class="container text-center">
+          <div class="text-xl font-semibold mb-4">{{ .text | markdownify }}</div>
+          <a class="btn btn-primary" href="{{ .buttonURL }}">{{ .buttonLabel }}</a>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+  <!-- /CTA Banner Section -->
+
   <!-- Testimonials -->
   {{ with site.GetPage "sections/testimonial" }}
     {{ if .Params.enable }}

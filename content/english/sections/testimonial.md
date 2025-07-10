@@ -1,7 +1,7 @@
 ---
 enable: true
-title: "What Users Are Saying About Hugoplate"
-description: "Don't just take our word for it - hear from some of our satisfied users!  Check out some of our testimonials below to see what others are saying about Hugoplate."
+title: "Khách nói gì về Từ Lâu Space"
+description: "Đừng chỉ nghe chúng tôi kể – hãy xem cảm nhận thật từ những vị khách đã trải nghiệm workshop và săn đồ vintage tại Từ Lâu Space."
 
 # Testimonials
 testimonials:

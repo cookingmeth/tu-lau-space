@@ -1,103 +1,95 @@
 ---
-title: "Từ Lâu Space – Thrift & Workshop"
+title: "Từ Lâu Space | Workshop Gốm, Art Workshop & Thrift Shop Sài Gòn"
 seo:
-  description: "Không gian thời trang second‑hand, up‑cycling & workshop handmade giữa lòng Sài Gòn. Khám phá kho báu vintage, 30+ lớp thủ công và cà‑phê xanh mát tại Từ Lâu Space."
-  keywords: ["thrift shop", "đồ si", "workshop handmade", "làm gốm", "upcycle", "phú nhuận", "cottagecore"]
+  description: "Trải nghiệm workshop gốm, art workshop, cửa hàng đồ si vintage & upcycle thân thiện môi trường tại trung tâm Phú Nhuận, TP.HCM. Địa chỉ top đầu cho workshop gốm, workshop handmade, thrift shop Sài Gòn."
+  keywords: ["workshop gốm", "art workshop tphcm", "thrift shop tphcm", "đồ si sài gòn", "workshop handmade", "upcycle quần áo", "workshop thêu", "workshop làm nến"]
 
 banner:
-  title: "Thế giới Thrift & Handmade ở Sài Gòn"
-  content: "Khám phá không gian vintage, săn đồ second-hand, trải nghiệm workshop thủ công và thưởng thức cà phê xanh mát tại Từ Lâu Space. Hơn 30 lớp sáng tạo, kho báu đồ cũ và không gian ấm cúng giữa lòng Sài Gòn."
-  image: "/images/hero-tulau.jpg"
+  title: "Workshop Gốm, Art Workshop & Thrift Shop Sài Gòn"
+  content: "Trải nghiệm không gian nghệ thuật, sáng tạo và bền vững: từ xoay gốm, thêu tay, đổ nến thơm đến săn đồ vintage độc bản. Tất cả trong một không gian cottage-core xanh mát giữa lòng Phú Nhuận, TP.HCM."
+  image: "/images/image-placeholder.png"
   button:
     enable: true
-    label: "Đặt lịch ghé thăm"
-    link: "#visit"
+    label: "Đặt lịch Workshop Gốm"
+    link: "/workshop/#gom"
+  secondary_button:
+    enable: true
+    label: "Khám phá Thrift Shop"
+    link: "#thrift"
 
 features:
-  - title: "🌿 100% bền vững"
-    image: "/images/service-1.png"
-    content: "Hơn 1.000 món đồ second-hand & upcycle, giúp giảm dấu chân carbon và lan tỏa lối sống xanh."
-  - title: "🎨 Sáng tạo cho mọi người"
-    image: "/images/service-2.png"
-    content: "30+ workshop thủ công: gốm, nến, thêu, denim-remake… phù hợp cho cả người mới và crafter lâu năm."
-  - title: "☕ Không gian chill đa năng"
-    image: "/images/service-3.png"
-    content: "Nhà gỗ vintage, cây xanh, cà phê rang tay – lý tưởng để học tập, làm việc, chụp ảnh và tổ chức sự kiện."
-
-about:
-  enable: true
-  title: "Về Từ Lâu Space"
-  content: |
-    Từ Lâu Space là nơi kết nối những người yêu đồ cũ và đam mê làm tay. Tại đây, bạn có thể:
-    - Săn lùng kho báu vintage: váy 90s, áo len retro, phụ kiện độc bản…
-    - Học điều mới: từ xoay gốm đến upcycle denim, với mentor tận tình, nhóm nhỏ thân thiện.
-    - Kết nối cộng đồng: event cuối tuần, phiên chợ 10k, swap-meet thân thiện.
-    Mọi hoạt động đều hướng tới sự bền vững, sáng tạo và sẻ chia.
-  image: "/images/about.jpg"
+  - title: "🌟 Vì sao chọn Từ Lâu Space?"
+    image: "/images/image-placeholder.png"
+    content: |
+      - Mentor tận tâm, lớp nhỏ 1:6, lò nung gốm tại chỗ – đảm bảo trải nghiệm cá nhân hóa.
+      - 1.000+ món đồ si, upcycle mới mỗi tuần – giá chỉ từ 50.000đ, sạch sẽ, thơm tho.
+      - Không gian cottage-core: nhà gỗ, cây xanh, cà phê rang tay, Wi-Fi & ổ cắm miễn phí.
+      - Vị trí trung tâm Phú Nhuận, dễ tìm, giữ xe máy miễn phí.
 
 workshops:
   enable: true
-  title: "Lịch Workshop Hot"
-  buttonLabel: "Xem tất cả"
-  buttonURL: "#workshop-full"
+  title: "30+ Art Workshop nổi bật tại Sài Gòn"
+  buttonLabel: "Xem lịch & đặt chỗ"
+  buttonURL: "/workshop"
+  description: "Từ workshop gốm bàn xoay, thêu punch-needle, upcycle denim đến đổ nến thơm – phù hợp cho người mới bắt đầu & người yêu sáng tạo. Đăng ký ngay để giữ chỗ!"
   cards:
-    - title: "Làm Gốm Bàn Xoay"
+    - title: "Workshop Làm Gốm Bàn Xoay"
       date: "Thứ 7 & Chủ nhật"
-      price: "250.000 ₫"
-      image: "/images/workshop-gom.jpg"
-      url: "https://bit.ly/dang-ky-gom"
+      price: "250.000đ"
+      tag: "workshop gốm tphcm"
     - title: "Thêu Punch-Needle"
-      date: "Thứ 4 hàng tuần"
-      price: "180.000 ₫"
-      image: "/images/workshop-theu.jpg"
-      url: "https://bit.ly/dang-ky-theu"
-    - title: "Up-cycle Denim"
-      date: "Thứ 5 hàng tuần"
-      price: "200.000 ₫"
-      image: "/images/workshop-denim.jpg"
-      url: "https://bit.ly/dang-ky-denim"
-    - title: "Nến Thơm Tự Nhiên"
-      date: "Thứ 6 hàng tuần"
-      price: "220.000 ₫"
-      image: "/images/workshop-nen.jpg"
-      url: "https://bit.ly/dang-ky-nen"
+      date: "Thứ 4"
+      price: "180.000đ"
+      tag: "workshop thêu tphcm"
+    - title: "Upcycle Denim (vẽ & đính patch)"
+      date: "Thứ 5"
+      price: "200.000đ"
+      tag: "workshop upcycle tphcm"
+    - title: "Đổ Nến Thơm Thực Vật"
+      date: "Thứ 6"
+      price: "220.000đ"
+      tag: "workshop làm nến tphcm"
 
-ctaBanner:
+thrift:
   enable: true
-  text: "Đăng ký mailing list để nhận ebook 5 cách upcycle áo jean + mã giảm 10% cho workshop đầu tiên!"
-  buttonLabel: "Nhận Ebook miễn phí"
-  buttonURL: "#signup"
+  title: "Thrift Shop Sài Gòn – Săn đồ vintage, upcycle giá rẻ"
+  content: |
+    - 1.000+ item cập nhật thứ 3 & thứ 6 hàng tuần: váy vintage, áo len retro, phụ kiện độc bản.
+    - Sản phẩm đã lọc lỗi, chụp ảnh, gắn size VN – mua online dễ dàng.
+    - Dịch vụ hair-tinsel, vá/thu nhỏ tại chỗ – tối ưu trải nghiệm “thrift-flip”.
+    - Đóng gói bằng túi giấy kraft, khuyến khích mang túi vải – nhận mã giảm giá 5%.
+  keywords: ["shop đồ si tphcm", "thrift shop sài gòn", "đồ vintage giá rẻ", "upcycle tphcm"]
+
+sustainability:
+  enable: true
+  title: "Cam kết bền vững & thân thiện môi trường"
+  content: |
+    “Mỗi chiếc váy second-hand giúp giảm ~2.000 lít nước & 3kg CO₂.” — WEF 2025 Report
+    Từ Lâu Space cam kết đóng gói xanh, giảm rác thải nhựa, khuyến khích khách mang túi vải và tham gia các hoạt động upcycle, bảo vệ môi trường cùng cộng đồng.
 
 reviews:
   enable: true
-  title: "Khách nói gì về Từ Lâu?"
+  title: "Khách nói gì về Từ Lâu Space"
   items:
-    - quote: "Không gian dễ thương, staff siêu nhiệt tình. Mình vừa tìm được chiếc váy 90s, vừa làm ly nến thơm tặng bạn thân!"
-      name: "Minh Anh"
-      position: "Sinh viên"
-    - quote: "Workshop gốm cuối tuần ở đây ‘chill’ hơn resort, giá lại mềm. Sẽ quay lại với hội bạn."
-      name: "Hoàng Long"
-      position: "Designer"
-
-faq:
-  enable: true
-  title: "Câu hỏi thường gặp"
-  items:
-    - q: "Có cần đăng ký trước khi ghé mua đồ không?"
-      a: "Không bắt buộc, nhưng bạn có thể đặt lịch để chắc chắn có slot tư vấn & giữ món hot."
-    - q: "Workshop có phù hợp người mới hoàn toàn?"
-      a: "100%. Mentor hướng dẫn từng bước, vật liệu đã chuẩn bị sẵn."
-    - q: "Có chỗ đậu xe máy/ô-tô?"
-      a: "Có bãi giữ xe máy miễn phí và hỗ trợ gửi ô-tô gần đó (30m)."
-    - q: "Thanh toán thế nào?"
-      a: "Tiền mặt, chuyển khoản, Momo hoặc quét QR. Booking online qua thẻ/Stripe."
+    - quote: "Workshop gốm chill thật sự! Mentor tận tình, thành phẩm đẹp, sẽ quay lại."
+      name: "Trang Linh, Freelancer"
+    - quote: "Mê khu đồ vintage – mua 3 chiếc váy ‘độc’ hết 150k. Sẽ quay lại."
+      name: "Minh Quân, Sinh viên"
+    - quote: "Workshop thêu punch-needle rất dễ hiểu, phù hợp cho người mới."
+      name: "Hà My, Nhân viên văn phòng"
 
 contact:
   enable: true
-  title: "Liên hệ & Giờ mở cửa"
-  address: "27/3A Huỳnh Văn Bánh, Phú Nhuận, TP HCM"
-  phone: "093 123 4567"
-  email: "hello@tulau.space"
-  hours: "09:00 – 21:00, mỗi ngày"
-  mapEmbed: "https://www.google.com/maps/embed?..."
+  title: "Địa chỉ & giờ mở cửa"
+  address: "27/3A Huỳnh Văn Bánh, Phú Nhuận, TP.HCM"
+  phone: "093 123 4567 (Zalo, Hotline)"
+  facebook: "https://facebook.com/tulau.space"
+  hours: "09h-21h mỗi ngày"
+  note: "🚲 Giữ xe máy miễn phí – Hỗ trợ gửi ô-tô 30m | [Xem bản đồ](https://goo.gl/maps/...)"
+
+ctaBanner:
+  enable: true
+  text: "Đăng ký nhận Ebook '5 mẹo tự up-cycle áo jean' & mã giảm 10% cho workshop đầu tiên. Đừng bỏ lỡ ưu đãi chỉ dành cho thành viên mới!"
+  buttonLabel: "Nhận Ebook & Ưu Đãi"
+  buttonURL: "/#newsletter"
 ---
