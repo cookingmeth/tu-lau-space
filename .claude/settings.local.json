@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.notion.so)",
+      "WebSearch",
+      "WebFetch(domain:attractive-emperor-e78.notion.site)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "defaultMode": "acceptEdits"
+  }
+}
