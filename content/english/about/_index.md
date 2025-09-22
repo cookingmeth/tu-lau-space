@@ -32,7 +32,7 @@ Với "đôi mắt kim cương" trong việc tuyển chọn đồ vintage, Duy �
 
 ## Không gian của chúng tôi
 
-📍 **Vị trí**: 27/3A Huỳnh Văn Bánh, Phú Nhuận - ngay trung tâm thành phố, dễ dàng di chuyển.
+📍 **Vị trí**: 7 Phan Tây Hồ, Phường Cầu Kiệu - ngay trung tâm thành phố, dễ dàng di chuyển.
 
 🏡 **Thiết kế**: Phong cách cottage-core với nhiều cây xanh, ánh sáng tự nhiên và không gian mở thoáng đãng.
 

@@ -433,4 +433,163 @@
     {{ end }}
   {{ end }}
   <!-- /Testimonials -->
+
+  <!-- Map Section -->
+  <section class="section bg-light dark:bg-darkmode-light">
+    <div class="container">
+      <div class="row justify-center mb-12">
+        <div class="lg:col-10 text-center">
+          <h2 class="mb-4 text-h2">Ghé thăm Từ Lâu Space</h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400">
+            Tìm chúng mình tại trung tâm Sài Gòn, nơi bạn có thể thả hồn vào những workshop thú vị
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-lg">
+            <!-- Address Info -->
+            <div class="p-6 md:p-8 border-b border-gray-200 dark:border-darkmode-border">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="h4 mb-4 text-primary">📍 Địa chỉ</h3>
+                  <p class="text-lg mb-2">7 Phan Tây Hồ, Phường Cầu Kiệu</p>
+                  <p class="text-gray-600 dark:text-gray-400">TP. Hồ Chí Minh, Việt Nam</p>
+                </div>
+                <div>
+                  <h3 class="h4 mb-4 text-primary">🕒 Giờ mở cửa</h3>
+                  <div class="space-y-2">
+                    <div class="flex justify-between">
+                      <span>Thứ 2 - Thứ 6:</span>
+                      <span>9:00 - 21:00</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Thứ 7 - Chủ nhật:</span>
+                      <span>8:00 - 22:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Map -->
+            <div class="relative">
+              <div id="map" class="w-full h-96"></div>
+              <div class="absolute top-4 right-4 z-10">
+                <a
+                  href="https://maps.google.com/?q=7+Phan+Tây+Hồ,+Phường+Cầu+Kiệu,+TP.+Hồ+Chí+Minh"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  Mở trong Google Maps
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="p-6 md:p-8 bg-gray-50 dark:bg-darkmode-light">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div class="text-2xl mb-2">📞</div>
+                  <h4 class="font-semibold mb-1">Hotline</h4>
+                  <a href="tel:+84123456789" class="text-primary hover:underline">
+                    +84 123 456 789
+                  </a>
+                </div>
+                <div>
+                  <div class="text-2xl mb-2">✉️</div>
+                  <h4 class="font-semibold mb-1">Email</h4>
+                  <a href="mailto:hello@tulau.space" class="text-primary hover:underline">
+                    hello@tulau.space
+                  </a>
+                </div>
+                <div>
+                  <div class="text-2xl mb-2">🚌</div>
+                  <h4 class="font-semibold mb-1">Đi lại</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Metro Bến Thành (5 phút đi bộ)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="text-center mt-8">
+        <a href="/contact" class="btn btn-primary">
+          Liên hệ đặt lịch
+          <i class="fa fa-arrow-right pl-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- /Map Section -->
+
+  <!-- Map Script -->
+  <script>
+    // Initialize map when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof google !== 'undefined' && google.maps) {
+        initMap();
+      } else {
+        // Fallback: show static map image if Google Maps API is not available
+        const mapElement = document.getElementById('map');
+        if (mapElement) {
+          mapElement.innerHTML = `
+            <div class="flex items-center justify-center h-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
+              <div class="text-center">
+                <div class="text-4xl mb-4">🗺️</div>
+                <p>Bản đồ sẽ hiển thị tại đây</p>
+                <p class="text-sm mt-2">Vui lòng bật JavaScript để xem bản đồ tương tác</p>
+              </div>
+            </div>
+          `;
+        }
+      }
+    });
+
+    function initMap() {
+      // Coordinates for 7 Phan Tay Ho, Phuong Cau Kieu, Ho Chi Minh City
+      const tulauSpace = { lat: 10.7769, lng: 106.6950 };
+
+      const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: tulauSpace,
+        styles: [
+          {
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+          }
+        ]
+      });
+
+      const marker = new google.maps.Marker({
+        position: tulauSpace,
+        map: map,
+        title: 'Từ Lâu Space',
+        animation: google.maps.Animation.DROP
+      });
+
+      const infoWindow = new google.maps.InfoWindow({
+        content: `
+          <div class="p-4 max-w-xs">
+            <h3 class="font-bold text-lg mb-2">Từ Lâu Space</h3>
+            <p class="text-sm text-gray-600 mb-2">Workshop thủ công Sài Gòn</p>
+            <p class="text-sm mb-3">7 Phan Tây Hồ, Phường Cầu Kiệu<br>TP. Hồ Chí Minh</p>
+            <a href="/booking-pricing" class="inline-block bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600">
+              Đặt lịch ngay
+            </a>
+          </div>
+        `
+      });
+
+      marker.addListener('click', function() {
+        infoWindow.open(map, marker);
+      });
+    }
+  </script>
 {{ end }}

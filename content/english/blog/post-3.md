@@ -23,7 +23,7 @@ Bạn là tín đồ săn đồ si, yêu thích phong cách vintage và muốn t
 
 ## Địa Chỉ Thrift Shop Từ Lâu Space
 
-- 123 Phan Xích Long, Phú Nhuận, TP.HCM
+- 7 Phan Tây Hồ, Phường Cầu Kiệu, TP.HCM
 - Xem sản phẩm và đặt hàng online tại [tulau.space](https://tulau.space)
 - Hotline: 0909 123 456
 

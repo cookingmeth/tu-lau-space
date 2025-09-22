@@ -1,7 +1,7 @@
 ---
 title: "Workshop Gốm & 30+ Art Workshop • Từ Lâu Space"
 seo:
-  description: "Đăng ký workshop gốm bàn xoay, workshop thêu, làm nến, up-cycle quần áo… lịch mới mỗi tuần tại Từ Lâu Space – Phú Nhuận, TP.HCM."
+  description: "Đăng ký workshop gốm bàn xoay, workshop thêu, làm nến, up-cycle quần áo… lịch mới mỗi tuần tại Từ Lâu Space – Phường Cầu Kiệu, TP.HCM."
   keywords: ["workshop gốm tphcm", "art workshop saigon", "học làm gốm", "workshop handmade", "lớp thủ công"]
 ---
 
