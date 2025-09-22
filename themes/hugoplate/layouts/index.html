@@ -1,14 +1,21 @@
 {{ define "main" }}
   <!-- Banner -->
   {{ with .Params.banner }}
-    <section class="section pt-14">
-      <div class="container">
-        <div class="row justify-center">
-          <div class="lg:col-7 md:col-9 mb-8 text-center">
-            <h1 class="mb-4 text-h3 lg:text-h1">
+    <section class="hero-section relative min-h-screen flex items-center overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-full object-cover" "DisplayXL" "1920x" ) }}
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="container relative z-10">
+        <div class="row">
+          <div class="lg:col-6 md:col-8 col-10">
+            <h1 class="mb-6 text-white text-h1 lg:text-[4rem] leading-tight">
               {{ .title | markdownify }}
             </h1>
-            <p class="mb-8">
+            <p class="mb-8 text-white/90 text-lg lg:text-xl leading-relaxed">
               {{ .content | markdownify }}
             </p>
             {{ with .button }}
@@ -24,9 +31,6 @@
                 </a>
               {{ end }}
             {{ end }}
-          </div>
-          <div class="col-12">
-            {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[800px]" "DisplayXL" "800x" ) }}
           </div>
         </div>
       </div>

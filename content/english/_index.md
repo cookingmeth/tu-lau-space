@@ -5,8 +5,8 @@ seo:
   keywords: ["workshop gốm", "art workshop tphcm", "thrift shop tphcm", "đồ si sài gòn", "workshop handmade", "upcycle quần áo", "workshop thêu", "workshop làm nến"]
 
 banner:
-  title: "Workshop Gốm, Art Workshop & Thrift Shop Sài Gòn"
-  content: "Trải nghiệm không gian nghệ thuật, sáng tạo và bền vững: từ xoay gốm, thêu tay, đổ nến thơm đến săn đồ vintage độc bản. Tất cả trong một không gian cottage-core xanh mát giữa lòng Phú Nhuận, TP.HCM."
+  title: "Onestop for creative minds"
+  content: "Specializing in office space, we are always looking to expand our offerings to meet the needs of growing companies."
   image: "/images/image-placeholder.png"
   button:
     enable: true
