@@ -11,11 +11,11 @@ banner:
   button:
     enable: true
     label: "Đặt lịch ngay"
-    link: "/booking"
+    link: "/booking-pricing"
   secondary_button:
     enable: true
     label: "Nhận tư vấn chủ đề phù hợp"
-    link: "/consultation"
+    link: "/contact"
 
 features:
   - title: "Vì sao chọn Từ Lâu?"
@@ -31,9 +31,9 @@ workshops:
   enable: true
   title: "31+ workshop nổi bật"
   buttonLabel: "Đặt lịch ngay"
-  buttonURL: "/booking"
+  buttonURL: "/booking-pricing"
   description: "Gốm (tạo hình/tô & vẽ), nến thơm, nước hoa, bình xịt/túi thơm, scrapbook, bookmark, hộp quà, postcard/khung ảnh, thêu hiện đại, thêu len nổi, đan/móc len, custom sổ/tote/ốp, thiệp, hairwrap/hairclip, dreamcatcher, phụ kiện (vỏ sò/cườm/đá/vải/lát gỗ – vẽ gỗ), đèn thủy tinh, collage, vẽ trên sợi, mosaic xốp, **kokedama** (cầu rêu), terrarium, tarot, vision board, lịch để bàn/treo tường, **resin**, **nhựa co nhiệt**, vẽ túi tote."
   secondaryButtonLabel: "Nhận tư vấn chủ đề phù hợp"
-  secondaryButtonURL: "/consultation"
+  secondaryButtonURL: "/contact"
 
 ---

@@ -1,24 +1,15 @@
 ---
-title: "Liên hệ & Đặt lịch Workshop - Từ Lâu Space"
+title: "Liên hệ | Từ Lâu Space – đặt lịch & tư vấn"
 meta_title: "Liên hệ - Từ Lâu Space"
-description: "Liên hệ với Từ Lâu Space để đặt lịch workshop gốm, thrift shopping và các hoạt động sáng tạo tại Phú Nhuận, TP.HCM. Địa chỉ, giờ mở cửa và thông tin liên hệ."
+description: "Nhắn tụi mình để giữ chỗ và nhận tư vấn chủ đề phù hợp."
 draft: false
 ---
 
-# Liên hệ với Từ Lâu Space
+# Liên hệ & địa điểm
 
-## 📍 Địa chỉ & Giờ mở cửa
-
-**Từ Lâu Space**  
-27/3A Huỳnh Văn Bánh, Phường 11, Quận Phú Nhuận, TP.HCM  
-
-**Giờ mở cửa:**  
-🕘 Thứ 2 - Chủ nhật: 09:00 - 21:00  
-🌟 Workshop thường diễn ra vào thứ 4 - Chủ nhật  
-
-**Đậu xe:**  
-🚲 Miễn phí xe máy tại chỗ  
-🚗 Bãi xe ô-tô cách 30m (có phí)  
+- Giờ mở cửa: 10:00–20:00 (có suất tối)
+- Kênh: Zalo · Instagram · Email · Hotline
+- Bản đồ: Trung tâm TP.HCM, dễ tìm – có gửi xe  
 
 ---
 

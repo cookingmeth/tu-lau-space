@@ -1,24 +1,23 @@
 ---
-title: "Về Từ Lâu Space – Không gian nghệ thuật & bền vững tại Sài Gòn"
+title: "About | Câu chuyện Từ Lâu Space"
 meta_title: "Về chúng tôi - Từ Lâu Space"
-description: "Tìm hiểu câu chuyện về Từ Lâu Space - không gian workshop gốm, thrift shop và các hoạt động sáng tạo bền vững tại trung tâm Phú Nhuận, TP.HCM."
+description: "Không gian thủ công ấm áp, nuôi dưỡng sự sáng tạo và kết nối. Câu chuyện, tầm nhìn – sứ mệnh – giá trị của Từ Lâu Space."
 image: "/images/banner.png"
 draft: false
 ---
 
-# Câu chuyện của Từ Lâu Space
+# Câu chuyện Từ Lâu Space
 
 ![Từ Lâu Space Interior](/images/gallery/01.jpg)
 
-Từ Lâu Space ra đời từ tình yêu với **nghệ thuật handmade** và **lối sống bền vững**. Chúng tôi tin rằng mỗi chiếc áo "từ lâu", mỗi món đồ gốm được nặn bằng đôi tay đều mang trong mình câu chuyện riêng, giá trị riêng.
+Từ tình yêu đất sét và những món đồ làm bằng tay, tụi mình mở một không gian để ai cũng có thể đi chậm lại. Ở đây, "không hoàn hảo" là đẹp—vì nó mang dấu vân tay, thời gian và ký ức của bạn.
 
-## Sứ mệnh của chúng tôi
+## Tầm nhìn – Sứ mệnh – Giá trị
+- Chậm rãi – Thủ công – Kết nối – Bền vững.
+- Đồng hành với cộng đồng sáng tạo địa phương; hỗ trợ nghệ nhân; ưu tiên vật liệu thân thiện.
 
-🌱 **Khuyến khích lối sống xanh**: Thông qua thrift shopping và upcycling, chúng tôi giúp giảm thiểu rác thải thời trang và khuyến khích tái sử dụng sáng tạo.
-
-🎨 **Lan tỏa nghệ thuật handmade**: Từ workshop gốm đến thêu tay, chúng tôi tạo không gian để mọi người khám phá khả năng sáng tạo của bản thân.
-
-🏡 **Xây dựng cộng đồng**: Từ Lâu Space không chỉ là nơi mua sắm hay học tập, mà còn là "second home" nơi bạn có thể thư giãn, làm việc và kết nối với những người cùng chí hướng.
+## Hình ảnh & nhận diện
+Fonts, bảng màu, layout thiết kế và kho ảnh tuân theo guideline nội bộ để website và mạng xã hội luôn thống nhất.
 
 ## Đội ngũ Từ Lâu
 
