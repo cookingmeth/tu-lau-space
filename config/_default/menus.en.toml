@@ -42,21 +42,147 @@ weight = 3
 
   [[main]]
   parent = "WORKSHOP"
-  name = "Gốm - Tạo Hình"
-  url = "/workshops/gom-tao-hinh-tron-goi"
+  name = "Workshop Gốm"
+  url = "/workshops#gom"
   weight = 1
+
+    [[main]]
+    parent = "Workshop Gốm"
+    name = "Gốm Tạo Hình"
+    url = "/workshops/gom-tao-hinh-tron-goi"
+    weight = 1
+
+    [[main]]
+    parent = "Workshop Gốm"
+    name = "Gốm Tô Màu"
+    url = "/workshops/gom-to-mau"
+    weight = 2
+
+    [[main]]
+    parent = "Workshop Gốm"
+    name = "Gốm Lọ Hoa"
+    url = "/workshops/gom-lo-hoa"
+    weight = 3
 
   [[main]]
   parent = "WORKSHOP"
-  name = "Nến Thơm"
-  url = "/workshops/nen-thom"
+  name = "Workshop Nến"
+  url = "/workshops#nen"
   weight = 2
+
+    [[main]]
+    parent = "Workshop Nến"
+    name = "Nến Thơm"
+    url = "/workshops/nen-thom"
+    weight = 1
+
+    [[main]]
+    parent = "Workshop Nến"
+    name = "Nến Soy Wax"
+    url = "/workshops/nen-soy-wax"
+    weight = 2
+
+  [[main]]
+  parent = "WORKSHOP"
+  name = "Workshop Trang Trí"
+  url = "/workshops#trang-tri"
+  weight = 3
+
+    [[main]]
+    parent = "Workshop Trang Trí"
+    name = "Đèn Thủy Tinh"
+    url = "/workshops/den-thuy-tinh"
+    weight = 1
+
+    [[main]]
+    parent = "Workshop Trang Trí"
+    name = "Collage"
+    url = "/workshops/collage"
+    weight = 2
+
+    [[main]]
+    parent = "Workshop Trang Trí"
+    name = "Vẽ Trên Sợi"
+    url = "/workshops/ve-tren-soi"
+    weight = 3
+
+    [[main]]
+    parent = "Workshop Trang Trí"
+    name = "Mosaic Từ Xốp"
+    url = "/workshops/mosaic-tu-xop"
+    weight = 4
+
+  [[main]]
+  parent = "WORKSHOP"
+  name = "Workshop Cây Cảnh"
+  url = "/workshops#cay-canh"
+  weight = 4
+
+    [[main]]
+    parent = "Workshop Cây Cảnh"
+    name = "Kokedama (Cầu Rêu)"
+    url = "/workshops/kokedama-cau-reu"
+    weight = 1
+
+    [[main]]
+    parent = "Workshop Cây Cảnh"
+    name = "Terrarium"
+    url = "/workshops/terrarium"
+    weight = 2
+
+  [[main]]
+  parent = "WORKSHOP"
+  name = "Workshop Handmade"
+  url = "/workshops#handmade"
+  weight = 5
+
+    [[main]]
+    parent = "Workshop Handmade"
+    name = "Lịch Để Bàn/Treo Tường"
+    url = "/workshops/lich-de-ban-treo-tuong"
+    weight = 1
+
+    [[main]]
+    parent = "Workshop Handmade"
+    name = "Resin Đồ"
+    url = "/workshops/resin-do"
+    weight = 2
+
+    [[main]]
+    parent = "Workshop Handmade"
+    name = "Nhựa Co Nhiệt"
+    url = "/workshops/nhua-co-nhiet"
+    weight = 3
+
+    [[main]]
+    parent = "Workshop Handmade"
+    name = "Vẽ Túi Tote"
+    url = "/workshops/ve-tui-tote"
+    weight = 4
+
+  [[main]]
+  parent = "WORKSHOP"
+  name = "Workshop Trải Nghiệm"
+  url = "/workshops#trai-nghiem"
+  weight = 6
+
+    [[main]]
+    parent = "Workshop Trải Nghiệm"
+    name = "Tarot"
+    url = "/workshops/tarot"
+    weight = 1
+
+    [[main]]
+    parent = "Workshop Trải Nghiệm"
+    name = "Vision Board"
+    url = "/workshops/vision-board"
+    weight = 2
 
   [[main]]
   parent = "WORKSHOP"
   name = "Đặt Lịch & Bảng Giá"
   url = "/pages/booking-pricing"
-  weight = 3
+  weight = 7
 
 [[main]]
 name = "VỀ CHÚNG TÔI"
