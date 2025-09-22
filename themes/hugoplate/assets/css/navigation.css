@@ -18,6 +18,15 @@
   @apply text-center lg:text-left;
 }
 
+/* Mobile navigation toggle */
+#nav-toggle:checked ~ .navbar-nav {
+  @apply block;
+}
+
+#nav-toggle:not(:checked) ~ .navbar-nav {
+  @apply hidden lg:flex;
+}
+
 .nav-link {
   @apply text-text-dark hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary block p-3 cursor-pointer font-semibold transition lg:px-2 lg:py-3;
 }
@@ -35,7 +44,7 @@
 }
 
 .nav-dropdown-list {
-  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded p-4 shadow-sm hidden lg:invisible lg:absolute lg:block lg:opacity-0;
+  @apply bg-body dark:bg-darkmode-body z-50 min-w-[180px] rounded p-4 shadow-sm hidden lg:invisible lg:absolute lg:block lg:opacity-0;
 }
 
 .nav-dropdown-item {
