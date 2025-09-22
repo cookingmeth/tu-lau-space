@@ -7,18 +7,60 @@ url = "/"
 weight = 1
 
 [[main]]
-name = "WORKSHOP"
-url = "/workshop"
+name = "DỊCH VỤ"
+url = "/services"
 weight = 2
 
-[[main]]
-name = "KIẾN THỨC THỦ CÔNG"
-url = "/kien-thuc-thu-cong"
-weight = 3
+  [[main]]
+  parent = "DỊCH VỤ"
+  name = "Workshop Riêng Tư"
+  url = "/services/private-workshop"
+  weight = 1
+
+  [[main]]
+  parent = "DỊCH VỤ"
+  name = "Workshop Cộng Đồng"
+  url = "/services/community-workshop"
+  weight = 2
+
+  [[main]]
+  parent = "DỊCH VỤ"
+  name = "Workshop Doanh Nghiệp"
+  url = "/services/corporate-workshop"
+  weight = 3
+
+  [[main]]
+  parent = "DỊCH VỤ"
+  name = "Nung Gốm Thuê"
+  url = "/pages/firing"
+  weight = 4
 
 [[main]]
-name = "BLOG"
-url = "/blog"
+name = "WORKSHOP"
+url = "/workshops"
+weight = 3
+
+  [[main]]
+  parent = "WORKSHOP"
+  name = "Gốm - Tạo Hình"
+  url = "/workshops/gom-tao-hinh-tron-goi"
+  weight = 1
+
+  [[main]]
+  parent = "WORKSHOP"
+  name = "Nến Thơm"
+  url = "/workshops/nen-thom"
+  weight = 2
+
+  [[main]]
+  parent = "WORKSHOP"
+  name = "Đặt Lịch & Bảng Giá"
+  url = "/pages/booking-pricing"
+  weight = 3
+
+[[main]]
+name = "VỀ CHÚNG TÔI"
+url = "/about"
 weight = 4
 
 [[main]]
@@ -28,16 +70,31 @@ weight = 5
 
 # footer menu
 [[footer]]
-name = "About"
+name = "Về Từ Lâu Space"
 url = "/about"
 weight = 1
 
 [[footer]]
-name = "Elements"
-url = "/elements"
+name = "Đặt Lịch & Bảng Giá"
+url = "/pages/booking-pricing"
 weight = 2
 
 [[footer]]
-name = "Privacy Policy"
-url = "/privacy-policy"
+name = "Chính Sách & An Toàn"
+url = "/pages/policies"
 weight = 3
+
+[[footer]]
+name = "Private Workshop"
+url = "/services/private-workshop"
+weight = 4
+
+[[footer]]
+name = "Community Workshop"
+url = "/services/community-workshop"
+weight = 5
+
+[[footer]]
+name = "Corporate Workshop"
+url = "/services/corporate-workshop"
+weight = 6
