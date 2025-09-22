@@ -38,6 +38,42 @@
   {{ end }}
   <!-- /Banner -->
 
+  <!-- CTA Section -->
+  <section class="section bg-light dark:bg-darkmode-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="col-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <!-- Tư vấn workshop doanh nghiệp -->
+            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="h5 mb-4 text-primary">Tư vấn workshop doanh nghiệp</h3>
+              <a href="/services/corporate-workshop" class="btn btn-outline-primary btn-sm">Tìm hiểu thêm</a>
+            </div>
+
+            <!-- Đặt lịch workshop riêng tư -->
+            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="h5 mb-4 text-primary">Đặt lịch workshop riêng tư</h3>
+              <a href="/services/private-workshop" class="btn btn-outline-primary btn-sm">Đặt lịch ngay</a>
+            </div>
+
+            <!-- Hợp tác với chúng tôi -->
+            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="h5 mb-4 text-primary">Hợp tác với chúng tôi</h3>
+              <a href="/contact" class="btn btn-outline-primary btn-sm">Liên hệ</a>
+            </div>
+
+            <!-- Ghé thăm Từ Lâu Space -->
+            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="h5 mb-4 text-primary">Ghé thăm Từ Lâu Space</h3>
+              <a href="/about" class="btn btn-outline-primary btn-sm">Tìm hiểu thêm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /CTA Section -->
+
   <!-- Features -->
   {{ range $i, $e:= .Params.features }}
     <section class="section-sm {{ if (modBool $i 2) }}bg-gradient{{ end }}">
