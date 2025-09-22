@@ -124,15 +124,256 @@
       <section class="section bg-light dark:bg-darkmode-light">
         <div class="container">
           <div class="row justify-center mb-12">
-            <div class="lg:col-8 text-center">
-              <h2 class="mb-4 text-h2">{{ .title | markdownify }}</h2>
-              <div class="text-lg mb-8">{{ .description | markdownify }}</div>
-              <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a class="btn btn-primary" href="{{ .buttonURL }}">{{ .buttonLabel }}</a>
-                {{ if .secondaryButtonLabel }}
-                  <a class="btn btn-outline-primary" href="{{ .secondaryButtonURL }}">{{ .secondaryButtonLabel }}</a>
-                {{ end }}
+            <div class="lg:col-10 text-center">
+              <h2 class="mb-8 text-h2">{{ .title | markdownify }}</h2>
+            </div>
+          </div>
+
+          <!-- Workshop Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            <!-- Gốm Workshops -->
+            <a href="/workshops/gom-tao-hinh-tron-goi" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-amber-100 to-orange-200 dark:from-amber-900 dark:to-orange-800 flex items-center justify-center">
+                  <div class="text-4xl">🏺</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Gốm Tạo Hình</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Nặn đất sét thành hình</p>
+                </div>
               </div>
+            </a>
+
+            <a href="/workshops/gom-to-mau" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-blue-100 to-purple-200 dark:from-blue-900 dark:to-purple-800 flex items-center justify-center">
+                  <div class="text-4xl">🎨</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Gốm Tô Màu</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Tô màu lên gốm trắng</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/gom-lo-hoa" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-green-100 to-teal-200 dark:from-green-900 dark:to-teal-800 flex items-center justify-center">
+                  <div class="text-4xl">🏺</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Gốm Lọ Hoa</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Tạo lọ hoa handmade</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Nến Workshops -->
+            <a href="/workshops/nen-thom" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-yellow-100 to-orange-200 dark:from-yellow-900 dark:to-orange-800 flex items-center justify-center">
+                  <div class="text-4xl">🕯️</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Nến Thơm</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Làm nến thơm tự nhiên</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/nen-soy-wax" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-pink-100 to-rose-200 dark:from-pink-900 dark:to-rose-800 flex items-center justify-center">
+                  <div class="text-4xl">🕯️</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Nến Soy Wax</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Nến soy wax cao cấp</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Handmade Workshops -->
+            <a href="/workshops/den-thuy-tinh" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-indigo-100 to-blue-200 dark:from-indigo-900 dark:to-blue-800 flex items-center justify-center">
+                  <div class="text-4xl">💡</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Đèn Thủy Tinh</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Trang trí đèn handmade</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/collage" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-purple-100 to-pink-200 dark:from-purple-900 dark:to-pink-800 flex items-center justify-center">
+                  <div class="text-4xl">🖼️</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Collage</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Ghép ảnh kể chuyện</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/ve-tren-soi" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900 dark:to-green-800 flex items-center justify-center">
+                  <div class="text-4xl">🎨</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Vẽ Trên Sợi</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Tranh sợi tự nhiên</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/mosaic-tu-xop" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-cyan-100 to-blue-200 dark:from-cyan-900 dark:to-blue-800 flex items-center justify-center">
+                  <div class="text-4xl">🧩</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Mosaic Từ Xốp</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Tái chế xốp sáng tạo</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Cây Cảnh Workshops -->
+            <a href="/workshops/kokedama-cau-reu" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-green-100 to-emerald-200 dark:from-green-900 dark:to-emerald-800 flex items-center justify-center">
+                  <div class="text-4xl">🌱</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Kokedama</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Cầu rêu treo cửa sổ</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/terrarium" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-lime-100 to-green-200 dark:from-lime-900 dark:to-green-800 flex items-center justify-center">
+                  <div class="text-4xl">🪴</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Terrarium</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Khu vườn mini trong lọ</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/resin-do" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-teal-100 to-cyan-200 dark:from-teal-900 dark:to-cyan-800 flex items-center justify-center">
+                  <div class="text-4xl">💎</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Resin Đồ</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Móc khóa resin trong suốt</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- More Handmade Workshops -->
+            <a href="/workshops/nhua-co-nhiet" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-orange-100 to-red-200 dark:from-orange-900 dark:to-red-800 flex items-center justify-center">
+                  <div class="text-4xl">🎨</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Nhựa Co Nhiệt</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Móc khóa shrink plastic</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/ve-tui-tote" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-violet-100 to-purple-200 dark:from-violet-900 dark:to-purple-800 flex items-center justify-center">
+                  <div class="text-4xl">👜</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Vẽ Túi Tote</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Canvas thân thiện môi trường</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/lich-de-ban-treo-tuong" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-slate-100 to-gray-200 dark:from-slate-800 dark:to-gray-700 flex items-center justify-center">
+                  <div class="text-4xl">📅</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Lịch Để Bàn</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Lịch handmade thực dụng</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Trải Nghiệm Workshops -->
+            <a href="/workshops/tarot" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-indigo-900 dark:to-purple-800 flex items-center justify-center">
+                  <div class="text-4xl">🔮</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Tarot</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Khám phá thế giới tarot</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/vision-board" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-rose-100 to-pink-200 dark:from-rose-900 dark:to-pink-800 flex items-center justify-center">
+                  <div class="text-4xl">🎯</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Vision Board</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Bảng mục tiêu tương lai</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Thêu & Đan Workshops -->
+            <a href="/workshops/dan-moc-len" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-amber-100 to-yellow-200 dark:from-amber-900 dark:to-yellow-800 flex items-center justify-center">
+                  <div class="text-4xl">🧶</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Đan Móc Len</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Đan len handmade ấm áp</p>
+                </div>
+              </div>
+            </a>
+
+            <a href="/workshops/dreamcatcher" class="workshop-card group">
+              <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
+                <div class="aspect-square bg-gradient-to-br from-sky-100 to-blue-200 dark:from-sky-900 dark:to-blue-800 flex items-center justify-center">
+                  <div class="text-4xl">🕸️</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Dreamcatcher</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Bắt giấc mơ handmade</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="text-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a class="btn btn-primary" href="{{ .buttonURL }}">{{ .buttonLabel }}</a>
+              {{ if .secondaryButtonLabel }}
+                <a class="btn btn-outline-primary" href="{{ .secondaryButtonURL }}">{{ .secondaryButtonLabel }}</a>
+              {{ end }}
             </div>
           </div>
         </div>
