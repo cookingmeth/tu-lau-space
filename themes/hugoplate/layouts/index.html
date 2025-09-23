@@ -528,68 +528,81 @@
   </section>
   <!-- /Map Section -->
 
+  <!-- Note: To enable interactive Google Maps, replace YOUR_API_KEY with actual Google Maps API key -->
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places"></script> -->
+
   <!-- Map Script -->
   <script>
     // Initialize map when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof google !== 'undefined' && google.maps) {
-        initMap();
-      } else {
-        // Fallback: show static map image if Google Maps API is not available
-        const mapElement = document.getElementById('map');
-        if (mapElement) {
-          mapElement.innerHTML = `
-            <div class="flex items-center justify-center h-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
-              <div class="text-center">
-                <div class="text-4xl mb-4">🗺️</div>
-                <p>Bản đồ sẽ hiển thị tại đây</p>
-                <p class="text-sm mt-2">Vui lòng bật JavaScript để xem bản đồ tương tác</p>
-              </div>
-            </div>
-          `;
-        }
-      }
-    });
-
     function initMap() {
-      // Coordinates for 7 Phan Tay Ho, Phuong Cau Kieu, Phu Nhuan District, Ho Chi Minh City
-      const tulauSpace = { lat: 10.8069, lng: 106.6769 };
+      try {
+        // Coordinates for 7 Phan Tay Ho, Phuong Cau Kieu, Phu Nhuan District, Ho Chi Minh City
+        const tulauSpace = { lat: 10.8069, lng: 106.6769 };
 
-      const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: tulauSpace,
-        styles: [
-          {
-            featureType: "poi",
-            elementType: "labels",
-            stylers: [{ visibility: "off" }]
-          }
-        ]
-      });
+        const map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: tulauSpace,
+          styles: [
+            {
+              featureType: "poi",
+              elementType: "labels",
+              stylers: [{ visibility: "off" }]
+            }
+          ]
+        });
 
-      const marker = new google.maps.Marker({
-        position: tulauSpace,
-        map: map,
-        title: 'Từ Lâu Space',
-        animation: google.maps.Animation.DROP
-      });
+        const marker = new google.maps.Marker({
+          position: tulauSpace,
+          map: map,
+          title: 'Từ Lâu Space',
+          animation: google.maps.Animation.DROP
+        });
 
-      const infoWindow = new google.maps.InfoWindow({
-        content: `
-          <div class="p-4 max-w-xs">
-            <h3 class="font-bold text-lg mb-2">Từ Lâu Space</h3>
-            <p class="text-sm text-gray-600 mb-2">Workshop thủ công Sài Gòn</p>
-            <p class="text-sm mb-3">7 Phan Tây Hồ, Phường Cầu Kiệu<br>TP. Hồ Chí Minh</p>
-            <a href="/booking-pricing" class="inline-block bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600">
-              Đặt lịch ngay
-            </a>
-          </div>
-        `
-      });
+        const infoWindow = new google.maps.InfoWindow({
+          content: `
+            <div class="p-4 max-w-xs">
+              <h3 class="font-bold text-lg mb-2">Từ Lâu Space</h3>
+              <p class="text-sm text-gray-600 mb-2">Workshop thủ công Sài Gòn</p>
+              <p class="text-sm mb-3">7 Phan Tây Hồ, Phường Cầu Kiệu<br>TP. Hồ Chí Minh</p>
+              <a href="/booking-pricing" class="inline-block bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600">
+                Đặt lịch ngay
+              </a>
+            </div>
+          `
+        });
 
-      marker.addListener('click', function() {
-        infoWindow.open(map, marker);
-      });
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
+      } catch (error) {
+        console.error('Error initializing map:', error);
+        showFallbackMap();
+      }
     }
+
+    // Fallback function - show embedded Google Maps iframe
+    function showFallbackMap() {
+      const mapElement = document.getElementById('map');
+      if (mapElement) {
+        // Use embedded Google Maps iframe as fallback
+        mapElement.innerHTML = `
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.7!2d106.6769!3d10.8069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ4JzI0LjgiTiAxMDfCsDQwJzM2LjgiRQ!5e0!3m2!1sen!2s!4v1635000000000!5m2!1sen!2s&q=Từ+Lâu+Space,7+Phan+Tây+Hồ,+Phường+Cầu+Kiệu,+TP.HCM"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Từ Lâu Space Location">
+          </iframe>
+        `;
+      }
+    }
+
+    // Initialize fallback map immediately, will be replaced by Google Maps when loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      showFallbackMap();
+    });
   </script>
 {{ end }}
