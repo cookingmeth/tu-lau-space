@@ -18,19 +18,34 @@
             <p class="mb-8 text-white/90 text-lg lg:text-xl leading-relaxed">
               {{ .content | markdownify }}
             </p>
-            {{ with .button }}
-              {{ if .enable }}
-                <a
-                  class="btn btn-primary"
-                  href="{{ .link | absURL }}"
-                  {{ if strings.HasPrefix .link `http` }}
-                    target="_blank" rel="noopener"
-                  {{ end }}>
-                  {{ .label }}
-                  <i class="fa fa-arrow-right pl-2"></i>
-                </a>
+            <div class="flex flex-col sm:flex-row gap-4">
+              {{ with .button }}
+                {{ if .enable }}
+                  <a
+                    class="btn btn-primary"
+                    href="{{ .link | absURL }}"
+                    {{ if strings.HasPrefix .link `http` }}
+                      target="_blank" rel="noopener"
+                    {{ end }}>
+                    {{ .label }}
+                    <i class="fa fa-arrow-right pl-2"></i>
+                  </a>
+                {{ end }}
               {{ end }}
-            {{ end }}
+              {{ with .secondary_button }}
+                {{ if .enable }}
+                  <a
+                    class="btn btn-outline-primary"
+                    href="{{ .link | absURL }}"
+                    {{ if strings.HasPrefix .link `http` }}
+                      target="_blank" rel="noopener"
+                    {{ end }}>
+                    {{ .label }}
+                    <i class="fa fa-comment pl-2"></i>
+                  </a>
+                {{ end }}
+              {{ end }}
+            </div>
           </div>
         </div>
       </div>
@@ -43,29 +58,45 @@
     <div class="container">
       <div class="row justify-center">
         <div class="col-12">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
             <!-- Tư vấn workshop doanh nghiệp -->
-            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 class="h5 mb-4 text-primary">Tư vấn workshop doanh nghiệp</h3>
-              <a href="/services/corporate-workshop" class="btn btn-outline-primary btn-sm">Tìm hiểu thêm</a>
+            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div class="text-4xl mb-4">💼</div>
+              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Tư vấn workshop doanh nghiệp</h3>
+              <a href="/services/corporate-workshop" class="btn btn-outline-primary btn-sm inline-flex items-center">
+                Tìm hiểu thêm
+                <i class="fa fa-arrow-right pl-2 text-xs"></i>
+              </a>
             </div>
 
             <!-- Đặt lịch workshop riêng tư -->
-            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 class="h5 mb-4 text-primary">Đặt lịch workshop riêng tư</h3>
-              <a href="/services/private-workshop" class="btn btn-outline-primary btn-sm">Đặt lịch ngay</a>
+            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div class="text-4xl mb-4">📅</div>
+              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Đặt lịch workshop riêng tư</h3>
+              <a href="/services/private-workshop" class="btn btn-outline-primary btn-sm inline-flex items-center">
+                Đặt lịch ngay
+                <i class="fa fa-arrow-right pl-2 text-xs"></i>
+              </a>
             </div>
 
             <!-- Hợp tác với chúng tôi -->
-            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 class="h5 mb-4 text-primary">Hợp tác với chúng tôi</h3>
-              <a href="/contact" class="btn btn-outline-primary btn-sm">Liên hệ</a>
+            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div class="text-4xl mb-4">🤝</div>
+              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Hợp tác với chúng tôi</h3>
+              <a href="/contact" class="btn btn-outline-primary btn-sm inline-flex items-center">
+                Liên hệ
+                <i class="fa fa-arrow-right pl-2 text-xs"></i>
+              </a>
             </div>
 
             <!-- Ghé thăm Từ Lâu Space -->
-            <div class="cta-card p-6 bg-white dark:bg-darkmode-body rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <h3 class="h5 mb-4 text-primary">Ghé thăm Từ Lâu Space</h3>
-              <a href="/about" class="btn btn-outline-primary btn-sm">Tìm hiểu thêm</a>
+            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div class="text-4xl mb-4">🏠</div>
+              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Ghé thăm Từ Lâu Space</h3>
+              <a href="/about" class="btn btn-outline-primary btn-sm inline-flex items-center">
+                Tìm hiểu thêm
+                <i class="fa fa-arrow-right pl-2 text-xs"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -125,12 +156,15 @@
         <div class="container">
           <div class="row justify-center mb-12">
             <div class="lg:col-10 text-center">
-              <h2 class="mb-8 text-h2">{{ .title | markdownify }}</h2>
+              <h2 class="mb-4 text-h2">{{ .title | markdownify }}</h2>
+              <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Khám phá các workshop thủ công đa dạng của chúng tôi
+              </p>
             </div>
           </div>
 
           <!-- Workshop Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
             <!-- Gốm Workshops -->
             <a href="/workshops/gom/gom-tao-hinh-tron-goi" class="workshop-card group">
               <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform group-hover:scale-105">
@@ -440,7 +474,7 @@
       <div class="row justify-center mb-12">
         <div class="lg:col-10 text-center">
           <h2 class="mb-4 text-h2">Ghé thăm Từ Lâu Space</h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400">
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Tìm chúng mình tại trung tâm Sài Gòn, nơi bạn có thể thả hồn vào những workshop thú vị
           </p>
         </div>
@@ -448,25 +482,31 @@
 
       <div class="row">
         <div class="col-12">
-          <div class="bg-white dark:bg-darkmode-body rounded-lg overflow-hidden shadow-lg">
+          <div class="bg-white dark:bg-darkmode-body rounded-xl overflow-hidden shadow-xl">
             <!-- Address Info -->
-            <div class="p-6 md:p-8 border-b border-gray-200 dark:border-darkmode-border">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 class="h4 mb-4 text-primary">📍 Địa chỉ</h3>
-                  <p class="text-lg mb-2">7 Phan Tây Hồ, Phường Cầu Kiệu</p>
+            <div class="p-6 md:p-10 border-b border-gray-200 dark:border-darkmode-border">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div class="text-center md:text-left">
+                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
+                    <i class="fa fa-map-marker-alt text-xl"></i>
+                  </div>
+                  <h3 class="h4 mb-3 font-bold text-text-dark dark:text-darkmode-text-dark">Địa chỉ</h3>
+                  <p class="text-lg mb-2 font-medium">7 Phan Tây Hồ, Phường Cầu Kiệu</p>
                   <p class="text-gray-600 dark:text-gray-400">TP. Hồ Chí Minh, Việt Nam</p>
                 </div>
-                <div>
-                  <h3 class="h4 mb-4 text-primary">🕒 Giờ mở cửa</h3>
-                  <div class="space-y-2">
-                    <div class="flex justify-between">
-                      <span>Thứ 2 - Thứ 6:</span>
-                      <span>9:00 - 21:00</span>
+                <div class="text-center md:text-left">
+                  <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
+                    <i class="fa fa-clock text-xl"></i>
+                  </div>
+                  <h3 class="h4 mb-3 font-bold text-text-dark dark:text-darkmode-text-dark">Giờ mở cửa</h3>
+                  <div class="space-y-2 text-base">
+                    <div class="flex justify-between md:justify-start md:gap-4">
+                      <span class="font-medium">Thứ 2 - Thứ 6:</span>
+                      <span class="text-primary font-semibold">9:00 - 21:00</span>
                     </div>
-                    <div class="flex justify-between">
-                      <span>Thứ 7 - Chủ nhật:</span>
-                      <span>8:00 - 22:00</span>
+                    <div class="flex justify-between md:justify-start md:gap-4">
+                      <span class="font-medium">Thứ 7 - Chủ nhật:</span>
+                      <span class="text-primary font-semibold">8:00 - 22:00</span>
                     </div>
                   </div>
                 </div>
@@ -488,27 +528,33 @@
             </div>
 
             <!-- Contact Info -->
-            <div class="p-6 md:p-8 bg-gray-50 dark:bg-darkmode-light">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <div class="text-2xl mb-2">📞</div>
-                  <h4 class="font-semibold mb-1">Hotline</h4>
-                  <a href="tel:+84123456789" class="text-primary hover:underline">
+            <div class="p-8 md:p-10 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-darkmode-light dark:to-darkmode-body">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="group">
+                  <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white dark:bg-darkmode-body shadow-md mb-3 group-hover:scale-110 transition-transform">
+                    <i class="fa fa-phone text-primary text-xl"></i>
+                  </div>
+                  <h4 class="font-bold mb-2 text-text-dark dark:text-darkmode-text-dark">Hotline</h4>
+                  <a href="tel:+84123456789" class="text-primary hover:underline font-medium text-lg">
                     +84 123 456 789
                   </a>
                 </div>
-                <div>
-                  <div class="text-2xl mb-2">✉️</div>
-                  <h4 class="font-semibold mb-1">Email</h4>
-                  <a href="mailto:hello@tulau.space" class="text-primary hover:underline">
+                <div class="group">
+                  <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white dark:bg-darkmode-body shadow-md mb-3 group-hover:scale-110 transition-transform">
+                    <i class="fa fa-envelope text-primary text-xl"></i>
+                  </div>
+                  <h4 class="font-bold mb-2 text-text-dark dark:text-darkmode-text-dark">Email</h4>
+                  <a href="mailto:hello@tulau.space" class="text-primary hover:underline font-medium break-all">
                     hello@tulau.space
                   </a>
                 </div>
-                <div>
-                  <div class="text-2xl mb-2">🚌</div>
-                  <h4 class="font-semibold mb-1">Đi lại</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Metro Bến Thành (5 phút đi bộ)
+                <div class="group">
+                  <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white dark:bg-darkmode-body shadow-md mb-3 group-hover:scale-110 transition-transform">
+                    <i class="fa fa-subway text-primary text-xl"></i>
+                  </div>
+                  <h4 class="font-bold mb-2 text-text-dark dark:text-darkmode-text-dark">Đi lại</h4>
+                  <p class="text-base text-gray-600 dark:text-gray-400">
+                    Metro Bến Thành<br><span class="text-sm">(5 phút đi bộ)</span>
                   </p>
                 </div>
               </div>

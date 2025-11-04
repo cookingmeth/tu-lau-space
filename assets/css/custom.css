@@ -1,1 +1,161 @@
 /* Add your own custom styles here */
+
+/* Enhanced button hover effects */
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 25px rgba(var(--color-primary), 0.3);
+}
+
+.btn-outline-primary:hover {
+  box-shadow: 0 10px 20px rgba(var(--color-primary), 0.15);
+}
+
+/* Workshop card enhancements */
+.workshop-card {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+}
+
+.workshop-card:hover {
+  text-decoration: none;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero section gradient overlay enhancement */
+.hero-section .absolute.inset-0.bg-black\/40 {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* CTA card hover effect enhancement */
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--color-primary), 0.05),
+    transparent
+  );
+  transition: left 0.5s ease-in-out;
+}
+
+.cta-card:hover::before {
+  left: 100%;
+}
+
+/* Map section button enhancement */
+#map {
+  min-height: 400px;
+}
+
+/* Improved focus states for accessibility */
+.btn:focus,
+a:focus {
+  outline: 2px solid rgba(var(--color-primary), 0.5);
+  outline-offset: 2px;
+}
+
+/* Loading animation for images */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Testimonial slider enhancements */
+.testimonial-slider .swiper-slide {
+  height: auto;
+}
+
+/* Features section spacing improvements */
+.section-sm {
+  position: relative;
+}
+
+/* Gradient background enhancement */
+.bg-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-primary), 0.03) 0%,
+    transparent 100%
+  );
+}
+
+/* Workshop grid responsive improvements */
+@media (max-width: 640px) {
+  .workshop-card {
+    font-size: 0.95rem;
+  }
+
+  .workshop-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Enhanced shadow for dark mode */
+@media (prefers-color-scheme: dark) {
+  .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  }
+
+  .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Improved text readability */
+p {
+  line-height: 1.7;
+}
+
+/* Icon animations */
+.fa {
+  transition: transform 0.3s ease;
+}
+
+.group:hover .fa {
+  transform: scale(1.1);
+}
+
+/* Better spacing for sections */
+.section + .section {
+  margin-top: -1rem;
+}
+
+/* Mobile menu improvements */
+@media (max-width: 1024px) {
+  #nav-menu {
+    transition: all 0.3s ease-in-out;
+  }
+}
