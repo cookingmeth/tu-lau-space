@@ -408,7 +408,8 @@ function displayResults(results) {
   document.getElementById('searchResults').classList.remove('hidden');
 
   const resultsContainer = document.getElementById('searchResults');
-  resultsContainer.innerHTML = results.map(item => `
+  // Show only the first (most relevant) result
+  resultsContainer.innerHTML = results.slice(0, 1).map(item => `
     <div class="pottery-item">
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
         <div>
