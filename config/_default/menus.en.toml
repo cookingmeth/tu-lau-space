@@ -293,14 +293,19 @@ weight = 3
   weight = 12
 
 [[main]]
+name = "GỐM WORKSHOP"
+url = "/theo-doi-gom"
+weight = 4
+
+[[main]]
 name = "VỀ CHÚNG TÔI"
 url = "/about"
-weight = 4
+weight = 5
 
 [[main]]
 name = "LIÊN HỆ"
 url = "/contact"
-weight = 5
+weight = 6
 
 # footer menu
 [[footer]]
