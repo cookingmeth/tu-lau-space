@@ -217,3 +217,11 @@ If issues persist:
 
 **Last Updated:** November 2024
 **Improved Search Version:** v2.0
+
+## 🔄 Deployment Status
+
+### Latest Changes (Commit History)
+1. ✅ Enhanced pottery search with multi-strategy fallback system
+2. ✅ Fixed JavaScript DOM error: addEventListener on null element
+
+Both commits are required for full functionality. Ensure both are merged and deployed to Netlify.
