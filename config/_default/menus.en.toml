@@ -35,6 +35,12 @@ weight = 2
   url = "/pages/firing"
   weight = 4
 
+  [[main]]
+  parent = "DỊCH VỤ"
+  name = "Theo Dõi Gốm"
+  url = "/pages/theo-doi-gom"
+  weight = 5
+
 [[main]]
 name = "WORKSHOP"
 url = "/workshops"

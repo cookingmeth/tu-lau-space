@@ -111,72 +111,72 @@
       <div class="container">
         <!-- Title Section -->
         <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-script">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 font-script">
             Chúng tôi
           </h2>
-          <h3 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">
+          <h3 class="text-xl md:text-2xl font-bold text-white uppercase tracking-wide">
             {{ .title | markdownify }}
           </h3>
         </div>
 
         <!-- Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          <!-- Image Block 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <!-- Top Row -->
+          <!-- Workshop Painting Image -->
           <div class="aspect-square rounded-lg overflow-hidden">
             <img src="/images/workshop-painting.jpg" alt="Workshop painting" class="w-full h-full object-cover">
           </div>
 
-          <!-- Text Block 1 -->
-          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 flex items-center">
-            <p class="text-white text-base leading-relaxed">
-              {{ range $index, $point := .bulletpoints }}
-                {{ if eq $index 0 }}{{ $point | markdownify }}{{ end }}
-              {{ end }}
-            </p>
+          <!-- Center Text Block -->
+          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white text-sm leading-relaxed">
+                {{ range $index, $point := .bulletpoints }}
+                  {{ if eq $index 0 }}{{ $point | markdownify | plainify }}{{ end }}
+                {{ end }}
+              </p>
+            </div>
           </div>
 
-          <!-- Image Block 2 -->
+          <!-- Workshop Crafting Image -->
           <div class="aspect-square rounded-lg overflow-hidden">
-            <img src="/images/workshop-crafting.jpg" alt="Workshop crafting" class="w-full h-full object-cover">
+            <img src="/images/hero.png" alt="Workshop crafting" class="w-full h-full object-cover">
           </div>
 
-          <!-- Text Block 2 -->
-          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 flex items-center">
-            <p class="text-white text-base leading-relaxed">
-              {{ range $index, $point := .bulletpoints }}
-                {{ if eq $index 1 }}{{ $point | markdownify }}{{ end }}
-              {{ end }}
-            </p>
+          <!-- Bottom Row -->
+          <!-- Left Text Block -->
+          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white text-sm leading-relaxed">
+                {{ range $index, $point := .bulletpoints }}
+                  {{ if eq $index 1 }}{{ $point | markdownify | plainify }}{{ end }}
+                {{ end }}
+              </p>
+            </div>
           </div>
 
-          <!-- Image Block 3 (center bottom) -->
+          <!-- Workshop Pottery Image (center) -->
           <div class="aspect-square rounded-lg overflow-hidden">
-            <img src="/images/workshop-pottery.jpg" alt="Workshop pottery" class="w-full h-full object-cover">
+            <img src="/images/hero.png" alt="Workshop pottery" class="w-full h-full object-cover">
           </div>
 
-          <!-- Text Block 3 -->
-          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 flex items-center">
-            <p class="text-white text-base leading-relaxed">
-              {{ range $index, $point := .bulletpoints }}
-                {{ if eq $index 2 }}{{ $point | markdownify }}{{ end }}
-              {{ end }}
-            </p>
+          <!-- Right Text Block -->
+          <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 flex items-center justify-center">
+            <div class="text-center">
+              <p class="text-white text-sm leading-relaxed">
+                {{ range $index, $point := .bulletpoints }}
+                  {{ if eq $index 2 }}{{ $point | markdownify | plainify }}{{ end }}
+                {{ end }}
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- Additional Content -->
+        <!-- Bottom Summary -->
         <div class="text-center mt-12">
-          <p class="text-white text-lg leading-relaxed max-w-4xl mx-auto">
-            {{ .content | markdownify }}
+          <p class="text-white text-base leading-relaxed max-w-3xl mx-auto">
+            {{ .content | markdownify | plainify }}
           </p>
-          {{ with .button }}
-            {{ if .enable }}
-              <a class="btn btn-outline-white mt-8" href="{{ .link | absURL }}">
-                {{ .label }}
-                <i class="fa fa-arrow-right pl-2"></i>
-              </a>
-            {{ end }}
-          {{ end }}
         </div>
       </div>
     </section>
@@ -607,6 +607,67 @@
     </div>
   </section>
   <!-- /Map Section -->
+
+  <!-- Theo Dõi Gốm Section -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center mb-12">
+        <div class="lg:col-10 text-center">
+          <h2 class="mb-4 text-h2">Theo Dõi Gốm</h2>
+          <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Khám phá hành trình tạo ra những tác phẩm gốm độc đáo tại Từ Lâu Space
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-center">
+        <div class="lg:col-8 text-center">
+          <div class="bg-white dark:bg-darkmode-body rounded-xl shadow-lg p-8 md:p-12">
+            <div class="mb-8">
+              <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 text-primary mb-6">
+                <i class="fa fa-fire text-3xl"></i>
+              </div>
+              <h3 class="h3 mb-4 text-text-dark dark:text-darkmode-text-dark">Quy Trình Nung Gốm</h3>
+              <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                Theo dõi toàn bộ quá trình nung gốm từ đất sét thành tác phẩm hoàn thiện.
+                Từ việc tạo hình, phơi khô, trang trí cho đến nung ở nhiệt độ cao.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div class="text-center">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span class="text-primary font-bold">1</span>
+                </div>
+                <h4 class="font-semibold mb-2">Tạo Hình</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Nặn và tạo dáng từ đất sét</p>
+              </div>
+              <div class="text-center">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span class="text-primary font-bold">2</span>
+                </div>
+                <h4 class="font-semibold mb-2">Trang Trí</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Vẽ và tô màu theo ý tưởng</p>
+              </div>
+              <div class="text-center">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span class="text-primary font-bold">3</span>
+                </div>
+                <h4 class="font-semibold mb-2">Nung Lò</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Nung ở nhiệt độ cao để hoàn thiện</p>
+              </div>
+            </div>
+
+            <a href="/theo-doi-gom" class="btn btn-primary">
+              Xem Chi Tiết Quy Trình
+              <i class="fa fa-arrow-right pl-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Theo Dõi Gốm Section -->
 
   <!-- Note: To enable interactive Google Maps, replace YOUR_API_KEY with actual Google Maps API key -->
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places"></script> -->
