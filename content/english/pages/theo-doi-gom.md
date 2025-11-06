@@ -215,15 +215,38 @@ function displayResults(results) {
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
           <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Vận chuyển</div>
           <div class="text-base font-semibold">${item.shipping || 'Chưa cập nhật'}</div>
         </div>
         <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Trạng thái chi tiết</div>
-          <div class="text-base">${getStatusDescription(item.status)}</div>
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Loại Workshop</div>
+          <div class="text-base font-semibold">${item.workshop_type || 'Chưa cập nhật'}</div>
         </div>
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Tình trạng nung</div>
+          <div class="text-base">
+            ${item.firing_status ?
+              '<span class="text-green-600 font-semibold"><i class="fa fa-fire mr-1"></i>Đã nung</span>' :
+              '<span class="text-orange-600 font-semibold"><i class="fa fa-clock mr-1"></i>Chưa nung</span>'
+            }
+          </div>
+        </div>
+      </div>
+
+      ${item.note ? `
+        <div class="bg-blue-50 dark:bg-blue-900 rounded-lg p-3 mb-4">
+          <div class="text-sm font-medium text-blue-600 dark:text-blue-300 mb-1">
+            <i class="fa fa-sticky-note mr-1"></i>Ghi chú
+          </div>
+          <div class="text-base text-blue-800 dark:text-blue-200">${item.note}</div>
+        </div>
+      ` : ''}
+
+      <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 mb-4">
+        <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Trạng thái chi tiết</div>
+        <div class="text-base">${getStatusDescription(item.status)}</div>
       </div>
 
       ${item.media && item.media.length > 0 ? `

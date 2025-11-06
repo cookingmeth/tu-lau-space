@@ -75,12 +75,15 @@ exports.handler = async (event, context) => {
 
       return {
         id: page.id,
-        date: properties.Date?.date?.start || properties.Date?.created_time || null,
+        date: properties['Date (YYY-MM-DD)']?.date?.start || properties.Date?.date?.start || properties.Date?.created_time || null,
         name: properties.Name?.title?.[0]?.text?.content || '',
         shipping: properties.Shipping?.rich_text?.[0]?.text?.content || properties.Shipping?.select?.name || '',
-        products: properties['# Product']?.number || properties.Products?.number || 1,
+        products: properties['Product Count']?.number || properties['# Product']?.number || properties.Products?.number || 1,
         status: properties.Status?.select?.name?.toLowerCase() || properties.Status?.status?.name?.toLowerCase() || 'pending',
-        media: extractMediaFiles(properties['File & media'] || properties.Media || properties.Files),
+        workshop_type: properties['LOẠI WORKSHOP']?.select?.name || properties['LOẠI WORKSHOP']?.rich_text?.[0]?.text?.content || '',
+        firing_status: properties['Nung mốc/Phơi không nung']?.checkbox || false,
+        note: properties.Note?.rich_text?.[0]?.text?.content || '',
+        media: extractMediaFiles(properties['Files & media'] || properties['File & media'] || properties.Media || properties.Files),
         raw_properties: properties, // For debugging
       };
     });
