@@ -24,58 +24,58 @@ Tại Từ Lâu Space, chúng tôi tin rằng mỗi tác phẩm gốm đều có
 ## Tra Cứu Tình Trạng Tác Phẩm
 
 <div class="pottery-tracking-hero bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 rounded-2xl p-8 md:p-12 mb-12 border border-amber-200 dark:border-gray-700">
-  <div class="max-w-4xl mx-auto text-center">
-    <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-6 shadow-lg">
-      <i class="fa fa-search text-white text-2xl"></i>
-    </div>
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-      Theo Dõi Tác Phẩm Của Bạn
-    </h2>
-    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-      Nhập tên khách hàng để xem tình trạng hiện tại của tác phẩm gốm.
-      Từ việc tạo hình đến hoàn thiện, chúng tôi theo dõi từng bước một cách chi tiết.
-    </p>
+<div class="max-w-4xl mx-auto text-center">
+<div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-6 shadow-lg">
+<i class="fa fa-search text-white text-2xl"></i>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+Theo Dõi Tác Phẩm Của Bạn
+</h2>
+<p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+Nhập tên khách hàng để xem tình trạng hiện tại của tác phẩm gốm.
+Từ việc tạo hình đến hoàn thiện, chúng tôi theo dõi từng bước một cách chi tiết.
+</p>
+</div>
+</div>
 
-    <!-- Enhanced Search Form -->
-    <div class="search-form-container bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 mx-auto max-w-4xl">
-      <div class="flex flex-col lg:flex-row gap-4 items-end">
-        <div class="flex-1">
-          <label for="customerName" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-            <i class="fa fa-user mr-2 text-amber-500"></i>Tên Khách Hàng
-          </label>
-          <div class="relative">
-            <input
-              type="text"
-              id="customerName"
-              placeholder="VD: Nguyễn Văn A, Trần Thị B..."
-              class="search-input w-full px-4 py-4 pl-12 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:text-white text-lg transition-all duration-200 shadow-sm"
-            />
-            <i class="fa fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-          </div>
-        </div>
-        <div class="w-full lg:w-auto">
-          <button
-            onclick="searchPottery()"
-            class="search-button w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-w-[160px]"
-          >
-            <i class="fa fa-search text-lg"></i>
-            <span class="text-lg">Tìm Kiếm</span>
-          </button>
-        </div>
-      </div>
+<!-- Enhanced Search Form -->
+<div class="search-form-container bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 mx-auto max-w-4xl mb-12">
+<div class="flex flex-col lg:flex-row gap-4 items-end">
+<div class="flex-1">
+<label for="customerName" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+<i class="fa fa-user mr-2 text-amber-500"></i>Tên Khách Hàng
+</label>
+<div class="relative">
+<input
+type="text"
+id="customerName"
+placeholder="VD: Nguyễn Văn A, Trần Thị B..."
+class="search-input w-full px-4 py-4 pl-12 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:text-white text-lg transition-all duration-200 shadow-sm"
+/>
+<i class="fa fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+</div>
+</div>
+<div class="w-full lg:w-auto">
+<button
+onclick="searchPottery()"
+class="search-button w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-w-[160px]"
+>
+<i class="fa fa-search text-lg"></i>
+<span class="text-lg">Tìm Kiếm</span>
+</button>
+</div>
+</div>
 
-      <!-- Quick Search Tips -->
-      <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
-        <div class="flex items-center gap-2 text-amber-700 dark:text-amber-300">
-          <i class="fa fa-lightbulb"></i>
-          <span class="font-semibold">Mẹo tìm kiếm:</span>
-        </div>
-        <p class="text-sm text-amber-600 dark:text-amber-400 mt-1">
-          Nhập tên đầy đủ hoặc một phần tên để tìm kiếm chính xác hơn
-        </p>
-      </div>
-    </div>
-  </div>
+<!-- Quick Search Tips -->
+<div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+<div class="flex items-center gap-2 text-amber-700 dark:text-amber-300">
+<i class="fa fa-lightbulb"></i>
+<span class="font-semibold">Mẹo tìm kiếm:</span>
+</div>
+<p class="text-sm text-amber-600 dark:text-amber-400 mt-1">
+Nhập tên đầy đủ hoặc một phần tên để tìm kiếm chính xác hơn
+</p>
+</div>
 </div>
 
 <div class="search-results-container max-w-6xl mx-auto">
