@@ -188,3 +188,61 @@ p {
   font-family: 'Dancing Script', cursive;
   font-style: italic;
 }
+
+/* Transparent header over hero section */
+.header {
+  position: relative;
+  z-index: 40;
+}
+
+/* Make navigation links white on transparent header */
+.header .nav-link {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.header .nav-link:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Make logo/brand white on transparent header */
+.header .navbar-brand {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme switcher visibility on transparent header */
+.header .theme-switcher span {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile menu toggle icon white on transparent header */
+.header label[for="nav-toggle"] {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile menu background */
+.header .navbar-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@media (min-width: 1024px) {
+  .header .navbar-nav {
+    background: transparent;
+  }
+}
+
+/* Dropdown menu styling for transparent header */
+.header .nav-dropdown-list {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header .nav-dropdown-link {
+  color: #333 !important;
+  text-shadow: none;
+}
