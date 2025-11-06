@@ -84,22 +84,43 @@ NOTION_DATABASE_ID=your_database_id_here
 
 ## Step 5: Test the Integration
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+### 5.1 Install Dependencies
 
-2. Deploy to Netlify or test locally with:
-   ```bash
-   netlify dev
-   ```
+```bash
+npm install
+```
 
-3. Test the API endpoint:
-   ```bash
-   curl -X POST https://your-site.netlify.app/.netlify/functions/pottery-search \
-     -H "Content-Type: application/json" \
-     -d '{"name": "Test Customer"}'
-   ```
+### 5.2 Test Configuration (Recommended First Step)
+
+Test that your Notion integration is set up correctly:
+
+```bash
+# Visit the test endpoint in your browser or use curl
+curl https://your-site.netlify.app/.netlify/functions/pottery-test
+
+# Or for local testing:
+netlify dev
+# Then visit: http://localhost:8888/.netlify/functions/pottery-test
+```
+
+This test endpoint will check:
+- ✓ Environment variables are configured
+- ✓ Notion client can connect
+- ✓ Database is accessible
+- ✓ Database properties are correct
+- ✓ Query functionality works
+
+### 5.3 Test Search Functionality
+
+Once the configuration test passes, test the search endpoint:
+
+```bash
+curl -X POST https://your-site.netlify.app/.netlify/functions/pottery-search \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Test Customer"}'
+```
+
+Or visit the tracking page directly: `https://your-site.netlify.app/theo-doi-gom/`
 
 ## Step 6: Add Sample Data
 
@@ -113,26 +134,62 @@ Add some test data to your Notion database:
 
 ## Troubleshooting
 
+### Step 1: Run the Test Endpoint
+
+Always start by running the test endpoint to diagnose issues:
+
+```bash
+curl https://your-site.netlify.app/.netlify/functions/pottery-test
+```
+
+The test endpoint will tell you exactly what's wrong:
+- Missing environment variables
+- Incorrect API token
+- Database not shared with integration
+- Wrong database ID
+- Property name mismatches
+
 ### Common Issues:
 
 1. **"Database not found" error**
-   - Check if the database ID is correct
-   - Verify the integration has access to the database
+   - **Check database ID**: Make sure NOTION_DATABASE_ID is the correct 32-character ID from your database URL
+   - **Share database**: Open your Notion database → Click "Share" → Invite your integration
+   - **Verify in test endpoint**: The test endpoint will confirm if the database is accessible
 
 2. **"Unauthorized" error**
-   - Check if the API token is correct
-   - Verify the integration is properly configured
+   - **Check API token**: Verify NOTION_API_TOKEN starts with `secret_` and is from your integration page
+   - **Create new token**: If unsure, create a new integration at https://www.notion.so/my-integrations
+   - **Share database**: Make sure the database is shared with your integration (not just the page)
 
-3. **"Property not found" error**
-   - Ensure property names match exactly (case-sensitive)
-   - Check the database schema
+3. **"Property not found" error or empty results**
+   - **Check property names**: Use the test endpoint to see exact property names in your database
+   - **Case sensitivity**: Property names are case-sensitive ("Name" ≠ "name")
+   - **Property types**: Make sure "Name" is a Title property, not Text
+   - Run the test endpoint and check the "Sample Record Structure" section
+
+4. **Search returns no results but data exists**
+   - **Check Name property**: Ensure customer names are in the "Name" title property
+   - **Partial matching**: The search uses "contains", so partial names should work
+   - **Test with exact match**: Try searching with the exact name from your database
 
 ### Debug Mode:
 
-To enable debug logging, add this environment variable:
+To enable detailed debug logging, add this environment variable:
+
 ```bash
 NODE_ENV=development
 ```
+
+This will show:
+- Raw Notion API responses
+- Detailed error messages
+- Property mapping debug info
+
+### Viewing Netlify Function Logs:
+
+1. Go to Netlify dashboard → Your site → Functions
+2. Click on the function name (pottery-search or pottery-test)
+3. View real-time logs to see errors and debug messages
 
 ## Security Notes
 

@@ -39,6 +39,31 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    // Validate environment variables
+    if (!DATABASE_ID) {
+      console.error('NOTION_DATABASE_ID is not configured');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({
+          error: 'Database not configured',
+          message: 'Please configure NOTION_DATABASE_ID in Netlify environment variables'
+        }),
+      };
+    }
+
+    if (!process.env.NOTION_API_TOKEN) {
+      console.error('NOTION_API_TOKEN is not configured');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({
+          error: 'API token not configured',
+          message: 'Please configure NOTION_API_TOKEN in Netlify environment variables'
+        }),
+      };
+    }
+
     // Parse request body
     const { name } = JSON.parse(event.body);
 
@@ -50,45 +75,118 @@ exports.handler = async (event, context) => {
       };
     }
 
-    console.log(`Searching for pottery records for customer: ${name}`);
+    const searchName = name.trim();
+    console.log(`Searching for pottery records for customer: ${searchName}`);
 
-    // Query Notion database
-    const response = await notion.databases.query({
-      database_id: DATABASE_ID,
-      filter: {
-        property: 'Name', // Make sure this matches your Notion database property name
-        title: {
-          contains: name.trim(),
+    // Query Notion database with case-insensitive search
+    // Notion's 'contains' filter for title properties is case-insensitive by default
+    let response;
+    try {
+      response = await notion.databases.query({
+        database_id: DATABASE_ID,
+        filter: {
+          property: 'Name',
+          title: {
+            contains: searchName,
+          },
         },
-      },
-      sorts: [
-        {
-          property: 'Date',
-          direction: 'descending',
+        sorts: [
+          {
+            property: 'Date (YYY-MM-DD)',
+            direction: 'descending',
+          },
+        ],
+      });
+    } catch (sortError) {
+      // If sort fails (e.g., property not found), try without sorting
+      console.log('Sort failed, trying without sorting:', sortError.message);
+      response = await notion.databases.query({
+        database_id: DATABASE_ID,
+        filter: {
+          property: 'Name',
+          title: {
+            contains: searchName,
+          },
         },
-      ],
-    });
+      });
+    }
+
+    // Log the raw response for debugging (in development mode)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Raw Notion response:', JSON.stringify(response.results[0]?.properties, null, 2));
+    }
 
     // Transform Notion data to our format
     const results = response.results.map(page => {
       const properties = page.properties;
 
+      // Helper function to safely get property value
+      const getProperty = (propNames, defaultValue = '') => {
+        for (const propName of propNames) {
+          if (properties[propName]) {
+            return properties[propName];
+          }
+        }
+        return defaultValue;
+      };
+
+      // Extract date
+      const dateProperty = getProperty(['Date (YYY-MM-DD)', 'Date', 'date']);
+      const date = dateProperty?.date?.start || page.created_time || null;
+
+      // Extract name
+      const nameProperty = getProperty(['Name', 'name']);
+      const name = nameProperty?.title?.[0]?.text?.content || 'Unknown';
+
+      // Extract shipping
+      const shippingProperty = getProperty(['Shipping', 'shipping']);
+      const shipping = shippingProperty?.rich_text?.[0]?.text?.content ||
+                      shippingProperty?.select?.name ||
+                      'Chưa cập nhật';
+
+      // Extract product count
+      const productProperty = getProperty(['# Product', 'Product Count', 'Products', 'products']);
+      const products = productProperty?.number || 1;
+
+      // Extract status
+      const statusProperty = getProperty(['Status', 'status']);
+      const status = (statusProperty?.select?.name ||
+                     statusProperty?.status?.name ||
+                     'pending').toLowerCase();
+
+      // Extract workshop type
+      const workshopProperty = getProperty(['LOẠI WORKSHOP', 'Workshop Type', 'workshop_type']);
+      const workshop_type = workshopProperty?.select?.name ||
+                           workshopProperty?.rich_text?.[0]?.text?.content ||
+                           'Chưa cập nhật';
+
+      // Extract firing status
+      const firingProperty = getProperty(['Nung mốc/Phơi không nung', 'Firing Status', 'firing_status']);
+      const firing_status = firingProperty?.checkbox || false;
+
+      // Extract note
+      const noteProperty = getProperty(['Note', 'note', 'Notes', 'notes']);
+      const note = noteProperty?.rich_text?.[0]?.text?.content || '';
+
+      // Extract media files
+      const mediaProperty = getProperty(['Files & media', 'File & media', 'Media', 'Files', 'media', 'files']);
+      const media = extractMediaFiles(mediaProperty);
+
       return {
         id: page.id,
-        date: properties['Date (YYY-MM-DD)']?.date?.start || properties.Date?.date?.start || properties.Date?.created_time || null,
-        name: properties.Name?.title?.[0]?.text?.content || '',
-        shipping: properties.Shipping?.rich_text?.[0]?.text?.content || properties.Shipping?.select?.name || '',
-        products: properties['Product Count']?.number || properties['# Product']?.number || properties.Products?.number || 1,
-        status: properties.Status?.select?.name?.toLowerCase() || properties.Status?.status?.name?.toLowerCase() || 'pending',
-        workshop_type: properties['LOẠI WORKSHOP']?.select?.name || properties['LOẠI WORKSHOP']?.rich_text?.[0]?.text?.content || '',
-        firing_status: properties['Nung mốc/Phơi không nung']?.checkbox || false,
-        note: properties.Note?.rich_text?.[0]?.text?.content || '',
-        media: extractMediaFiles(properties['Files & media'] || properties['File & media'] || properties.Media || properties.Files),
-        raw_properties: properties, // For debugging
+        date,
+        name,
+        shipping,
+        products,
+        status,
+        workshop_type,
+        firing_status,
+        note,
+        media,
       };
     });
 
-    console.log(`Found ${results.length} records for ${name}`);
+    console.log(`Found ${results.length} records for ${searchName}`);
 
     return {
       statusCode: 200,
@@ -97,11 +195,13 @@ exports.handler = async (event, context) => {
         success: true,
         results: results,
         total: results.length,
+        query: searchName,
       }),
     };
 
   } catch (error) {
     console.error('Error searching pottery records:', error);
+    console.error('Error stack:', error.stack);
 
     // Handle specific Notion API errors
     if (error.code === 'object_not_found') {
@@ -109,7 +209,10 @@ exports.handler = async (event, context) => {
         statusCode: 404,
         headers,
         body: JSON.stringify({
-          error: 'Database not found. Please check your configuration.',
+          success: false,
+          error: 'Database not found',
+          message: 'The Notion database could not be found. Please verify the NOTION_DATABASE_ID is correct and the integration has access to the database.',
+          details: process.env.NODE_ENV === 'development' ? error.message : undefined,
         }),
       };
     }
@@ -119,17 +222,52 @@ exports.handler = async (event, context) => {
         statusCode: 401,
         headers,
         body: JSON.stringify({
-          error: 'Unauthorized access to Notion database.',
+          success: false,
+          error: 'Unauthorized',
+          message: 'Cannot access Notion database. Please verify the NOTION_API_TOKEN is correct and the integration has been shared with the database.',
+          details: process.env.NODE_ENV === 'development' ? error.message : undefined,
         }),
       };
     }
 
+    if (error.code === 'validation_error') {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({
+          success: false,
+          error: 'Validation error',
+          message: 'The request to Notion API was invalid. This might be due to incorrect property names in the database.',
+          details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+        }),
+      };
+    }
+
+    if (error.code === 'rate_limited') {
+      return {
+        statusCode: 429,
+        headers,
+        body: JSON.stringify({
+          success: false,
+          error: 'Rate limited',
+          message: 'Too many requests to Notion API. Please try again in a moment.',
+        }),
+      };
+    }
+
+    // Generic error
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
-        error: 'Internal server error while searching pottery records.',
-        details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+        success: false,
+        error: 'Internal server error',
+        message: 'An error occurred while searching pottery records. Please try again later.',
+        details: process.env.NODE_ENV === 'development' ? {
+          message: error.message,
+          code: error.code,
+          status: error.status,
+        } : undefined,
       }),
     };
   }

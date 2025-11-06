@@ -351,16 +351,24 @@ async function searchPottery() {
       body: JSON.stringify({ name: name })
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      console.error('API error:', data);
+      showErrorState(data.message || data.error || 'Có lỗi xảy ra khi tìm kiếm');
+      return;
     }
 
-    const data = await response.json();
-    displayResults(data.results);
+    if (data.success && data.results) {
+      displayResults(data.results);
+    } else {
+      console.error('Invalid response format:', data);
+      showErrorState('Định dạng dữ liệu không hợp lệ');
+    }
 
   } catch (error) {
     console.error('Search error:', error);
-    showErrorState();
+    showErrorState('Không thể kết nối đến máy chủ. Vui lòng kiểm tra kết nối mạng.');
   }
 }
 
@@ -371,11 +379,19 @@ function showLoadingState() {
   document.getElementById('errorState').classList.add('hidden');
 }
 
-function showErrorState() {
+function showErrorState(message) {
   document.getElementById('loadingState').classList.add('hidden');
   document.getElementById('searchResults').classList.add('hidden');
   document.getElementById('noResults').classList.add('hidden');
   document.getElementById('errorState').classList.remove('hidden');
+
+  // Update error message if provided
+  if (message) {
+    const errorMessageElement = document.querySelector('#errorState p');
+    if (errorMessageElement) {
+      errorMessageElement.textContent = message;
+    }
+  }
 }
 
 function displayResults(results) {
