@@ -552,9 +552,15 @@ function refreshStatus(itemId) {
 }
 
 // Allow Enter key to trigger search
-document.getElementById('customerName').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    searchPottery();
+// Ensure DOM is ready before attaching event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  const customerNameInput = document.getElementById('customerName');
+  if (customerNameInput) {
+    customerNameInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        searchPottery();
+      }
+    });
   }
 });
 </script>
