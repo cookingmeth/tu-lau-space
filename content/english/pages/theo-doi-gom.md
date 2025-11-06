@@ -23,114 +23,251 @@ Tại Từ Lâu Space, chúng tôi tin rằng mỗi tác phẩm gốm đều có
 
 ## Tra Cứu Tình Trạng Tác Phẩm
 
-{{< notice "tip" >}}
-**Tìm kiếm tác phẩm của bạn** bằng cách nhập tên khách hàng để xem tình trạng hiện tại
-{{< /notice >}}
+<div class="pottery-tracking-hero bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 rounded-2xl p-8 md:p-12 mb-12 border border-amber-200 dark:border-gray-700">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-6 shadow-lg">
+      <i class="fa fa-search text-white text-2xl"></i>
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+      Theo Dõi Tác Phẩm Của Bạn
+    </h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+      Nhập tên khách hàng để xem tình trạng hiện tại của tác phẩm gốm.
+      Từ việc tạo hình đến hoàn thiện, chúng tôi theo dõi từng bước một cách chi tiết.
+    </p>
 
-<div class="pottery-search-container bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 mb-12">
-  <div class="max-w-2xl mx-auto">
-    <h3 class="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
-      🔍 Tìm Kiếm Tác Phẩm Gốm
-    </h3>
-
-    <!-- Search Form -->
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
-      <div class="flex flex-col sm:flex-row gap-4">
-        <div class="flex-1">
-          <label for="customerName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Tên khách hàng
+    <!-- Enhanced Search Form -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700">
+      <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+        <div class="flex-1 relative">
+          <label for="customerName" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+            <i class="fa fa-user mr-2 text-amber-500"></i>Tên Khách Hàng
           </label>
-          <input
-            type="text"
-            id="customerName"
-            placeholder="Nhập tên để tìm kiếm..."
-            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-          />
+          <div class="relative">
+            <input
+              type="text"
+              id="customerName"
+              placeholder="VD: Nguyễn Văn A, Trần Thị B..."
+              class="w-full px-4 py-4 pl-12 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:text-white text-lg transition-all duration-200 shadow-sm"
+            />
+            <i class="fa fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
         </div>
         <div class="flex items-end">
           <button
             onclick="searchPottery()"
-            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 flex items-center gap-2"
+            class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            <i class="fa fa-search"></i>
-            Tìm Kiếm
+            <i class="fa fa-search text-lg"></i>
+            <span class="text-lg">Tìm Kiếm</span>
           </button>
         </div>
       </div>
-    </div>
 
-    <!-- Loading State -->
-    <div id="loadingState" class="text-center py-8 hidden">
-      <div class="inline-flex items-center gap-3 text-blue-600">
-        <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
-        <span>Đang tìm kiếm...</span>
+      <!-- Quick Search Tips -->
+      <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+        <div class="flex items-center gap-2 text-amber-700 dark:text-amber-300">
+          <i class="fa fa-lightbulb"></i>
+          <span class="font-semibold">Mẹo tìm kiếm:</span>
+        </div>
+        <p class="text-sm text-amber-600 dark:text-amber-400 mt-1">
+          Nhập tên đầy đủ hoặc một phần tên để tìm kiếm chính xác hơn
+        </p>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Search Results -->
-    <div id="searchResults" class="hidden">
-      <!-- Results will be populated by JavaScript -->
+<div class="search-results-container max-w-6xl mx-auto">
+
+  <!-- Loading State -->
+  <div id="loadingState" class="text-center py-12 hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 max-w-md mx-auto">
+      <div class="animate-spin rounded-full h-12 w-12 border-4 border-amber-200 border-t-amber-500 mx-auto mb-4"></div>
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Đang tìm kiếm...</h3>
+      <p class="text-gray-600 dark:text-gray-300">Vui lòng chờ trong giây lát</p>
     </div>
+  </div>
 
-    <!-- No Results -->
-    <div id="noResults" class="text-center py-8 hidden">
-      <div class="text-gray-500 dark:text-gray-400">
-        <i class="fa fa-exclamation-triangle text-3xl mb-4"></i>
-        <p class="text-lg">Không tìm thấy tác phẩm nào với tên này.</p>
-        <p class="text-sm mt-2">Vui lòng kiểm tra lại tên hoặc liên hệ với chúng tôi.</p>
+  <!-- Search Results -->
+  <div id="searchResults" class="hidden space-y-6">
+    <!-- Results will be populated by JavaScript -->
+  </div>
+
+  <!-- No Results -->
+  <div id="noResults" class="text-center py-12 hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 max-w-md mx-auto">
+      <div class="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+        <i class="fa fa-search-minus text-2xl text-gray-400"></i>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Không tìm thấy kết quả</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">Không có tác phẩm nào với tên này trong hệ thống.</p>
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <p>• Kiểm tra lại tên khách hàng</p>
+        <p>• Thử tìm kiếm với tên khác</p>
+        <p>• Liên hệ với chúng tôi để được hỗ trợ</p>
       </div>
     </div>
+  </div>
 
-    <!-- Error State -->
-    <div id="errorState" class="text-center py-8 hidden">
-      <div class="text-red-500">
-        <i class="fa fa-exclamation-circle text-3xl mb-4"></i>
-        <p class="text-lg">Có lỗi xảy ra khi tìm kiếm.</p>
-        <p class="text-sm mt-2">Vui lòng thử lại sau ít phút.</p>
+  <!-- Error State -->
+  <div id="errorState" class="text-center py-12 hidden">
+    <div class="bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-200 dark:border-red-800 p-8 max-w-md mx-auto">
+      <div class="w-16 h-16 bg-red-100 dark:bg-red-800/30 rounded-full flex items-center justify-center mx-auto mb-4">
+        <i class="fa fa-exclamation-circle text-2xl text-red-500"></i>
       </div>
+      <h3 class="text-lg font-semibold text-red-800 dark:text-red-300 mb-2">Có lỗi xảy ra</h3>
+      <p class="text-red-600 dark:text-red-400 mb-4">Không thể kết nối đến hệ thống theo dõi.</p>
+      <button
+        onclick="searchPottery()"
+        class="px-4 py-2 bg-red-100 hover:bg-red-200 dark:bg-red-800 dark:hover:bg-red-700 text-red-700 dark:text-red-300 rounded-lg transition-colors"
+      >
+        Thử lại
+      </button>
     </div>
   </div>
 </div>
 
 <!-- Custom CSS and JavaScript -->
 <style>
+/* Pottery tracking result cards */
 .pottery-item {
-  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
   padding: 24px;
-  margin-bottom: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.pottery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #8b5cf6 100%);
 }
 
 .pottery-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #d1d5db;
 }
 
+/* Enhanced status badges */
 .status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 20px;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 25px;
   font-size: 14px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.status-pending { background: #fef3c7; color: #92400e; }
-.status-in-progress { background: #dbeafe; color: #1e40af; }
-.status-firing { background: #fed7d7; color: #c53030; }
-.status-cooling { background: #e0e7ff; color: #5b21b6; }
-.status-completed { background: #d1fae5; color: #065f46; }
-.status-ready { background: #ecfccb; color: #365314; }
+/* Status colors with better contrast and modern design */
+.status-pending { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #92400e; border: 1px solid #f59e0b; }
+.status-shaping { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); color: #5b21b6; border: 1px solid #8b5cf6; }
+.status-drying { background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%); color: #991b1b; border: 1px solid #ef4444; }
+.status-decorating { background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%); color: #065f46; border: 1px solid #10b981; }
+.status-firing { background: linear-gradient(135deg, #fed7d7 0%, #fca5a5 100%); color: #991b1b; border: 1px solid #ef4444; }
+.status-cooling { background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%); color: #1e40af; border: 1px solid #3b82f6; }
+.status-completed { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); color: #065f46; border: 1px solid #10b981; }
+.status-ready { background: linear-gradient(135deg, #ecfccb 0%, #d9f99d 100%); color: #365314; border: 1px solid #65a30d; }
+.status-in-progress { background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%); color: #1e40af; border: 1px solid #3b82f6; }
 
+/* Info cards styling */
+.info-card {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.info-card:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Media gallery improvements */
+.media-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.media-item {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.media-item:hover {
+  border-color: #f59e0b;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode enhancements */
 @media (prefers-color-scheme: dark) {
   .pottery-item {
-    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-    border-color: #6b7280;
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    border-color: #4b5563;
     color: #f9fafb;
   }
+
+  .pottery-item:hover {
+    border-color: #6b7280;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  }
+
+  .info-card {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    border-color: #6b7280;
+  }
+
+  .info-card:hover {
+    background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);
+    border-color: #9ca3af;
+  }
+
+  .media-item {
+    border-color: #6b7280;
+  }
+
+  .media-item:hover {
+    border-color: #f59e0b;
+  }
+}
+
+/* Animation for result appearance */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pottery-item {
+  animation: slideInUp 0.5s ease-out;
 }
 </style>
 
@@ -215,62 +352,76 @@ function displayResults(results) {
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Vận chuyển</div>
-          <div class="text-base font-semibold">${item.shipping || 'Chưa cập nhật'}</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div class="info-card">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="info-card-icon bg-blue-500"></span>
+            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Vận chuyển</div>
+          </div>
+          <div class="text-base font-bold text-gray-800 dark:text-white">${item.shipping || 'Chưa cập nhật'}</div>
         </div>
-        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Loại Workshop</div>
-          <div class="text-base font-semibold">${item.workshop_type || 'Chưa cập nhật'}</div>
+        <div class="info-card">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="info-card-icon bg-purple-500"></span>
+            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Loại Workshop</div>
+          </div>
+          <div class="text-base font-bold text-gray-800 dark:text-white">${item.workshop_type || 'Chưa cập nhật'}</div>
         </div>
-        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
-          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Tình trạng nung</div>
-          <div class="text-base">
+        <div class="info-card">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="info-card-icon bg-orange-500"></span>
+            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Tình trạng nung</div>
+          </div>
+          <div class="text-base font-bold">
             ${item.firing_status ?
-              '<span class="text-green-600 font-semibold"><i class="fa fa-fire mr-1"></i>Đã nung</span>' :
-              '<span class="text-orange-600 font-semibold"><i class="fa fa-clock mr-1"></i>Chưa nung</span>'
+              '<span class="text-green-600 dark:text-green-400"><i class="fa fa-fire mr-2"></i>Đã nung</span>' :
+              '<span class="text-orange-600 dark:text-orange-400"><i class="fa fa-clock mr-2"></i>Chưa nung</span>'
             }
           </div>
         </div>
       </div>
 
       ${item.note ? `
-        <div class="bg-blue-50 dark:bg-blue-900 rounded-lg p-3 mb-4">
-          <div class="text-sm font-medium text-blue-600 dark:text-blue-300 mb-1">
-            <i class="fa fa-sticky-note mr-1"></i>Ghi chú
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-lg p-4 mb-6 border border-blue-200 dark:border-blue-700">
+          <div class="flex items-center gap-2 text-blue-600 dark:text-blue-300 mb-2">
+            <i class="fa fa-sticky-note"></i>
+            <span class="font-semibold">Ghi chú quan trọng</span>
           </div>
-          <div class="text-base text-blue-800 dark:text-blue-200">${item.note}</div>
+          <div class="text-blue-800 dark:text-blue-200 leading-relaxed">${item.note}</div>
         </div>
       ` : ''}
 
-      <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 mb-4">
-        <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Trạng thái chi tiết</div>
-        <div class="text-base">${getStatusDescription(item.status)}</div>
+      <div class="info-card mb-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="info-card-icon bg-gray-500"></span>
+          <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Trạng thái chi tiết</div>
+        </div>
+        <div class="text-base text-gray-700 dark:text-gray-300">${getStatusDescription(item.status)}</div>
       </div>
 
       ${item.media && item.media.length > 0 ? `
-        <div class="mb-4">
-          <h5 class="font-medium text-gray-700 dark:text-gray-300 mb-2">
-            <i class="fa fa-camera mr-2"></i>Hình ảnh & Video
-          </h5>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-            ${item.media.map(media => `
-              <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-                ${media.type === 'image' ?
-                  `<img src="${media.url}" alt="Pottery progress" class="w-full h-full object-cover cursor-pointer" onclick="openMediaModal('${media.url}')">` :
-                  `<div class="w-full h-full flex items-center justify-center bg-blue-100 text-blue-600 cursor-pointer" onclick="openMediaModal('${media.url}')">
-                    <i class="fa fa-play-circle text-2xl"></i>
-                  </div>`
+        <div class="mb-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="info-card-icon bg-green-500"></span>
+            <h5 class="font-semibold text-gray-700 dark:text-gray-300">Hình ảnh & Video tiến độ</h5>
+          </div>
+          <div class="media-gallery">
+            ${item.media.map(media =>
+              \`<div class="media-item">
+                \${media.type === 'image' ?
+                  \`<img src="\${media.url}" alt="Pottery progress" class="w-full h-full object-cover" onclick="openMediaModal('\${media.url}')">\ ` :
+                  \`<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600" onclick="openMediaModal('\${media.url}')">
+                    <i class="fa fa-play-circle text-3xl"></i>
+                  </div>\ `
                 }
-              </div>
-            `).join('')}
+              </div>\ `
+            ).join('')}
           </div>
         </div>
       ` : ''}
 
-      <div class="text-center">
-        <button onclick="refreshStatus('${item.id}')" class="btn-sm bg-blue-100 text-blue-700 hover:bg-blue-200 px-4 py-2 rounded-lg transition-colors">
+      <div class="text-center pt-4 border-t border-gray-200 dark:border-gray-600">
+        <button onclick="refreshStatus('\${item.id}')" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-lg transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg">
           <i class="fa fa-refresh mr-2"></i>Cập nhật mới nhất
         </button>
       </div>
