@@ -407,21 +407,21 @@ function displayResults(results) {
           </div>
           <div class="media-gallery">
             ${item.media.map(media =>
-              \`<div class="media-item">
-                \${media.type === 'image' ?
-                  \`<img src="\${media.url}" alt="Pottery progress" class="w-full h-full object-cover" onclick="openMediaModal('\${media.url}')">\ ` :
-                  \`<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600" onclick="openMediaModal('\${media.url}')">
-                    <i class="fa fa-play-circle text-3xl"></i>
-                  </div>\ `
-                }
-              </div>\ `
+              '<div class="media-item">' +
+                (media.type === 'image' ?
+                  '<img src="' + media.url + '" alt="Pottery progress" class="w-full h-full object-cover" onclick="openMediaModal(\'' + media.url + '\')">' :
+                  '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600" onclick="openMediaModal(\'' + media.url + '\')">' +
+                    '<i class="fa fa-play-circle text-3xl"></i>' +
+                  '</div>'
+                ) +
+              '</div>'
             ).join('')}
           </div>
         </div>
       ` : ''}
 
       <div class="text-center pt-4 border-t border-gray-200 dark:border-gray-600">
-        <button onclick="refreshStatus('\${item.id}')" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-lg transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg">
+        <button onclick="refreshStatus('${item.id}')" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-lg transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg">
           <i class="fa fa-refresh mr-2"></i>Cập nhật mới nhất
         </button>
       </div>
@@ -442,10 +442,10 @@ function getStatusBadge(status) {
   };
 
   const statusInfo = statusMap[status] || { text: status, class: 'status-pending', icon: 'info' };
-  return `<span class="status-badge ${statusInfo.class}">
-    <i class="fa fa-${statusInfo.icon}"></i>
-    ${statusInfo.text}
-  </span>`;
+  return '<span class="status-badge ' + statusInfo.class + '">' +
+    '<i class="fa fa-' + statusInfo.icon + '"></i>' +
+    statusInfo.text +
+  '</span>';
 }
 
 function getStatusDescription(status) {
