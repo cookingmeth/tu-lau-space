@@ -566,45 +566,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-## Gói Dịch Vụ Theo Dõi
-
-### 🥉 Gói Cơ Bản
-**299,000 VNĐ**
-- 5 ảnh cập nhật chính
-- Thông báo SMS khi hoàn thành
-- Báo cáo tóm tắt quy trình
-
-### 🥈 Gói Tiêu Chuẩn
-**599,000 VNĐ**
-- 15 ảnh chi tiết từng bước
-- 3 video time-lapse ngắn
-- Biểu đồ nhiệt độ chi tiết
-- Thông báo email theo thời gian thực
-
-### 🥇 Gói Premium
-**999,000 VNĐ**
-- Chụp ảnh không giới hạn
-- Video đầy đủ toàn bộ quá trình
-- Album online cá nhân hóa
-- Chat 1-on-1 với nghệ nhân
-- Livestream quá trình nung lò
-
-{{< notice "tip" >}}
-**Ưu đãi đặc biệt**: Đặt 3 tác phẩm cùng lúc, giảm 20% phí theo dõi!
-{{< /notice >}}
-
-## Đăng Ký Dịch Vụ
-
-Sẵn sàng theo dõi hành trình tạo nên tác phẩm gốm của bạn?
-
-{{< button label="Đặt Lịch Ngay" link="/booking-pricing" style="solid" >}}
-
-**Hoặc liên hệ trực tiếp:**
-- 📞 **Hotline**: 039 503 6478
-- 📧 **Email**: tulau.contact@gmail.com
-- 💬 **Facebook**: [@Tulau.space](https://facebook.com/Tulau.space)
-- 📍 **Địa chỉ**: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
-
 ---
 
 *Từ Lâu Space - Nơi mỗi tác phẩm gốm đều có một câu chuyện đáng nhớ* ✨
