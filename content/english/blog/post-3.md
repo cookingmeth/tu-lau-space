@@ -10,7 +10,7 @@ tags: ["thrift shop sài gòn", "đồ si", "vintage", "từ lâu space", "sốn
 draft: false
 ---
 
-Bạn là tín đồ săn đồ si, yêu thích phong cách vintage và muốn tìm kiếm những món đồ độc bản? **Từ Lâu Space** là điểm đến lý tưởng cho bạn! Với hơn 1.000+ item được cập nhật mỗi tuần, từ váy vintage, áo len retro đến phụ kiện độc đáo, bạn sẽ luôn tìm thấy điều mới mẻ tại đây.
+Bạn là tín đồ săn đồ si, yêu thích phong cách vintage và muốn tìm kiếm những món đồ độc bản? **Từ Lâu Space** là điểm đến lý tưởng cho bạn! Với các sản phẩm handmade và vintage được cập nhật thường xuyên, từ các tác phẩm thủ công đến phụ kiện độc đáo, bạn sẽ luôn tìm thấy điều mới mẻ tại đây.
 
 ## Vì Sao Nên Săn Đồ Si, Vintage Tại Từ Lâu Space?
 
@@ -21,10 +21,12 @@ Bạn là tín đồ săn đồ si, yêu thích phong cách vintage và muốn t
 
 > “Mỗi món đồ si là một câu chuyện, một hành trình mới.” — Khách hàng Từ Lâu Space
 
-## Địa Chỉ Thrift Shop Từ Lâu Space
+## Liên hệ Từ Lâu Space
 
-- 7 Phan Tây Hồ, Phường Cầu Kiệu, TP.HCM
+- Địa điểm: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
 - Xem sản phẩm và đặt hàng online tại [tulau.space](https://tulau.space)
-- Hotline: 0909 123 456
+- Hotline: 039 503 6478
+- Email: tulau.contact@gmail.com
+- Facebook: [@Tulau.space](https://facebook.com/Tulau.space)
 
-**Đến Từ Lâu Space để săn đồ si, vintage và lan tỏa lối sống xanh cùng cộng đồng!**
+**Đến Từ Lâu Space để khám phá sản phẩm handmade độc đáo và lan tỏa lối sống xanh cùng cộng đồng!**

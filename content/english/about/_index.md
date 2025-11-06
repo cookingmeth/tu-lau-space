@@ -12,48 +12,45 @@ draft: false
 
 Từ tình yêu đất sét và những món đồ làm bằng tay, tụi mình mở một không gian để ai cũng có thể đi chậm lại. Ở đây, "không hoàn hảo" là đẹp—vì nó mang dấu vân tay, thời gian và ký ức của bạn.
 
+Từ Lâu Space là một tổ hợp khiêm tốn, nơi trưng bày và chia sẻ những điều dịu dàng, ấm áp. Chúng tôi tin rằng nghệ thuật thủ công không chỉ là về kỹ thuật, mà còn là về khoảnh khắc kết nối—với chính mình, với người thân, và với cộng đồng xung quanh.
+
 ## Tầm nhìn – Sứ mệnh – Giá trị
 - Chậm rãi – Thủ công – Kết nối – Bền vững.
 - Đồng hành với cộng đồng sáng tạo địa phương; hỗ trợ nghệ nhân; ưu tiên vật liệu thân thiện.
+- Tạo không gian an toàn để mọi người khám phá sự sáng tạo của bản thân, không cần hoàn hảo.
 
 ## Hình ảnh & nhận diện
 Fonts, bảng màu, layout thiết kế và kho ảnh tuân theo guideline nội bộ để website và mạng xã hội luôn thống nhất.
 
 ## Đội ngũ Từ Lâu
 
-### Minh - Founder & Creative Director
-Tốt nghiệp Đại học Mỹ thuật Công nghiệp, Minh mang đến kinh nghiệm 5+ năm trong lĩnh vực gốm sứ và thiết kế. Với triết lý "đẹp, bền vững và dễ tiếp cận", cô tin rằng nghệ thuật không chỉ dành riêng cho giới chuyên môn.
-
-### Trang - Workshop Coordinator  
-Chuyên gia về thêu tay và các kỹ thuật textile art, Trang đảm nhiệm việc thiết kế curriculum và hướng dẫn các workshop. Sự tận tâm và kiên nhẫn của cô đã giúp hàng trăm học viên tự tin bước vào thế giới handmade.
-
-### Duy - Thrift Curator
-Với "đôi mắt kim cương" trong việc tuyển chọn đồ vintage, Duy đảm bảo mỗi item tại Từ Lâu đều có chất lượng tốt và phong cách độc đáo. Anh cũng là người đứng sau các dự án upcycle đầy sáng tạo.
+Đội ngũ của chúng tôi bao gồm những người đam mê nghệ thuật thủ công, có kinh nghiệm trong các lĩnh vực như gốm sứ, thêu tay, thiết kế, và các kỹ thuật handmade đa dạng. Mỗi mentor đều mang theo triết lý riêng về nghệ thuật bền vững và dễ tiếp cận, luôn sẵn sàng hỗ trợ bạn từng bước trong hành trình khám phá sáng tạo.
 
 ## Không gian của chúng tôi
 
-📍 **Vị trí**: 7 Phan Tây Hồ, Phường Cầu Kiệu - ngay trung tâm thành phố, dễ dàng di chuyển.
+📍 **Vị trí**: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh - Không gian dễ dàng tiếp cận và thuận tiện di chuyển.
 
-🏡 **Thiết kế**: Phong cách cottage-core với nhiều cây xanh, ánh sáng tự nhiên và không gian mở thoáng đãng.
+🏡 **Thiết kế**: Không gian ấm áp, thoải mái với nhiều cây xanh và ánh sáng tự nhiên, tạo cảm giác thư thái và sáng tạo.
 
-☕ **Tiện ích**: Wi-Fi miễn phí, cà phê rang tay, ổ cắm điện, khu vực làm việc chung.
+☕ **Tiện ích**: Không gian được thiết kế để bạn có thể thoải mái sáng tạo, với đầy đủ tiện nghi cần thiết cho workshop.
 
-🚲 **Đậu xe**: Miễn phí xe máy, hỗ trợ gửi ô-tô tại bãi cách 30m.
+🚲 **Đậu xe**: Hỗ trợ gửi xe cho khách hàng.
 
 ## Cam kết xanh
 
-- **Đóng gói thân thiện**: Túi giấy kraft, hạn chế nhựa tối đa
-- **Khuyến khích túi vải**: Giảm 5% khi khách mang túi riêng  
-- **Upcycle workshops**: Biến đồ cũ thành sản phẩm mới có giá trị
-- **Thu gom quần áo cũ**: Chương trình trao đổi và tái chế
+- **Đóng gói thân thiện**: Ưu tiên sử dụng vật liệu đóng gói thân thiện với môi trường, hạn chế nhựa
+- **Khuyến khích bền vững**: Ưu đãi cho khách hàng mang theo túi vải riêng
+- **Upcycle workshops**: Biến đồ cũ thành sản phẩm mới có giá trị, góp phần giảm thiểu rác thải
+- **Tái chế & trao đổi**: Chương trình thu gom và tái chế vật liệu
 
-*"Mỗi lần bạn chọn second-hand thay vì mua mới, bạn đã góp phần tiết kiệm ~2,000 lít nước và giảm 3kg khí CO₂."* - Báo cáo WEF 2025
+Chúng tôi tin rằng mỗi lựa chọn nhỏ hướng tới sự bền vững đều có ý nghĩa lớn với môi trường và cộng đồng.
 
 ## Tham gia cộng đồng
 
-🔗 **Facebook**: [@tulau.space](https://facebook.com/tulau.space)  
-📸 **Instagram**: [@tulauspace.saigon](https://instagram.com/tulauspace.saigon)  
-📞 **Zalo/Hotline**: 093 123 4567
+🔗 **Facebook**: [@Tulau.space](https://facebook.com/Tulau.space)
+📸 **Instagram**: Theo dõi chúng tôi để cập nhật các workshop mới nhất
+📧 **Email**: tulau.contact@gmail.com
+📱 **Hotline**: 039 503 6478
 
 ---
 

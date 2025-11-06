@@ -1,7 +1,7 @@
 ---
 title: "Workshop Gốm & 30+ Art Workshop • Từ Lâu Space"
 seo:
-  description: "Đăng ký workshop gốm bàn xoay, workshop thêu, làm nến, up-cycle quần áo… lịch mới mỗi tuần tại Từ Lâu Space – Phường Cầu Kiệu, TP.HCM."
+  description: "Đăng ký workshop gốm bàn xoay, workshop thêu, làm nến, up-cycle quần áo… lịch mới mỗi tuần tại Từ Lâu Space – Quận Phú Nhuận, TP.HCM."
   keywords: ["workshop gốm tphcm", "art workshop saigon", "học làm gốm", "workshop handmade", "lớp thủ công"]
 ---
 
@@ -20,14 +20,13 @@ Từ Lâu Space được Google xếp hạng top kết quả **“workshop gốm
 
 ## 📅 Lịch workshop gốm (cập nhật tự động)
 
-| Ngày | Khung giờ | Còn chỗ | Học phí |
-|------|----------|---------|---------|
-| Thứ 7 | 09:00–11:00 | 2 | 250 000 đ |
-| Thứ 7 | 14:00–16:00 | 4 | 250 000 đ |
-| Chủ nhật | 10:00–12:00 | 1 | 250 000 đ |
-| Chủ nhật | 15:00–17:00 | 3 | 250 000 đ |
+**Lịch workshop được cập nhật thường xuyên**, bao gồm:
+- Workshop cuối tuần (Thứ 7 & Chủ nhật)
+- Slot buổi sáng và buổi chiều
+- Lớp nhỏ để đảm bảo chất lượng học (tối đa 6 học viên)
+- Giá cả phù hợp cho mọi đối tượng
 
-> **Gọi/Zalo 093 123 4567** hoặc điền form cuối trang để giữ chỗ.
+> **Liên hệ Hotline/Zalo: 039 503 6478** hoặc **Facebook: [@Tulau.space](https://facebook.com/Tulau.space)** để đặt lịch và biết thêm chi tiết về giá cả và lịch trống.
 
 ---
 
@@ -46,12 +45,14 @@ Từ Lâu Space được Google xếp hạng top kết quả **“workshop gốm
 
 ## Các Art Workshop khác
 
-| Workshop | Mô tả nhanh | Thời lượng | Phí |
-|----------|-------------|-----------|-----|
-| ![Needlework](/images/image-placeholder.png) Thêu Punch-Needle | Hướng dẫn từ A-Z, 5 mũi cơ bản, khung gỗ 20 cm | 2 h | 180 000 đ |
-| ![Upcycle Denim](/images/image-placeholder.png) Up-cycle Denim | Vẽ acrylic + đính patch, máy khâu mini | 2,5 h | 200 000 đ |
-| ![Candle Making](/images/image-placeholder.png) Làm Nến Thơm | Sáp đậu nành + tinh dầu organic | 2 h | 220 000 đ |
-| ![Mosaic Art](/images/image-placeholder.png) Mosaic Gỗ | Ghép hạt gỗ màu thành tranh treo tường | 3 h | 260 000 đ |
+| Workshop | Mô tả nhanh | Thời lượng |
+|----------|-------------|-----------|
+| ![Needlework](/images/image-placeholder.png) Thêu Punch-Needle | Hướng dẫn từ A-Z, 5 mũi cơ bản, khung gỗ 20 cm | 2 h |
+| ![Upcycle Denim](/images/image-placeholder.png) Up-cycle Denim | Vẽ acrylic + đính patch, máy khâu mini | 2,5 h |
+| ![Candle Making](/images/image-placeholder.png) Làm Nến Thơm | Sáp đậu nành + tinh dầu organic | 2 h |
+| ![Mosaic Art](/images/image-placeholder.png) Mosaic Gỗ | Ghép hạt gỗ màu thành tranh treo tường | 3 h |
+
+**Liên hệ để biết giá cả chi tiết cho từng workshop.**
 
 ---
 

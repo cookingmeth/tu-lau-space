@@ -24,7 +24,9 @@ Bạn có biết rằng mỗi món đồ cũ đều có thể trở thành một
 ## Đăng Ký Workshop Upcycle
 
 - Lịch workshop và ưu đãi cập nhật tại [tulau.space](https://tulau.space)
-- Địa chỉ: 7 Phan Tây Hồ, Phường Cầu Kiệu, TP.HCM
-- Hotline: 0909 123 456
+- Địa điểm: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
+- Hotline: 039 503 6478
+- Email: tulau.contact@gmail.com
+- Facebook: [@Tulau.space](https://facebook.com/Tulau.space)
 
 **Hãy cùng Từ Lâu Space lan tỏa lối sống xanh và sáng tạo qua từng sản phẩm upcycle độc đáo!**
