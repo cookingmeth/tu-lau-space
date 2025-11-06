@@ -12,7 +12,9 @@
       "Bash(git push:*)",
       "Bash(git reset:*)",
       "Bash(git remote set-url:*)",
-      "WebFetch(domain:2hicloset.notion.site)"
+      "WebFetch(domain:2hicloset.notion.site)",
+      "Bash(copy \"C:\\Users\\Sleepy Child\\Desktop\\TLS\\logo.png\" \"C:\\Users\\Sleepy Child\\Desktop\\STAFF MOBILE\\tu-lau-space\\assets\\images\\logo.png\")",
+      "WebFetch(domain:690c7146cb739100082bf643--tulau.netlify.app)"
     ],
     "deny": [],
     "ask": [],
