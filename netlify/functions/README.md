@@ -53,6 +53,11 @@ Searches the Notion database for pottery tracking records by customer name.
 - Comprehensive error handling
 - Support for multiple property name variations
 - Automatic fallback if sorting fails
+- **NEW:** Multi-strategy search with 4 fallback options:
+  1. Title property with date sorting (fastest)
+  2. Title property without sorting
+  3. Rich Text property filtering
+  4. Client-side filtering (most compatible)
 
 ### 2. pottery-test
 
