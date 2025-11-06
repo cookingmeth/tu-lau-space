@@ -1,20 +1,12 @@
 ---
-title: Sam Wilson
-email: samwilson@email.com
+title: Từ Lâu Space Team
+email: tulau.contact@gmail.com
 image: "/images/avatar.png"
-description: this is meta description
+description: Đội ngũ workshop handmade tại Từ Lâu Space
 social:
-  - name: github
-    icon: fa-brands fa-github
-    link: https://github.com
-
-  - name: twitter
-    icon: fa-brands fa-twitter
-    link: https://twitter.com
-
-  - name: linkedin
-    icon: fa-brands fa-linkedin
-    link: https://linkedin.com
+  - name: facebook
+    icon: fa-brands fa-facebook
+    link: https://facebook.com/Tulau.space
 ---
 
-lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.
+Đội ngũ Từ Lâu Space gồm những người đam mê nghệ thuật thủ công và thiết kế bền vững. Chúng tôi tin rằng mỗi người đều có khả năng sáng tạo và góp phần bảo vệ môi trường thông qua các workshop handmade và lối sống xanh.

@@ -600,10 +600,10 @@ Sẵn sàng theo dõi hành trình tạo nên tác phẩm gốm của bạn?
 {{< button label="Đặt Lịch Ngay" link="/booking-pricing" style="solid" >}}
 
 **Hoặc liên hệ trực tiếp:**
-- 📞 **Hotline**: 0123 456 789
-- 📧 **Email**: hello@tulau.space
-- 💬 **Facebook**: @tulauspace
-- 📍 **Địa chỉ**: 7 Phan Tây Hồ, Phường Cầu Kiệu, TP.HCM
+- 📞 **Hotline**: 039 503 6478
+- 📧 **Email**: tulau.contact@gmail.com
+- 💬 **Facebook**: [@Tulau.space](https://facebook.com/Tulau.space)
+- 📍 **Địa chỉ**: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
 
 ---
 

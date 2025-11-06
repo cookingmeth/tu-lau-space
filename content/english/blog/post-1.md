@@ -24,7 +24,9 @@ Bạn đang tìm kiếm một trải nghiệm sáng tạo, thư giãn và đầy
 ## Đăng Ký Workshop Gốm
 
 - Lịch workshop cập nhật hàng tuần tại [tulau.space](https://tulau.space)
-- Địa chỉ: 7 Phan Tây Hồ, Phường Cầu Kiệu, TP.HCM
-- Hotline: 0909 123 456
+- Địa điểm: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
+- Hotline: 039 503 6478
+- Email: tulau.contact@gmail.com
+- Facebook: [@Tulau.space](https://facebook.com/Tulau.space)
 
 **Hãy đến và trải nghiệm nghệ thuật gốm cùng Từ Lâu Space – nơi mọi ý tưởng đều có thể thành hình!**
