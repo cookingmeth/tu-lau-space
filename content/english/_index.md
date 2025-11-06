@@ -5,8 +5,8 @@ seo:
   keywords: ["workshop thủ công hcm","workshop sài gòn","từ lâu space","studio handmade tphcm"]
 
 banner:
-  title: "Từ Lâu Space – chậm lại, làm bằng tay, nhớ rất lâu"
-  content: "Giữa Sài Gòn vội, tụi mình là không gian ấm áp để bạn chạm vào đất sét, mùi hương, sợi len và những mảng ghép ký ức. Đi một mình, hẹn hò, nhóm bạn hay cả công ty—đều có gói phù hợp."
+  title: "NGHỆ THUẬT Từ ĐÔI TAY"
+  content: "Không cần vội vàng hay cầu toàn, chỉ cần đôi tay và một chút tò mò, bạn sẽ thấy đất dần biến thành hình hài riêng biệt. Mỗi lần nắn chỉnh, xoay tròn đều là một khoảnh khắc kết nối."
   image: "/images/image-placeholder.png"
   button:
     enable: true
