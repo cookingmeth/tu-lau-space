@@ -99,8 +99,8 @@ sidebar = ["categories", "tags"]
 [google_map]
 enable = false
 map_api_key = "AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"
-map_latitude = "51.5223477"
-map_longitude = "-0.1622023"
+map_latitude = "10.8027149"
+map_longitude = "106.6863580"
 map_marker = "images/marker.png"
 
 
