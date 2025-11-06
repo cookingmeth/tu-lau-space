@@ -21,6 +21,299 @@ Tại Từ Lâu Space, chúng tôi tin rằng mỗi tác phẩm gốm đều có
 
 ---
 
+## Tra Cứu Tình Trạng Tác Phẩm
+
+{{< notice "tip" >}}
+**Tìm kiếm tác phẩm của bạn** bằng cách nhập tên khách hàng để xem tình trạng hiện tại
+{{< /notice >}}
+
+<div class="pottery-search-container bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 mb-12">
+  <div class="max-w-2xl mx-auto">
+    <h3 class="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+      🔍 Tìm Kiếm Tác Phẩm Gốm
+    </h3>
+
+    <!-- Search Form -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <div class="flex-1">
+          <label for="customerName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Tên khách hàng
+          </label>
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Nhập tên để tìm kiếm..."
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+          />
+        </div>
+        <div class="flex items-end">
+          <button
+            onclick="searchPottery()"
+            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 flex items-center gap-2"
+          >
+            <i class="fa fa-search"></i>
+            Tìm Kiếm
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="text-center py-8 hidden">
+      <div class="inline-flex items-center gap-3 text-blue-600">
+        <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+        <span>Đang tìm kiếm...</span>
+      </div>
+    </div>
+
+    <!-- Search Results -->
+    <div id="searchResults" class="hidden">
+      <!-- Results will be populated by JavaScript -->
+    </div>
+
+    <!-- No Results -->
+    <div id="noResults" class="text-center py-8 hidden">
+      <div class="text-gray-500 dark:text-gray-400">
+        <i class="fa fa-exclamation-triangle text-3xl mb-4"></i>
+        <p class="text-lg">Không tìm thấy tác phẩm nào với tên này.</p>
+        <p class="text-sm mt-2">Vui lòng kiểm tra lại tên hoặc liên hệ với chúng tôi.</p>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="errorState" class="text-center py-8 hidden">
+      <div class="text-red-500">
+        <i class="fa fa-exclamation-circle text-3xl mb-4"></i>
+        <p class="text-lg">Có lỗi xảy ra khi tìm kiếm.</p>
+        <p class="text-sm mt-2">Vui lòng thử lại sau ít phút.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom CSS and JavaScript -->
+<style>
+.pottery-item {
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.pottery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-pending { background: #fef3c7; color: #92400e; }
+.status-in-progress { background: #dbeafe; color: #1e40af; }
+.status-firing { background: #fed7d7; color: #c53030; }
+.status-cooling { background: #e0e7ff; color: #5b21b6; }
+.status-completed { background: #d1fae5; color: #065f46; }
+.status-ready { background: #ecfccb; color: #365314; }
+
+@media (prefers-color-scheme: dark) {
+  .pottery-item {
+    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    border-color: #6b7280;
+    color: #f9fafb;
+  }
+}
+</style>
+
+<script>
+async function searchPottery() {
+  const nameInput = document.getElementById('customerName');
+  const name = nameInput.value.trim();
+
+  if (!name) {
+    alert('Vui lòng nhập tên để tìm kiếm');
+    return;
+  }
+
+  // Show loading state
+  showLoadingState();
+
+  try {
+    // Call Netlify Function API endpoint
+    const response = await fetch('/.netlify/functions/pottery-search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: name })
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    displayResults(data.results);
+
+  } catch (error) {
+    console.error('Search error:', error);
+    showErrorState();
+  }
+}
+
+function showLoadingState() {
+  document.getElementById('loadingState').classList.remove('hidden');
+  document.getElementById('searchResults').classList.add('hidden');
+  document.getElementById('noResults').classList.add('hidden');
+  document.getElementById('errorState').classList.add('hidden');
+}
+
+function showErrorState() {
+  document.getElementById('loadingState').classList.add('hidden');
+  document.getElementById('searchResults').classList.add('hidden');
+  document.getElementById('noResults').classList.add('hidden');
+  document.getElementById('errorState').classList.remove('hidden');
+}
+
+function displayResults(results) {
+  document.getElementById('loadingState').classList.add('hidden');
+  document.getElementById('errorState').classList.add('hidden');
+
+  if (!results || results.length === 0) {
+    document.getElementById('noResults').classList.remove('hidden');
+    document.getElementById('searchResults').classList.add('hidden');
+    return;
+  }
+
+  document.getElementById('noResults').classList.add('hidden');
+  document.getElementById('searchResults').classList.remove('hidden');
+
+  const resultsContainer = document.getElementById('searchResults');
+  resultsContainer.innerHTML = results.map(item => `
+    <div class="pottery-item">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+        <div>
+          <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-2">
+            👤 ${item.name}
+          </h4>
+          <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300">
+            <span><i class="fa fa-calendar mr-1"></i> ${formatDate(item.date)}</span>
+            <span><i class="fa fa-box mr-1"></i> ${item.products} sản phẩm</span>
+          </div>
+        </div>
+        <div class="mt-3 lg:mt-0">
+          ${getStatusBadge(item.status)}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Vận chuyển</div>
+          <div class="text-base font-semibold">${item.shipping || 'Chưa cập nhật'}</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Trạng thái chi tiết</div>
+          <div class="text-base">${getStatusDescription(item.status)}</div>
+        </div>
+      </div>
+
+      ${item.media && item.media.length > 0 ? `
+        <div class="mb-4">
+          <h5 class="font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <i class="fa fa-camera mr-2"></i>Hình ảnh & Video
+          </h5>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            ${item.media.map(media => `
+              <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                ${media.type === 'image' ?
+                  `<img src="${media.url}" alt="Pottery progress" class="w-full h-full object-cover cursor-pointer" onclick="openMediaModal('${media.url}')">` :
+                  `<div class="w-full h-full flex items-center justify-center bg-blue-100 text-blue-600 cursor-pointer" onclick="openMediaModal('${media.url}')">
+                    <i class="fa fa-play-circle text-2xl"></i>
+                  </div>`
+                }
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      <div class="text-center">
+        <button onclick="refreshStatus('${item.id}')" class="btn-sm bg-blue-100 text-blue-700 hover:bg-blue-200 px-4 py-2 rounded-lg transition-colors">
+          <i class="fa fa-refresh mr-2"></i>Cập nhật mới nhất
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function getStatusBadge(status) {
+  const statusMap = {
+    'pending': { text: 'Chờ xử lý', class: 'status-pending', icon: 'clock' },
+    'shaping': { text: 'Đang tạo hình', class: 'status-in-progress', icon: 'hands' },
+    'drying': { text: 'Đang phơi khô', class: 'status-in-progress', icon: 'sun' },
+    'decorating': { text: 'Đang trang trí', class: 'status-in-progress', icon: 'paint-brush' },
+    'firing': { text: 'Đang nung lò', class: 'status-firing', icon: 'fire' },
+    'cooling': { text: 'Đang làm nguội', class: 'status-cooling', icon: 'snowflake' },
+    'completed': { text: 'Hoàn thành', class: 'status-completed', icon: 'check-circle' },
+    'ready': { text: 'Sẵn sàng nhận', class: 'status-ready', icon: 'gift' }
+  };
+
+  const statusInfo = statusMap[status] || { text: status, class: 'status-pending', icon: 'info' };
+  return `<span class="status-badge ${statusInfo.class}">
+    <i class="fa fa-${statusInfo.icon}"></i>
+    ${statusInfo.text}
+  </span>`;
+}
+
+function getStatusDescription(status) {
+  const descriptions = {
+    'pending': 'Tác phẩm đang trong hàng đợi xử lý',
+    'shaping': 'Nghệ nhân đang tạo hình từ đất sét',
+    'drying': 'Tác phẩm đang được phơi khô tự nhiên',
+    'decorating': 'Đang vẽ và trang trí hoa văn',
+    'firing': 'Đang nung trong lò ở nhiệt độ cao',
+    'cooling': 'Chờ lò nguội để lấy sản phẩm ra',
+    'completed': 'Tác phẩm đã hoàn thành xong',
+    'ready': 'Có thể đến nhận hoặc giao hàng'
+  };
+  return descriptions[status] || 'Đang cập nhật trạng thái';
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('vi-VN');
+}
+
+function openMediaModal(url) {
+  // Open media in a modal or new tab
+  window.open(url, '_blank');
+}
+
+function refreshStatus(itemId) {
+  // Refresh individual item status
+  alert('Đang cập nhật trạng thái mới nhất...');
+  // You can implement real-time refresh here
+}
+
+// Allow Enter key to trigger search
+document.getElementById('customerName').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    searchPottery();
+  }
+});
+</script>
+
+---
+
 ## Quy Trình Nung Gốm Chi Tiết
 
 ### Bước 1: Tạo Hình & Phơi Khô

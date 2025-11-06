@@ -18,6 +18,9 @@
     "update-theme": "node ./scripts/themeUpdate.js",
     "format": "prettier -w ."
   },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.6",
     "@tailwindcss/forms": "^0.5.10",
