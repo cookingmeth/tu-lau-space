@@ -37,9 +37,9 @@ Tại Từ Lâu Space, chúng tôi tin rằng mỗi tác phẩm gốm đều có
     </p>
 
     <!-- Enhanced Search Form -->
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700">
-      <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
-        <div class="flex-1 relative">
+    <div class="search-form-container bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 mx-auto max-w-4xl">
+      <div class="flex flex-col lg:flex-row gap-4 items-end">
+        <div class="flex-1">
           <label for="customerName" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
             <i class="fa fa-user mr-2 text-amber-500"></i>Tên Khách Hàng
           </label>
@@ -48,15 +48,15 @@ Tại Từ Lâu Space, chúng tôi tin rằng mỗi tác phẩm gốm đều có
               type="text"
               id="customerName"
               placeholder="VD: Nguyễn Văn A, Trần Thị B..."
-              class="w-full px-4 py-4 pl-12 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:text-white text-lg transition-all duration-200 shadow-sm"
+              class="search-input w-full px-4 py-4 pl-12 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:text-white text-lg transition-all duration-200 shadow-sm"
             />
             <i class="fa fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
           </div>
         </div>
-        <div class="flex items-end">
+        <div class="w-full lg:w-auto">
           <button
             onclick="searchPottery()"
-            class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            class="search-button w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-w-[160px]"
           >
             <i class="fa fa-search text-lg"></i>
             <span class="text-lg">Tìm Kiếm</span>
@@ -199,6 +199,50 @@ Tại Từ Lâu Space, chúng tôi tin rằng mỗi tác phẩm gốm đều có
   transform: translateY(-1px);
 }
 
+/* Info card icons */
+.info-card-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Enhanced search form styling */
+.search-form-container {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+.search-input {
+  font-size: 16px !important;
+  line-height: 1.5;
+  height: auto !important;
+  min-height: 56px;
+}
+
+.search-button {
+  height: 56px !important;
+  min-height: 56px;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-form-container {
+    padding: 1rem !important;
+  }
+
+  .search-input {
+    font-size: 16px !important;
+    padding: 12px 16px 12px 48px !important;
+  }
+
+  .search-button {
+    margin-top: 1rem;
+    width: 100% !important;
+  }
+}
+
 /* Media gallery improvements */
 .media-gallery {
   display: grid;
@@ -223,35 +267,48 @@ Tại Từ Lâu Space, chúng tôi tin rằng mỗi tác phẩm gốm đều có
 }
 
 /* Dark mode enhancements */
-@media (prefers-color-scheme: dark) {
-  .pottery-item {
-    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-    border-color: #4b5563;
-    color: #f9fafb;
-  }
+.dark .pottery-item {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  border-color: #4b5563;
+  color: #f9fafb;
+}
 
-  .pottery-item:hover {
-    border-color: #6b7280;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-  }
+.dark .pottery-item:hover {
+  border-color: #6b7280;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
 
-  .info-card {
-    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-    border-color: #6b7280;
-  }
+.dark .info-card {
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+  border-color: #6b7280;
+}
 
-  .info-card:hover {
-    background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);
-    border-color: #9ca3af;
-  }
+.dark .info-card:hover {
+  background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%);
+  border-color: #9ca3af;
+}
 
-  .media-item {
-    border-color: #6b7280;
-  }
+.dark .media-item {
+  border-color: #6b7280;
+}
 
-  .media-item:hover {
-    border-color: #f59e0b;
-  }
+.dark .media-item:hover {
+  border-color: #f59e0b;
+}
+
+.dark .search-form-container {
+  background: #1f2937 !important;
+  border-color: #4b5563 !important;
+}
+
+.dark .search-input {
+  background: #374151 !important;
+  border-color: #4b5563 !important;
+  color: #f9fafb !important;
+}
+
+.dark .search-input::placeholder {
+  color: #9ca3af !important;
 }
 
 /* Animation for result appearance */
