@@ -79,9 +79,13 @@ exports.handler = async (event, context) => {
     console.log(`Searching for pottery records for customer: ${searchName}`);
 
     // Query Notion database with case-insensitive search
-    // Notion's 'contains' filter for title properties is case-insensitive by default
+    // Try multiple approaches to handle different property types and configurations
     let response;
+    let searchStrategy = 'unknown';
+
     try {
+      // Strategy 1: Filter by Name property with title type (most common)
+      console.log('Strategy 1: Trying title filter...');
       response = await notion.databases.query({
         database_id: DATABASE_ID,
         filter: {
@@ -97,18 +101,77 @@ exports.handler = async (event, context) => {
           },
         ],
       });
-    } catch (sortError) {
-      // If sort fails (e.g., property not found), try without sorting
-      console.log('Sort failed, trying without sorting:', sortError.message);
-      response = await notion.databases.query({
-        database_id: DATABASE_ID,
-        filter: {
-          property: 'Name',
-          title: {
-            contains: searchName,
+      searchStrategy = 'title-with-sort';
+      console.log(`Strategy 1 succeeded: Found ${response.results.length} results`);
+    } catch (titleError) {
+      console.log('Strategy 1 failed:', titleError.message);
+
+      try {
+        // Strategy 2: Try without sorting (in case Date property doesn't exist)
+        console.log('Strategy 2: Trying title filter without sorting...');
+        response = await notion.databases.query({
+          database_id: DATABASE_ID,
+          filter: {
+            property: 'Name',
+            title: {
+              contains: searchName,
+            },
           },
-        },
+        });
+        searchStrategy = 'title-no-sort';
+        console.log(`Strategy 2 succeeded: Found ${response.results.length} results`);
+      } catch (titleError2) {
+        console.log('Strategy 2 failed:', titleError2.message);
+
+        try {
+          // Strategy 3: Try rich_text type (if Name is not a title property)
+          console.log('Strategy 3: Trying rich_text filter...');
+          response = await notion.databases.query({
+            database_id: DATABASE_ID,
+            filter: {
+              property: 'Name',
+              rich_text: {
+                contains: searchName,
+              },
+            },
+          });
+          searchStrategy = 'rich-text';
+          console.log(`Strategy 3 succeeded: Found ${response.results.length} results`);
+        } catch (richTextError) {
+          console.log('Strategy 3 failed:', richTextError.message);
+
+          // Strategy 4: Get all records and filter client-side
+          console.log('Strategy 4: Fetching all records and filtering client-side...');
+          response = await notion.databases.query({
+            database_id: DATABASE_ID,
+            page_size: 100,
+          });
+          searchStrategy = 'client-side-filter';
+          console.log(`Strategy 4: Retrieved ${response.results.length} total records`);
+        }
+      }
+    }
+
+    // If we're using client-side filtering, filter the results now
+    if (searchStrategy === 'client-side-filter') {
+      const searchLower = searchName.toLowerCase();
+      response.results = response.results.filter(page => {
+        const properties = page.properties;
+
+        // Try to get name from various property types
+        const nameProperty = properties['Name'] || properties['name'] || properties['Tên'];
+        if (!nameProperty) return false;
+
+        let name = '';
+        if (nameProperty.title && nameProperty.title.length > 0) {
+          name = nameProperty.title[0]?.text?.content || '';
+        } else if (nameProperty.rich_text && nameProperty.rich_text.length > 0) {
+          name = nameProperty.rich_text[0]?.text?.content || '';
+        }
+
+        return name.toLowerCase().includes(searchLower);
       });
+      console.log(`Client-side filtering resulted in ${response.results.length} matches`);
     }
 
     // Log the raw response for debugging (in development mode)
@@ -186,7 +249,7 @@ exports.handler = async (event, context) => {
       };
     });
 
-    console.log(`Found ${results.length} records for ${searchName}`);
+    console.log(`Found ${results.length} records for ${searchName} using ${searchStrategy} strategy`);
 
     return {
       statusCode: 200,
@@ -196,6 +259,8 @@ exports.handler = async (event, context) => {
         results: results,
         total: results.length,
         query: searchName,
+        searchStrategy: searchStrategy,
+        message: results.length === 0 ? 'Không tìm thấy kết quả phù hợp' : `Tìm thấy ${results.length} kết quả`,
       }),
     };
 
