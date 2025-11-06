@@ -426,7 +426,7 @@ function displayResults(results) {
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div class="info-card">
           <div class="flex items-center gap-2 mb-2">
             <span class="info-card-icon bg-blue-500"></span>
@@ -436,15 +436,8 @@ function displayResults(results) {
         </div>
         <div class="info-card">
           <div class="flex items-center gap-2 mb-2">
-            <span class="info-card-icon bg-purple-500"></span>
-            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Loại Workshop</div>
-          </div>
-          <div class="text-base font-bold text-gray-800 dark:text-white">${item.workshop_type || 'Chưa cập nhật'}</div>
-        </div>
-        <div class="info-card">
-          <div class="flex items-center gap-2 mb-2">
             <span class="info-card-icon bg-orange-500"></span>
-            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Tình trạng nung</div>
+            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">TÌNH TRẠNG NUNG</div>
           </div>
           <div class="text-base font-bold">
             ${item.firing_status ?
@@ -454,16 +447,6 @@ function displayResults(results) {
           </div>
         </div>
       </div>
-
-      ${item.note ? `
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-lg p-4 mb-6 border border-blue-200 dark:border-blue-700">
-          <div class="flex items-center gap-2 text-blue-600 dark:text-blue-300 mb-2">
-            <i class="fa fa-sticky-note"></i>
-            <span class="font-semibold">Ghi chú quan trọng</span>
-          </div>
-          <div class="text-blue-800 dark:text-blue-200 leading-relaxed">${item.note}</div>
-        </div>
-      ` : ''}
 
       <div class="info-card mb-6">
         <div class="flex items-center gap-2 mb-2">
