@@ -7,7 +7,7 @@ seo:
 banner:
   title: "NGHỆ THUẬT Từ ĐÔI TAY"
   content: "Không cần vội vàng hay cầu toàn, chỉ cần đôi tay và một chút tò mò, bạn sẽ thấy đất dần biến thành hình hài riêng biệt. Mỗi lần nắn chỉnh, xoay tròn đều là một khoảnh khắc kết nối."
-  image: "/images/image-placeholder.png"
+  image: "/images/hero.png"
   button:
     enable: true
     label: "Đặt lịch ngay"

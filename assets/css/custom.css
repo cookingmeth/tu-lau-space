@@ -38,11 +38,7 @@ html {
 
 /* Hero section gradient overlay enhancement */
 .hero-section .absolute.inset-0.bg-black\/40 {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: rgba(126, 46, 17, 0.3) !important;
 }
 
 /* CTA card hover effect enhancement */
@@ -158,4 +154,37 @@ p {
   #nav-menu {
     transition: all 0.3s ease-in-out;
   }
+}
+
+/* Brown warm background for features section */
+.bg-brown-warm {
+  background-color: #a67c5a;
+  background-image: linear-gradient(135deg, #a67c5a 0%, #8b6341 100%);
+}
+
+/* White outline button for brown section */
+.btn-outline-white {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+  background-color: white;
+  color: #a67c5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Script font for decorative text */
+.font-script {
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
 }
