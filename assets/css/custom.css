@@ -195,29 +195,29 @@ p {
   z-index: 40;
 }
 
-/* Make navigation links white on transparent header */
-.header .nav-link {
+/* Make navigation links white ONLY on pages with hero section (background image) */
+body:has(.hero-section) .header .nav-link {
   color: white !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.header .nav-link:hover {
+body:has(.hero-section) .header .nav-link:hover {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Make logo/brand white on transparent header */
-.header .navbar-brand {
+/* Make logo/brand white ONLY on pages with hero section */
+body:has(.hero-section) .header .navbar-brand {
   color: white !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Theme switcher visibility on transparent header */
-.header .theme-switcher span {
+/* Theme switcher visibility on transparent header with hero section */
+body:has(.hero-section) .header .theme-switcher span {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Mobile menu toggle icon white on transparent header */
-.header label[for="nav-toggle"] {
+/* Mobile menu toggle icon white ONLY on pages with hero section */
+body:has(.hero-section) .header label[for="nav-toggle"] {
   color: white !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
