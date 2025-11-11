@@ -18,7 +18,8 @@
       "Bash(git pull:*)",
       "Bash(nul)",
       "WebFetch(domain:tulau.space)",
-      "WebFetch(domain:tulau.netlify.app)"
+      "WebFetch(domain:tulau.netlify.app)",
+      "Bash(copy:*)"
     ],
     "deny": [],
     "ask": [],

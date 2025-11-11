@@ -5,7 +5,7 @@ seo:
   keywords: ["workshop thủ công hcm","workshop sài gòn","từ lâu space","studio handmade tphcm"]
 
 banner:
-  title: "NGHỆ THUẬT Từ ĐÔI TAY"
+  title: "NGHỆ THUẬT TỪ ĐÔI TAY"
   content: "Không cần vội vàng hay cầu toàn, chỉ cần đôi tay và một chút tò mò, bạn sẽ thấy đất dần biến thành hình hài riêng biệt. Mỗi lần nắn chỉnh, xoay tròn đều là một khoảnh khắc kết nối."
   image: "/images/hero.png"
   button:
