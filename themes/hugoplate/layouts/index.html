@@ -5,17 +5,19 @@
       <!-- Background Image -->
       <div class="absolute inset-0 -top-[8rem] z-0">
         {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-full object-cover" "DisplayXL" "1920x" ) }}
-        <div class="absolute inset-0 bg-black/40"></div>
+        <!-- Enhanced gradient overlay for better text contrast -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
       </div>
 
       <!-- Content -->
       <div class="container relative z-10">
         <div class="row justify-center">
           <div class="lg:col-10 md:col-10 col-12 text-center">
-            <h1 class="mb-6 text-white text-h1 lg:text-[4rem] leading-tight max-w-4xl mx-auto">
+            <h1 class="mb-6 text-white text-h1 lg:text-[4rem] leading-tight max-w-4xl mx-auto font-bold drop-shadow-2xl" style="text-shadow: 2px 4px 8px rgba(0,0,0,0.8), 0px 2px 4px rgba(0,0,0,0.6);">
               {{ .title | markdownify }}
             </h1>
-            <p class="mb-8 text-white/90 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto">
+            <p class="mb-8 text-white text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-xl" style="text-shadow: 1px 2px 4px rgba(0,0,0,0.7), 0px 1px 2px rgba(0,0,0,0.5);">
               {{ .content | markdownify }}
             </p>
 
