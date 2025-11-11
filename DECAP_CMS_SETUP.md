@@ -9,44 +9,42 @@ Decap CMS (formerly Netlify CMS) is a Git-based content management system that p
 The following files have been added to your project:
 
 - `static/admin/config.yml` - CMS configuration
-- `static/admin/index.html` - CMS admin interface
+- `layouts/admin/index.html` - CMS admin interface with Auth0 authentication
 - `layouts/partials/essentials/head.html` - Added Netlify Identity widget
 - `layouts/partials/essentials/script.html` - Added Identity redirect script
 
 ## Setup Steps
 
-### 1. Deploy to Netlify (if not already done)
+### 1. Configure Auth0 Environment Variables
+
+This site uses Auth0 for authentication. You need to set the following environment variables in your Netlify site settings:
+
+1. Go to your site dashboard on Netlify
+2. Navigate to **Site settings** → **Environment variables**
+3. Add the following variables (make sure they are NOT marked as "secret" - Auth0 client IDs are public values):
+
+   - `AUTH0_DOMAIN` - Your Auth0 domain (e.g., `dev-xxxxx.auth0.com`)
+   - `AUTH0_CLIENT_ID` - Your Auth0 client ID (public value, safe to expose in frontend)
+   - `AUTH0_REDIRECT_URI` - Your site's admin callback URL (e.g., `https://tulau.space/admin/`)
+
+**Important:** Do NOT mark `AUTH0_CLIENT_ID` as a secret variable in Netlify. Client IDs are meant to be public and are included in the frontend JavaScript. Marking it as secret will cause build failures.
+
+### 2. Deploy to Netlify (if not already done)
 
 1. Go to [Netlify](https://app.netlify.com)
 2. Connect your GitHub repository
 3. Deploy your site
 
-### 2. Enable Netlify Identity
+### 3. Configure GitHub OAuth App (for CMS Backend)
 
 1. Go to your site dashboard on Netlify
-2. Click on **Settings** → **Identity**
-3. Click **Enable Identity**
+2. Navigate to **Site settings** → **Access control** → **OAuth**
+3. Under **Authentication providers**, click **Install provider**
+4. Select **GitHub** and follow the setup process
 
-### 3. Configure Git Gateway
+This allows Decap CMS to commit changes to your repository using the GitHub backend.
 
-1. Still in Identity settings, scroll to **Services**
-2. Click **Enable Git Gateway**
-3. This allows the CMS to commit changes to your repository
-
-### 4. Configure Registration Settings
-
-1. Under **Identity** → **Registration preferences**
-2. Set to **Invite only** (recommended for security)
-3. This prevents unauthorized users from accessing your CMS
-
-### 5. Invite Users
-
-1. Go to **Identity** tab
-2. Click **Invite users**
-3. Enter email addresses for people who should have CMS access
-4. They will receive an invitation email
-
-### 6. Access the CMS
+### 4. Access the CMS
 
 Once deployed, access your CMS at:
 ```
