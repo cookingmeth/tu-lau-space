@@ -14,10 +14,10 @@
   <!-- Auth0 Authentication -->
   <script>
     const auth0Config = {
-      domain: 'dev-faxa6osmu4ax2y1m.auth0.com',
-      clientId: '1cOyuBuM1flVAtUuUNncyMGfhMDXuVmq',
+      domain: '{{ getenv "AUTH0_DOMAIN" | default "dev-faxa6osmu4ax2y1m.auth0.com" }}',
+      clientId: '{{ getenv "AUTH0_CLIENT_ID" | default "1cOyuBuM1flVAtUuUNncyMGfhMDXuVmq" }}',
       authorizationParams: {
-        redirect_uri: 'https://tulau.space/admin/'
+        redirect_uri: window.location.origin + '/admin/'
       }
     };
 
@@ -48,7 +48,7 @@
           console.log('Authenticated user:', user);
 
           // Initialize CMS with authenticated user
-          // Note: Decap CMS will still need git-gateway or GitHub backend configured
+          // Note: Decap CMS will still need GitHub backend configured
         }
       } catch (error) {
         console.error('Auth0 initialization error:', error);
