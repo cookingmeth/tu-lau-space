@@ -79,76 +79,101 @@
   <!-- /Banner -->
 
 
-  <!-- Features / Why Choose Từ Lâu -->
+  <!-- About Us Section / Chúng tôi là Từ Lâu Space -->
   {{ range $i, $e:= .Params.features }}
-    <section class="section py-16 bg-light dark:bg-darkmode-light">
-      <div class="container">
-        <!-- Title Section -->
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-dark dark:text-darkmode-dark mb-4">
-            {{ .title | markdownify }}
-          </h2>
-          <p class="text-xl text-dark/80 dark:text-darkmode-dark/80 max-w-2xl mx-auto">
-            {{ .content | markdownify }}
-          </p>
-        </div>
+    <section class="relative py-20 overflow-hidden" style="background: linear-gradient(135deg, #A67C6B 0%, #C49585 50%, #A67C6B 100%);">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/20"></div>
+        <div class="absolute top-32 right-20 w-16 h-16 rounded-full bg-white/15"></div>
+        <div class="absolute bottom-20 left-1/4 w-12 h-12 rounded-full bg-white/20"></div>
+        <div class="absolute bottom-32 right-1/3 w-24 h-24 rounded-full bg-white/10"></div>
+      </div>
 
-        <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {{ if .workshops }}
-            {{ range $index, $workshop := .workshops }}
-              <div class="bg-white dark:bg-darkmode-body rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-border dark:border-darkmode-border">
-                <!-- Workshop Image -->
-                <div class="aspect-[4/3] overflow-hidden">
-                  {{ partial "image" (dict "Src" $workshop.image "Alt" $workshop.title "Class" "w-full h-full object-cover" "DisplayXL" "600x") }}
-                </div>
-                <div class="p-6 text-center">
-                  <h3 class="text-xl font-semibold text-dark dark:text-darkmode-dark mb-3">{{ $workshop.title }}</h3>
-                  <p class="text-text dark:text-darkmode-text leading-relaxed">{{ $workshop.description | markdownify }}</p>
-                </div>
+      <div class="container relative z-10">
+        <div class="row justify-center">
+          <div class="lg:col-12 xl:col-10">
+
+            <!-- Title Section with Stylized Typography -->
+            <div class="text-center mb-16">
+              <div class="mb-6">
+                <h2 class="text-white mb-2" style="font-family: 'Dancing Script', cursive; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 400; letter-spacing: 2px;">
+                  Chúng tôi
+                </h2>
+                <h1 class="text-white font-bold tracking-wider" style="font-size: clamp(1.8rem, 6vw, 3.5rem); margin-top: -1rem;">
+                  TỪ LÂU SPACE
+                </h1>
               </div>
-            {{ end }}
-          {{ else }}
-            {{ range $index, $point := .bulletpoints }}
-              <div class="bg-white dark:bg-darkmode-body rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-border dark:border-darkmode-border">
-                <!-- Icon based on content -->
-                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                  {{ if eq $index 0 }}
-                    <i class="fa fa-graduation-cap text-primary text-2xl"></i>
-                  {{ else if eq $index 1 }}
-                    <i class="fa fa-users text-primary text-2xl"></i>
-                  {{ else if eq $index 2 }}
-                    <i class="fa fa-camera text-primary text-2xl"></i>
-                  {{ else }}
-                    <i class="fa fa-shield-alt text-primary text-2xl"></i>
+            </div>
+
+            <!-- Content Grid with Images and Text -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+              <!-- Left Image -->
+              <div class="lg:col-span-3 order-2 lg:order-1">
+                <div class="rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                  {{ if .workshops }}
+                    {{ $firstWorkshop := index .workshops 0 }}
+                    {{ partial "image" (dict "Src" $firstWorkshop.image "Alt" "Workshop" "Class" "w-full h-80 object-cover" "DisplayXL" "400x") }}
                   {{ end }}
                 </div>
+              </div>
 
-                <div class="text-text dark:text-darkmode-text">
-                  {{ $point | markdownify }}
+              <!-- Center Content -->
+              <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:px-6">
+                <div class="space-y-6 text-white">
+                  <p class="text-lg lg:text-xl leading-relaxed font-medium">
+                    Từ Lâu Space là một "tổ hợp khiêm tốn" dành cho nghệ thuật & thủ công tại TP.HCM — nơi trưng bày và sẻ chia những điều dịu dàng, ấm áp. Tại đây, bạn có thể tham gia các workshop thủ công diễn ra hằng ngày, chạm tay vào đồ handmade, upcycle và góc secondhand theo tinh thần bền vững.
+                  </p>
+                  <p class="text-base lg:text-lg leading-relaxed">
+                    Chúng mình tổ chức đa dạng workshop: gốm, trang sức/phụ kiện, mùi hương, DIY tái chế… cho cá nhân, nhóm bạn, trường học và doanh nghiệp — kể cả "workshop di động" thiết kế theo yêu cầu. Lịch lớp và hoạt động cộng đồng được cập nhật thường xuyên trên Instagram và Facebook, bạn có thể theo dõi và đặt lịch thuận tiện.
+                  </p>
                 </div>
               </div>
-            {{ end }}
-          {{ end }}
-        </div>
 
-        <!-- Call to Action -->
-        <div class="text-center mt-12">
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/booking-pricing" class="btn btn-primary">
-              Đặt lịch ngay
-              <i class="fa fa-arrow-right pl-2"></i>
-            </a>
-            <a href="/contact" class="btn btn-outline-primary">
-              Nhận tư vấn
-              <i class="fa fa-comment pl-2"></i>
-            </a>
+              <!-- Right Image -->
+              <div class="lg:col-span-3 order-3">
+                <div class="rounded-2xl overflow-hidden shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                  {{ if .workshops }}
+                    {{ $secondWorkshop := index .workshops 1 }}
+                    {{ partial "image" (dict "Src" $secondWorkshop.image "Alt" "Workshop" "Class" "w-full h-80 object-cover" "DisplayXL" "400x") }}
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Center Image -->
+            <div class="mt-12 lg:mt-16 flex justify-center">
+              <div class="max-w-md">
+                <div class="rounded-2xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                  {{ if .workshops }}
+                    {{ $thirdWorkshop := index .workshops 2 }}
+                    {{ partial "image" (dict "Src" $thirdWorkshop.image "Alt" "Workshop" "Class" "w-full h-64 object-cover" "DisplayXL" "400x") }}
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-16">
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/booking-pricing" class="btn bg-white text-gray-800 hover:bg-gray-100 border-0 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-xl">
+                  Đặt lịch ngay
+                  <i class="fa fa-arrow-right pl-2"></i>
+                </a>
+                <a href="/contact" class="btn border-2 border-white text-white hover:bg-white hover:text-gray-800 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
+                  Nhận tư vấn
+                  <i class="fa fa-comment pl-2"></i>
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
   {{ end }}
-  <!-- /Features -->
+  <!-- /About Us Section -->
 
   <!-- Workshops Section -->
   {{ with .Params.workshops }}
