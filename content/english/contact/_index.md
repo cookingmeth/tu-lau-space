@@ -7,7 +7,7 @@ draft: false
 
 # Liên hệ & địa điểm
 
-- Địa điểm: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
+- Địa điểm: 7 Phan Tây Hồ, Phường Cầu Kiệu, Phú Nhuận, Thành phố Hồ Chí Minh
 - Kênh liên hệ: Facebook · Instagram · Email
 - Giờ làm việc: Linh hoạt theo lịch workshop, bao gồm cả buổi tối và cuối tuần
 
@@ -15,15 +15,15 @@ draft: false
 
 ## 📞 Thông tin liên hệ
 
-**📱 Hotline:** 039 503 6478
-**📘 Facebook:** [@Tulau.space](https://facebook.com/Tulau.space) - Kênh liên lạc chính
+**📱 Hotline:** 0395 036 478
+**📘 Facebook:** [@tulau.space](https://facebook.com/tulau.space) - Kênh liên lạc chính
 **✉️ Email:** tulau.contact@gmail.com
 **🌐 Website:** [tulau.space](https://tulau.space)
 
 **Mạng xã hội:**
 - Theo dõi Facebook của chúng tôi để cập nhật lịch workshop mới nhất
 - Nhắn tin trực tiếp qua Facebook Messenger để được tư vấn nhanh nhất
-- Gọi điện hoặc Zalo: 039 503 6478  
+- Gọi điện hoặc Zalo: 0395 036 478  
 
 ---
 
@@ -92,7 +92,7 @@ Chúng tôi luôn lắng nghe ý kiến từ cộng đồng để cải thiện 
 
 **Liên hệ hợp tác:**
 📧 Email: tulau.contact@gmail.com
-📘 Facebook: [@Tulau.space](https://facebook.com/Tulau.space) - Nhắn tin để được tư vấn chi tiết
+📘 Facebook: [@tulau.space](https://facebook.com/tulau.space) - Nhắn tin để được tư vấn chi tiết
 
 ---
 

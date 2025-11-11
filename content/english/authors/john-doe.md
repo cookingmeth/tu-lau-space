@@ -6,7 +6,7 @@ description: Đội ngũ sáng tạo tại Từ Lâu Space - Workshop handmade v
 social:
   - name: facebook
     icon: fa-brands fa-facebook
-    link: https://facebook.com/Tulau.space
+    link: https://facebook.com/tulau.space
 ---
 
 **Từ Lâu Space Team** là đội ngũ những người đam mê nghệ thuật thủ công và thiết kế bền vững.
