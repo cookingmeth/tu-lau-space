@@ -94,26 +94,41 @@
         </div>
 
         <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {{ range $index, $point := .bulletpoints }}
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-opacity-20 transition-all duration-300">
-              <!-- Icon based on content -->
-              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center">
-                {{ if eq $index 0 }}
-                  <i class="fa fa-graduation-cap text-white text-2xl"></i>
-                {{ else if eq $index 1 }}
-                  <i class="fa fa-users text-white text-2xl"></i>
-                {{ else if eq $index 2 }}
-                  <i class="fa fa-camera text-white text-2xl"></i>
-                {{ else }}
-                  <i class="fa fa-shield-alt text-white text-2xl"></i>
-                {{ end }}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+          {{ if .workshops }}
+            {{ range $index, $workshop := .workshops }}
+              <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-opacity-20 transition-all duration-300 transform hover:-translate-y-2">
+                <!-- Workshop Image -->
+                <div class="aspect-[4/3] overflow-hidden">
+                  {{ partial "image" (dict "Src" $workshop.image "Alt" $workshop.title "Class" "w-full h-full object-cover" "DisplayXL" "600x") }}
+                </div>
+                <div class="p-6 text-center">
+                  <h3 class="text-xl font-semibold text-white mb-3">{{ $workshop.title }}</h3>
+                  <p class="text-white/90 leading-relaxed">{{ $workshop.description | markdownify }}</p>
+                </div>
               </div>
+            {{ end }}
+          {{ else }}
+            {{ range $index, $point := .bulletpoints }}
+              <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-opacity-20 transition-all duration-300">
+                <!-- Icon based on content -->
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center">
+                  {{ if eq $index 0 }}
+                    <i class="fa fa-graduation-cap text-white text-2xl"></i>
+                  {{ else if eq $index 1 }}
+                    <i class="fa fa-users text-white text-2xl"></i>
+                  {{ else if eq $index 2 }}
+                    <i class="fa fa-camera text-white text-2xl"></i>
+                  {{ else }}
+                    <i class="fa fa-shield-alt text-white text-2xl"></i>
+                  {{ end }}
+                </div>
 
-              <div class="text-white">
-                {{ $point | markdownify }}
+                <div class="text-white">
+                  {{ $point | markdownify }}
+                </div>
               </div>
-            </div>
+            {{ end }}
           {{ end }}
         </div>
 
