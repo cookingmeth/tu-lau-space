@@ -7,6 +7,10 @@ HUGO_VERSION = "0.147.3"
 GO_VERSION = "1.24.2"
 
 # Enable Netlify Identity and Git Gateway for Decap CMS
+[identity]
+  # Enable Netlify Identity for authentication
+  external_providers = ["github", "google"]
+
 [context.production]
   [context.production.environment]
     HUGO_ENV = "production"
