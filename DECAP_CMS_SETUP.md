@@ -21,13 +21,25 @@ This site uses Auth0 for authentication. You need to set the following environme
 
 1. Go to your site dashboard on Netlify
 2. Navigate to **Site settings** → **Environment variables**
-3. Add the following variables (make sure they are NOT marked as "secret" - Auth0 client IDs are public values):
+3. Add the following variables:
 
    - `AUTH0_DOMAIN` - Your Auth0 domain (e.g., `dev-xxxxx.auth0.com`)
    - `AUTH0_CLIENT_ID` - Your Auth0 client ID (public value, safe to expose in frontend)
    - `AUTH0_REDIRECT_URI` - Your site's admin callback URL (e.g., `https://tulau.space/admin/`)
 
-**Important:** Do NOT mark `AUTH0_CLIENT_ID` as a secret variable in Netlify. Client IDs are meant to be public and are included in the frontend JavaScript. Marking it as secret will cause build failures.
+4. **CRITICAL CONFIGURATION REQUIREMENTS:**
+   - **DO NOT** mark these variables as "secret" (especially `AUTH0_CLIENT_ID` and `AUTH0_REDIRECT_URI`)
+   - Set the scope to **"Builds, Deployments, and Functions"** (NOT "Runtime-only")
+   - These variables must be available during the Hugo build process
+   - If marked as secret or runtime-only, Hugo cannot access them, causing "Unknown host" errors
+
+5. After adding the variables, trigger a new deployment
+
+**Why these settings matter:**
+- Auth0 client IDs are public values and meant to be included in frontend JavaScript
+- Hugo's `getenv` function only works at BUILD TIME, so variables must be available during builds
+- Secret/runtime-only variables are not accessible during the build process, causing template injection to fail
+- If template injection fails, the literal Auth0 domain string won't be replaced, causing DNS resolution errors
 
 ### 2. Deploy to Netlify (if not already done)
 

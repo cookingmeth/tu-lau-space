@@ -8,11 +8,18 @@ HUGO_VERSION = "0.147.3"
 GO_VERSION = "1.24.2"
 
 # Required Auth0 environment variables for CMS authentication
-# These should be set in Netlify UI: Site settings → Environment variables
-# IMPORTANT: Do NOT mark AUTH0_CLIENT_ID as "secret" - it's a public value
-# AUTH0_DOMAIN = "your-auth0-domain.auth0.com"
-# AUTH0_CLIENT_ID = "your-auth0-client-id"
-# AUTH0_REDIRECT_URI = "https://your-site.com/admin/"
+# These MUST be set in Netlify UI: Site settings → Environment variables
+#
+# CRITICAL CONFIGURATION:
+# - DO NOT mark AUTH0_CLIENT_ID or AUTH0_REDIRECT_URI as "secret"
+# - Set scope to "Builds, Deployments, and Functions" (NOT "Runtime-only")
+# - These variables must be available during Hugo build (getenv only works at build time)
+# - If misconfigured, you'll see "Unknown host: dev-xxxxx.auth0.com" errors
+#
+# Required variables:
+# AUTH0_DOMAIN = "dev-xxxxx.auth0.com"
+# AUTH0_CLIENT_ID = "your-auth0-client-id" (public value, safe for frontend)
+# AUTH0_REDIRECT_URI = "https://tulau.space/admin/"
 
 # Netlify Identity disabled - using Auth0 for authentication
 # [identity]
