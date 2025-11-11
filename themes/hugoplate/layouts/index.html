@@ -1,9 +1,9 @@
 {{ define "main" }}
   <!-- Banner -->
   {{ with .Params.banner }}
-    <section class="hero-section relative min-h-screen flex items-center overflow-hidden -mt-32 pt-32">
+    <section class="hero-section relative min-h-screen flex items-center overflow-hidden -mt-[8rem] pt-32">
       <!-- Background Image -->
-      <div class="absolute inset-0 -top-32 z-0">
+      <div class="absolute inset-0 -top-[8rem] z-0">
         {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-full object-cover" "DisplayXL" "1920x" ) }}
         <div class="absolute inset-0 bg-black/40"></div>
       </div>
