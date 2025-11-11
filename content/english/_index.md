@@ -9,13 +9,13 @@ banner:
   content: "Không cần vội vàng hay cầu toàn, chỉ cần đôi tay và một chút tò mò, bạn sẽ thấy đất dần biến thành hình hài riêng biệt. Mỗi lần nắn chỉnh, xoay tròn đều là một khoảnh khắc kết nối."
   image: "/images/hero.png"
   button:
-    enable: true
-    label: "Đặt lịch ngay"
-    link: "/booking-pricing"
+    enable: false
+    label: ""
+    link: ""
   secondary_button:
-    enable: true
-    label: "Nhận tư vấn chủ đề phù hợp"
-    link: "/contact"
+    enable: false
+    label: ""
+    link: ""
 
 features:
   - title: "Vì sao chọn Từ Lâu?"
