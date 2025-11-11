@@ -239,8 +239,6 @@ body:has(.hero-section) .header label[for="nav-toggle"] {
 /* Mobile menu background */
 .header .navbar-nav {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 @media (min-width: 1024px) {
@@ -252,8 +250,6 @@ body:has(.hero-section) .header label[for="nav-toggle"] {
 /* Dropdown menu styling for transparent header */
 .header .nav-dropdown-list {
   background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .header .nav-dropdown-link {
