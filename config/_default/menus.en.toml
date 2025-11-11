@@ -6,294 +6,296 @@ name = "TRANG CHỦ"
 url = "/"
 weight = 1
 
-[[main]]
-name = "DỊCH VỤ"
-url = "/services"
-weight = 2
+# Hidden DỊCH VỤ section
+# [[main]]
+# name = "DỊCH VỤ"
+# url = "/services"
+# weight = 2
 
-  [[main]]
-  parent = "DỊCH VỤ"
-  name = "Workshop Riêng Tư"
-  url = "/services/private-workshop"
-  weight = 1
+#   [[main]]
+#   parent = "DỊCH VỤ"
+#   name = "Workshop Riêng Tư"
+#   url = "/services/private-workshop"
+#   weight = 1
 
-  [[main]]
-  parent = "DỊCH VỤ"
-  name = "Workshop Cộng Đồng"
-  url = "/services/community-workshop"
-  weight = 2
+#   [[main]]
+#   parent = "DỊCH VỤ"
+#   name = "Workshop Cộng Đồng"
+#   url = "/services/community-workshop"
+#   weight = 2
 
-  [[main]]
-  parent = "DỊCH VỤ"
-  name = "Workshop Doanh Nghiệp"
-  url = "/services/corporate-workshop"
-  weight = 3
+#   [[main]]
+#   parent = "DỊCH VỤ"
+#   name = "Workshop Doanh Nghiệp"
+#   url = "/services/corporate-workshop"
+# #   weight = 3
 
-  [[main]]
-  parent = "DỊCH VỤ"
-  name = "Nung Gốm Thuê"
-  url = "/pages/firing"
-  weight = 4
+#   [[main]]
+#   parent = "DỊCH VỤ"
+#   name = "Nung Gốm Thuê"
+#   url = "/pages/firing"
+#   weight = 4
 
-  [[main]]
-  parent = "DỊCH VỤ"
-  name = "Theo Dõi Gốm"
-  url = "/pages/theo-doi-gom"
-  weight = 5
+#   [[main]]
+#   parent = "DỊCH VỤ"
+#   name = "Theo Dõi Gốm"
+#   url = "/pages/theo-doi-gom"
+#   weight = 5
 
-[[main]]
-name = "WORKSHOP"
-url = "/workshops"
-weight = 3
+# Hidden WORKSHOP section
+# [[main]]
+# name = "WORKSHOP"
+# url = "/workshops"
+# weight = 3
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Gốm"
-  url = "/workshops/gom"
-  weight = 1
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Gốm"
+#   url = "/workshops/gom"
+#   weight = 1
 
-    [[main]]
-    parent = "Gốm"
-    name = "Gốm Tạo Hình"
-    url = "/workshops/gom/gom-tao-hinh-tron-goi"
-    weight = 1
+#     [[main]]
+#     parent = "Gốm"
+#     name = "Gốm Tạo Hình"
+#     url = "/workshops/gom/gom-tao-hinh-tron-goi"
+#     weight =1
 
-    [[main]]
-    parent = "Gốm"
-    name = "Gốm Tô Vẽ"
-    url = "/workshops/gom/gom-to-ve"
-    weight = 2
+#     [[main]]
+#     parent = "Gốm"
+#     name = "Gốm Tô Vẽ"
+#     url = "/workshops/gom/gom-to-ve"
+#     weight =2
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Hương"
-  url = "/workshops/huong"
-  weight = 2
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Hương"
+#   url = "/workshops/huong"
+#   weight = 2
+
+#     [[main]]
+#     parent = "Hương"
+#     name = "Bình Xịt Thơm"
+#     url = "/workshops/huong/binh-xit-thom"
+#     weight =1
+
+#     [[main]]
+#     parent = "Hương"
+#     name = "Túi Thơm"
+#     url = "/workshops/huong/tui-thom"
+#     weight =2
+
+#     [[main]]
+#     parent = "Hương"
+#     name = "Nước Hoa"
+#     url = "/workshops/huong/nuoc-hoa"
+#     weight =3
 
     [[main]]
     parent = "Hương"
-    name = "Bình Xịt Thơm"
-    url = "/workshops/huong/binh-xit-thom"
-    weight = 1
+#     name = "Nến Thơm"
+#     url = "/workshops/huong/nen-thom"
+#     weight =4
 
-    [[main]]
-    parent = "Hương"
-    name = "Túi Thơm"
-    url = "/workshops/huong/tui-thom"
-    weight = 2
-
-    [[main]]
-    parent = "Hương"
-    name = "Nước Hoa"
-    url = "/workshops/huong/nuoc-hoa"
-    weight = 3
-
-    [[main]]
-    parent = "Hương"
-    name = "Nến Thơm"
-    url = "/workshops/huong/nen-thom"
-    weight = 4
-
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Giấy Trang Trí"
-  url = "/workshops/giay-trang-tri"
-  weight = 3
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Giấy Trang Trí"
+#   url = "/workshops/giay-trang-tri"
+#   weight = 3
 
     [[main]]
     parent = "Giấy Trang Trí"
-    name = "Scrapbook"
-    url = "/workshops/giay-trang-tri/scrapbook"
-    weight = 1
+#     name = "Scrapbook"
+#     url = "/workshops/giay-trang-tri/scrapbook"
+#     weight =1
+
+#     [[main]]
+#     parent = "Giấy Trang Trí"
+#     name = "Bookmark"
+#     url = "/workshops/giay-trang-tri/bookmark"
+#     weight =2
+
+#     [[main]]
+#     parent = "Giấy Trang Trí"
+#     name = "Hộp Quà"
+#     url = "/workshops/giay-trang-tri/hop-qua"
+#     weight =3
 
     [[main]]
     parent = "Giấy Trang Trí"
-    name = "Bookmark"
-    url = "/workshops/giay-trang-tri/bookmark"
-    weight = 2
+#     name = "Postcard & Khung Ảnh"
+#     url = "/workshops/giay-trang-tri/postcard-khung-anh"
+#     weight =4
 
-    [[main]]
-    parent = "Giấy Trang Trí"
-    name = "Hộp Quà"
-    url = "/workshops/giay-trang-tri/hop-qua"
-    weight = 3
-
-    [[main]]
-    parent = "Giấy Trang Trí"
-    name = "Postcard & Khung Ảnh"
-    url = "/workshops/giay-trang-tri/postcard-khung-anh"
-    weight = 4
-
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Thêu Len Vải"
-  url = "/workshops/theu-len-vai"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Thêu Len Vải"
+#   url = "/workshops/theu-len-vai"
   weight = 4
 
     [[main]]
     parent = "Thêu Len Vải"
-    name = "Thêu Hiện Đại"
-    url = "/workshops/theu-len-vai/theu-hien-dai"
-    weight = 1
+#     name = "Thêu Hiện Đại"
+#     url = "/workshops/theu-len-vai/theu-hien-dai"
+#     weight =1
 
-    [[main]]
-    parent = "Thêu Len Vải"
-    name = "Đan Móc Len"
-    url = "/workshops/theu-len-vai/dan-moc-len"
-    weight = 2
+#     [[main]]
+#     parent = "Thêu Len Vải"
+#     name = "Đan Móc Len"
+#     url = "/workshops/theu-len-vai/dan-moc-len"
+#     weight =2
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Custom Đồ Dùng"
-  url = "/workshops/custom-do-dung"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Custom Đồ Dùng"
+#   url = "/workshops/custom-do-dung"
   weight = 5
 
     [[main]]
     parent = "Custom Đồ Dùng"
-    name = "Custom Sổ Tay"
-    url = "/workshops/custom-do-dung/custom-so-tay"
-    weight = 1
+#     name = "Custom Sổ Tay"
+#     url = "/workshops/custom-do-dung/custom-so-tay"
+#     weight =1
+
+#     [[main]]
+#     parent = "Custom Đồ Dùng"
+#     name = "Custom Túi Tote"
+#     url = "/workshops/custom-do-dung/custom-tui-tote"
+#     weight =2
+
+#     [[main]]
+#     parent = "Custom Đồ Dùng"
+#     name = "Custom Ốp Điện Thoại"
+#     url = "/workshops/custom-do-dung/custom-op-dien-thoai"
+#     weight =3
 
     [[main]]
     parent = "Custom Đồ Dùng"
-    name = "Custom Túi Tote"
-    url = "/workshops/custom-do-dung/custom-tui-tote"
-    weight = 2
+#     name = "Thiệp"
+#     url = "/workshops/custom-do-dung/thiep"
+#     weight =4
 
-    [[main]]
-    parent = "Custom Đồ Dùng"
-    name = "Custom Ốp Điện Thoại"
-    url = "/workshops/custom-do-dung/custom-op-dien-thoai"
-    weight = 3
-
-    [[main]]
-    parent = "Custom Đồ Dùng"
-    name = "Thiệp"
-    url = "/workshops/custom-do-dung/thiep"
-    weight = 4
-
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Phụ Kiện"
-  url = "/workshops/phu-kien"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Phụ Kiện"
+#   url = "/workshops/phu-kien"
   weight = 6
 
     [[main]]
     parent = "Phụ Kiện"
-    name = "Hairwrap & Hairclip"
-    url = "/workshops/phu-kien/hairwrap-hairclip"
-    weight = 1
+#     name = "Hairwrap & Hairclip"
+#     url = "/workshops/phu-kien/hairwrap-hairclip"
+#     weight =1
 
-    [[main]]
-    parent = "Phụ Kiện"
-    name = "Dreamcatcher"
-    url = "/workshops/phu-kien/dreamcatcher"
-    weight = 2
+#     [[main]]
+#     parent = "Phụ Kiện"
+#     name = "Dreamcatcher"
+#     url = "/workshops/phu-kien/dreamcatcher"
+#     weight =2
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Trang Trí Nghệ Thuật"
-  url = "/workshops/trang-tri-nghe-thuat"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Trang Trí Nghệ Thuật"
+#   url = "/workshops/trang-tri-nghe-thuat"
   weight = 7
 
     [[main]]
     parent = "Trang Trí Nghệ Thuật"
-    name = "Đèn Thủy Tinh"
-    url = "/workshops/trang-tri-nghe-thuat/den-thuy-tinh"
-    weight = 1
+#     name = "Đèn Thủy Tinh"
+#     url = "/workshops/trang-tri-nghe-thuat/den-thuy-tinh"
+#     weight =1
 
-    [[main]]
-    parent = "Trang Trí Nghệ Thuật"
-    name = "Collage"
-    url = "/workshops/trang-tri-nghe-thuat/collage"
-    weight = 2
+#     [[main]]
+#     parent = "Trang Trí Nghệ Thuật"
+#     name = "Collage"
+#     url = "/workshops/trang-tri-nghe-thuat/collage"
+#     weight =2
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Tái Chế"
-  url = "/workshops/tai-che"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Tái Chế"
+#   url = "/workshops/tai-che"
   weight = 8
 
     [[main]]
     parent = "Tái Chế"
-    name = "Mosaic Từ Xốp"
-    url = "/workshops/tai-che/mosaic-tu-xop"
-    weight = 1
+#     name = "Mosaic Từ Xốp"
+#     url = "/workshops/tai-che/mosaic-tu-xop"
+#     weight =1
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Cây Xanh"
-  url = "/workshops/cay-xanh"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Cây Xanh"
+#   url = "/workshops/cay-xanh"
   weight = 9
 
     [[main]]
     parent = "Cây Xanh"
-    name = "Kokedama (Cầu Rêu)"
-    url = "/workshops/cay-xanh/kokedama-cau-reu"
-    weight = 1
+#     name = "Kokedama (Cầu Rêu)"
+#     url = "/workshops/cay-xanh/kokedama-cau-reu"
+#     weight =1
 
-    [[main]]
-    parent = "Cây Xanh"
-    name = "Terrarium"
-    url = "/workshops/cay-xanh/terrarium"
-    weight = 2
+#     [[main]]
+#     parent = "Cây Xanh"
+#     name = "Terrarium"
+#     url = "/workshops/cay-xanh/terrarium"
+#     weight =2
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Trải Nghiệm & Phát Triển"
-  url = "/workshops/trai-nghiem-va-phat-trien"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Trải Nghiệm & Phát Triển"
+#   url = "/workshops/trai-nghiem-va-phat-trien"
   weight = 10
 
     [[main]]
     parent = "Trải Nghiệm & Phát Triển"
-    name = "Tarot"
-    url = "/workshops/trai-nghiem-va-phat-trien/tarot"
-    weight = 1
+#     name = "Tarot"
+#     url = "/workshops/trai-nghiem-va-phat-trien/tarot"
+#     weight =1
 
-    [[main]]
-    parent = "Trải Nghiệm & Phát Triển"
-    name = "Vision Board"
-    url = "/workshops/trai-nghiem-va-phat-trien/vision-board"
-    weight = 2
+#     [[main]]
+#     parent = "Trải Nghiệm & Phát Triển"
+#     name = "Vision Board"
+#     url = "/workshops/trai-nghiem-va-phat-trien/vision-board"
+#     weight =2
 
-    [[main]]
-    parent = "Trải Nghiệm & Phát Triển"
-    name = "Lịch Để Bàn/Treo Tường"
-    url = "/workshops/trai-nghiem-va-phat-trien/lich-de-ban-treo-tuong"
-    weight = 3
+#     [[main]]
+#     parent = "Trải Nghiệm & Phát Triển"
+#     name = "Lịch Để Bàn/Treo Tường"
+#     url = "/workshops/trai-nghiem-va-phat-trien/lich-de-ban-treo-tuong"
+#     weight =3
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Nhựa & Resin"
-  url = "/workshops/nhua-va-resin"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Nhựa & Resin"
+#   url = "/workshops/nhua-va-resin"
   weight = 11
 
     [[main]]
     parent = "Nhựa & Resin"
-    name = "Resin Đồ"
-    url = "/workshops/nhua-va-resin/resin-do"
-    weight = 1
+#     name = "Resin Đồ"
+#     url = "/workshops/nhua-va-resin/resin-do"
+#     weight =1
 
-    [[main]]
-    parent = "Nhựa & Resin"
-    name = "Nhựa Co Nhiệt"
-    url = "/workshops/nhua-va-resin/nhua-co-nhiet"
-    weight = 2
+#     [[main]]
+#     parent = "Nhựa & Resin"
+#     name = "Nhựa Co Nhiệt"
+#     url = "/workshops/nhua-va-resin/nhua-co-nhiet"
+#     weight =2
 
-    [[main]]
-    parent = "Nhựa & Resin"
-    name = "Vẽ Túi Tote"
-    url = "/workshops/nhua-va-resin/ve-tui-tote"
-    weight = 3
+#     [[main]]
+#     parent = "Nhựa & Resin"
+#     name = "Vẽ Túi Tote"
+#     url = "/workshops/nhua-va-resin/ve-tui-tote"
+#     weight =3
 
-  [[main]]
-  parent = "WORKSHOP"
-  name = "Đặt Lịch & Bảng Giá"
+#   [[main]]
+#   parent = "WORKSHOP"
+#   name = "Đặt Lịch & Bảng Giá"
   url = "/dat-lich-bang-gia"
   weight = 12
 
 [[main]]
-name = "GỐM WORKSHOP"
+name = "WORKSHOP GỐM"
 url = "/theo-doi-gom"
 weight = 4
 
