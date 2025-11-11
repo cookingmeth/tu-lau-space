@@ -7,17 +7,6 @@ functions = "netlify/functions"
 HUGO_VERSION = "0.147.3"
 GO_VERSION = "1.24.2"
 
-# Required Auth0 environment variables for CMS authentication
-# These should be set in Netlify UI: Site settings → Environment variables
-# IMPORTANT: Do NOT mark AUTH0_CLIENT_ID as "secret" - it's a public value
-# AUTH0_DOMAIN = "your-auth0-domain.auth0.com"
-# AUTH0_CLIENT_ID = "your-auth0-client-id"
-# AUTH0_REDIRECT_URI = "https://your-site.com/admin/"
-
-# Netlify Identity disabled - using Auth0 for authentication
-# [identity]
-#   external_providers = ["github", "google"]
-
 [context.production]
   [context.production.environment]
     HUGO_ENV = "production"

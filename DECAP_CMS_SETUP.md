@@ -9,33 +9,17 @@ Decap CMS (formerly Netlify CMS) is a Git-based content management system that p
 The following files have been added to your project:
 
 - `static/admin/config.yml` - CMS configuration
-- `layouts/admin/index.html` - CMS admin interface with Auth0 authentication
-- `layouts/partials/essentials/head.html` - Added Netlify Identity widget
-- `layouts/partials/essentials/script.html` - Added Identity redirect script
+- `layouts/admin/index.html` - CMS admin interface
 
 ## Setup Steps
 
-### 1. Configure Auth0 Environment Variables
-
-This site uses Auth0 for authentication. You need to set the following environment variables in your Netlify site settings:
-
-1. Go to your site dashboard on Netlify
-2. Navigate to **Site settings** → **Environment variables**
-3. Add the following variables (make sure they are NOT marked as "secret" - Auth0 client IDs are public values):
-
-   - `AUTH0_DOMAIN` - Your Auth0 domain (e.g., `dev-xxxxx.auth0.com`)
-   - `AUTH0_CLIENT_ID` - Your Auth0 client ID (public value, safe to expose in frontend)
-   - `AUTH0_REDIRECT_URI` - Your site's admin callback URL (e.g., `https://tulau.space/admin/`)
-
-**Important:** Do NOT mark `AUTH0_CLIENT_ID` as a secret variable in Netlify. Client IDs are meant to be public and are included in the frontend JavaScript. Marking it as secret will cause build failures.
-
-### 2. Deploy to Netlify (if not already done)
+### 1. Deploy to Netlify (if not already done)
 
 1. Go to [Netlify](https://app.netlify.com)
 2. Connect your GitHub repository
 3. Deploy your site
 
-### 3. Configure GitHub OAuth App (for CMS Backend)
+### 2. Configure GitHub OAuth App (for CMS Backend)
 
 1. Go to your site dashboard on Netlify
 2. Navigate to **Site settings** → **Access control** → **OAuth**
@@ -44,7 +28,7 @@ This site uses Auth0 for authentication. You need to set the following environme
 
 This allows Decap CMS to commit changes to your repository using the GitHub backend.
 
-### 4. Access the CMS
+### 3. Access the CMS
 
 Once deployed, access your CMS at:
 ```
@@ -118,9 +102,9 @@ For editorial workflow:
 ## Troubleshooting
 
 ### Cannot log in
-- Make sure Netlify Identity is enabled
-- Check that Git Gateway is enabled
-- Verify you've been invited as a user
+- Make sure GitHub OAuth is configured in Netlify
+- Verify you have access to the GitHub repository
+- Check that the OAuth provider is properly set up in Netlify settings
 
 ### Changes not appearing
 - Check that changes were published, not just saved
@@ -129,17 +113,17 @@ For editorial workflow:
 
 ### Images not uploading
 - Check `media_folder` path in config.yml
-- Ensure you have write permissions (via Git Gateway)
+- Ensure you have write permissions to the GitHub repository
 
 ## Support
 
 - [Decap CMS Documentation](https://decapcms.org/docs/)
-- [Netlify Identity Documentation](https://docs.netlify.com/visitor-access/identity/)
 - [Hugo Documentation](https://gohugo.io/documentation/)
+- [Netlify OAuth Documentation](https://docs.netlify.com/visitor-access/oauth-provider-tokens/)
 
 ## Security Notes
 
-- Always use "Invite only" registration
-- Regularly review authorized users in Netlify Identity
-- Consider enabling 2FA for Netlify account
-- The CMS commits are logged with user information
+- Regularly review authorized users with GitHub repository access
+- Consider enabling 2FA for GitHub and Netlify accounts
+- The CMS commits are logged with GitHub user information
+- Only grant repository access to trusted users
