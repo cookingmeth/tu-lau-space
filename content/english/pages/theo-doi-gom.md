@@ -431,28 +431,6 @@ function displayResults(results) {
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="info-card">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="info-card-icon bg-blue-500"></span>
-            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Vận chuyển</div>
-          </div>
-          <div class="text-base font-bold text-gray-800 dark:text-white">${item.shipping || 'Chưa cập nhật'}</div>
-        </div>
-        <div class="info-card">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="info-card-icon bg-orange-500"></span>
-            <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">TÌNH TRẠNG NUNG</div>
-          </div>
-          <div class="text-base font-bold">
-            ${item.firing_status ?
-              '<span class="text-green-600 dark:text-green-400"><i class="fa fa-fire mr-2"></i>Đã nung</span>' :
-              '<span class="text-orange-600 dark:text-orange-400"><i class="fa fa-clock mr-2"></i>Chưa nung</span>'
-            }
-          </div>
-        </div>
-      </div>
-
       <div class="info-card mb-6">
         <div class="flex items-center gap-2 mb-2">
           <span class="info-card-icon bg-gray-500"></span>
