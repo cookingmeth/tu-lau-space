@@ -1,1 +1,8 @@
+# Netlify Identity endpoint - pass through without redirect
+/.netlify/identity    /.netlify/identity    200!
+
+# Admin panel redirect
+/admin/*              /admin/index.html     200
+
+# Default 404 redirect for all other pages
 /* /en/404.html 404
