@@ -18,82 +18,54 @@
             <p class="mb-8 text-white/90 text-lg lg:text-xl leading-relaxed">
               {{ .content | markdownify }}
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 mb-12">
-              {{ with .button }}
-                {{ if .enable }}
-                  <a
-                    class="btn btn-primary"
-                    href="{{ .link | absURL }}"
-                    {{ if strings.HasPrefix .link `http` }}
-                      target="_blank" rel="noopener"
-                    {{ end }}>
-                    {{ .label }}
-                    <i class="fa fa-arrow-right pl-2"></i>
-                  </a>
-                {{ end }}
-              {{ end }}
-              {{ with .secondary_button }}
-                {{ if .enable }}
-                  <a
-                    class="btn btn-outline-primary"
-                    href="{{ .link | absURL }}"
-                    {{ if strings.HasPrefix .link `http` }}
-                      target="_blank" rel="noopener"
-                    {{ end }}>
-                    {{ .label }}
-                    <i class="fa fa-comment pl-2"></i>
-                  </a>
-                {{ end }}
-              {{ end }}
-            </div>
 
             <!-- Service Buttons in Hero -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mt-12">
               <!-- Đặt lịch workshop riêng tư -->
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
-                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
-                  <i class="fa fa-calendar text-xl"></i>
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 flex flex-col items-center justify-between h-full">
+                <div class="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 text-white mb-3 md:mb-4">
+                  <i class="fa fa-calendar text-lg md:text-xl"></i>
                 </div>
-                <h3 class="text-sm font-semibold text-white mb-2">Đặt lịch workshop<br>riêng tư</h3>
-                <a href="/services/private-workshop" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                <h3 class="text-sm md:text-base font-semibold text-white mb-2 md:mb-3 leading-snug">Đặt lịch workshop<br>riêng tư</h3>
+                <a href="/services/private-workshop" class="text-white/80 hover:text-white text-xs md:text-sm inline-flex items-center gap-1 transition-colors">
                   Đặt lịch ngay
-                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                  <i class="fa fa-arrow-right text-xs"></i>
                 </a>
               </div>
 
               <!-- Tư vấn workshop doanh nghiệp -->
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
-                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
-                  <i class="fa fa-envelope text-xl"></i>
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 flex flex-col items-center justify-between h-full">
+                <div class="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 text-white mb-3 md:mb-4">
+                  <i class="fa fa-envelope text-lg md:text-xl"></i>
                 </div>
-                <h3 class="text-sm font-semibold text-white mb-2">Tư vấn workshop<br>doanh nghiệp</h3>
-                <a href="/services/corporate-workshop" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                <h3 class="text-sm md:text-base font-semibold text-white mb-2 md:mb-3 leading-snug">Tư vấn workshop<br>doanh nghiệp</h3>
+                <a href="/services/corporate-workshop" class="text-white/80 hover:text-white text-xs md:text-sm inline-flex items-center gap-1 transition-colors">
                   Tìm hiểu thêm
-                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                  <i class="fa fa-arrow-right text-xs"></i>
                 </a>
               </div>
 
               <!-- Hợp tác với chúng tôi -->
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
-                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
-                  <i class="fa fa-handshake text-xl"></i>
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 flex flex-col items-center justify-between h-full">
+                <div class="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 text-white mb-3 md:mb-4">
+                  <i class="fa fa-handshake text-lg md:text-xl"></i>
                 </div>
-                <h3 class="text-sm font-semibold text-white mb-2">Hợp tác với<br>chúng tôi</h3>
-                <a href="/contact" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                <h3 class="text-sm md:text-base font-semibold text-white mb-2 md:mb-3 leading-snug">Hợp tác với<br>chúng tôi</h3>
+                <a href="/contact" class="text-white/80 hover:text-white text-xs md:text-sm inline-flex items-center gap-1 transition-colors">
                   Liên hệ
-                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                  <i class="fa fa-arrow-right text-xs"></i>
                 </a>
               </div>
 
               <!-- Ghé thăm Từ Lâu Space -->
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
-                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
-                  <i class="fa fa-map-marker-alt text-xl"></i>
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 flex flex-col items-center justify-between h-full">
+                <div class="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 text-white mb-3 md:mb-4">
+                  <i class="fa fa-map-marker-alt text-lg md:text-xl"></i>
                 </div>
-                <h3 class="text-sm font-semibold text-white mb-2">Ghé thăm<br>Từ Lâu Space</h3>
-                <a href="/about" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                <h3 class="text-sm md:text-base font-semibold text-white mb-2 md:mb-3 leading-snug">Ghé thăm<br>Từ Lâu Space</h3>
+                <a href="/about" class="text-white/80 hover:text-white text-xs md:text-sm inline-flex items-center gap-1 transition-colors">
                   Tìm hiểu thêm
-                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                  <i class="fa fa-arrow-right text-xs"></i>
                 </a>
               </div>
             </div>
