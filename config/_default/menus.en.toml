@@ -148,10 +148,10 @@ weight = 1
 #   parent = "WORKSHOP"
 #   name = "Custom Đồ Dùng"
 #   url = "/workshops/custom-do-dung"
-  weight = 5
+#   weight = 5
 
-    [[main]]
-    parent = "Custom Đồ Dùng"
+#     [[main]]
+#     parent = "Custom Đồ Dùng"
 #     name = "Custom Sổ Tay"
 #     url = "/workshops/custom-do-dung/custom-so-tay"
 #     weight =1
@@ -168,8 +168,8 @@ weight = 1
 #     url = "/workshops/custom-do-dung/custom-op-dien-thoai"
 #     weight =3
 
-    [[main]]
-    parent = "Custom Đồ Dùng"
+#     [[main]]
+#     parent = "Custom Đồ Dùng"
 #     name = "Thiệp"
 #     url = "/workshops/custom-do-dung/thiep"
 #     weight =4
