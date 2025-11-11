@@ -343,7 +343,12 @@ async function searchPottery() {
 
   try {
     // Call Netlify Function API endpoint
-    const response = await fetch('/.netlify/functions/pottery-search', {
+    // Use the netlify.app domain directly since custom domain functions aren't working yet
+    const apiUrl = window.location.hostname === 'tulau.space'
+      ? 'https://tulau.netlify.app/.netlify/functions/pottery-search'
+      : '/.netlify/functions/pottery-search';
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
