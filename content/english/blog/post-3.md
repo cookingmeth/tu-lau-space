@@ -23,10 +23,10 @@ Bạn là tín đồ săn đồ si, yêu thích phong cách vintage và muốn t
 
 ## Liên hệ Từ Lâu Space
 
-- Địa điểm: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
+- Địa điểm: 7 Phan Tây Hồ, Phường Cầu Kiệu, Phú Nhuận, Thành phố Hồ Chí Minh
 - Xem sản phẩm và đặt hàng online tại [tulau.space](https://tulau.space)
-- Hotline: 039 503 6478
+- Hotline: 0395 036 478
 - Email: tulau.contact@gmail.com
-- Facebook: [@Tulau.space](https://facebook.com/Tulau.space)
+- Facebook: [@tulau.space](https://facebook.com/tulau.space)
 
 **Đến Từ Lâu Space để khám phá sản phẩm handmade độc đáo và lan tỏa lối sống xanh cùng cộng đồng!**

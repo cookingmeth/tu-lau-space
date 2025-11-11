@@ -26,7 +26,7 @@ Từ Lâu Space được Google xếp hạng top kết quả **“workshop gốm
 - Lớp nhỏ để đảm bảo chất lượng học (tối đa 6 học viên)
 - Giá cả phù hợp cho mọi đối tượng
 
-> **Liên hệ Hotline/Zalo: 039 503 6478** hoặc **Facebook: [@Tulau.space](https://facebook.com/Tulau.space)** để đặt lịch và biết thêm chi tiết về giá cả và lịch trống.
+> **Liên hệ Hotline/Zalo: 0395 036 478** hoặc **Facebook: [@tulau.space](https://facebook.com/tulau.space)** để đặt lịch và biết thêm chi tiết về giá cả và lịch trống.
 
 ---
 

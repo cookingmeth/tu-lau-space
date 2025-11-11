@@ -28,7 +28,7 @@ Fonts, bảng màu, layout thiết kế và kho ảnh tuân theo guideline nội
 
 ## Không gian của chúng tôi
 
-📍 **Vị trí**: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh - Không gian dễ dàng tiếp cận và thuận tiện di chuyển.
+📍 **Vị trí**: 7 Phan Tây Hồ, Phường Cầu Kiệu, Phú Nhuận, Thành phố Hồ Chí Minh - Không gian dễ dàng tiếp cận và thuận tiện di chuyển.
 
 🏡 **Thiết kế**: Không gian ấm áp, thoải mái với nhiều cây xanh và ánh sáng tự nhiên, tạo cảm giác thư thái và sáng tạo.
 
@@ -47,10 +47,10 @@ Chúng tôi tin rằng mỗi lựa chọn nhỏ hướng tới sự bền vững
 
 ## Tham gia cộng đồng
 
-🔗 **Facebook**: [@Tulau.space](https://facebook.com/Tulau.space)
+🔗 **Facebook**: [@tulau.space](https://facebook.com/tulau.space)
 📸 **Instagram**: Theo dõi chúng tôi để cập nhật các workshop mới nhất
 📧 **Email**: tulau.contact@gmail.com
-📱 **Hotline**: 039 503 6478
+📱 **Hotline**: 0395 036 478
 
 ---
 
