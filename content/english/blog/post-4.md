@@ -24,9 +24,9 @@ Từ Lâu Space không chỉ là nơi tổ chức workshop gốm, upcycle hay th
 ## Tham Gia Cộng Đồng Từ Lâu Space
 
 - Theo dõi lịch sự kiện tại [tulau.space](https://tulau.space)
-- Địa điểm: 7 Phan Tây Hồ, Phường 7, Quận Phú Nhuận, TP. Hồ Chí Minh
-- Hotline: 039 503 6478
+- Địa điểm: 7 Phan Tây Hồ, Phường Cầu Kiệu, Phú Nhuận, Thành phố Hồ Chí Minh
+- Hotline: 0395 036 478
 - Email: tulau.contact@gmail.com
-- Facebook: [@Tulau.space](https://facebook.com/Tulau.space)
+- Facebook: [@tulau.space](https://facebook.com/tulau.space)
 
 **Hãy đến Từ Lâu Space để sáng tạo, kết nối và lan tỏa cảm hứng nghệ thuật tại Sài Gòn!**

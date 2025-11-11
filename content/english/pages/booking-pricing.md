@@ -18,7 +18,7 @@ draft: false
 Khám phá 31+ chủ đề handmade đa dạng từ gốm, nến thơm, thêu, đan len, resin, terrarium đến các workshop nghệ thuật độc đáo khác. [Xem danh sách đầy đủ](/workshops)
 
 ### Bước 3: Liên hệ đặt lịch
-- **Facebook**: [@Tulau.space](https://facebook.com/Tulau.space) - Nhắn tin trực tiếp
+- **Facebook**: [@tulau.space](https://facebook.com/tulau.space) - Nhắn tin trực tiếp
 - **Email**: tulau.contact@gmail.com
 - Cung cấp thông tin: thời gian mong muốn, số người, chủ đề quan tâm
 
