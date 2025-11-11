@@ -6,6 +6,11 @@ command = "yarn project-setup; yarn build"
 HUGO_VERSION = "0.147.3"
 GO_VERSION = "1.24.2"
 
+# Enable Netlify Identity and Git Gateway for Decap CMS
+[context.production]
+  [context.production.environment]
+    HUGO_ENV = "production"
+
 [[headers]]
 for = "/*"
 [headers.values]
