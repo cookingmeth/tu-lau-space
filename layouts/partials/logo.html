@@ -1,0 +1,30 @@
+{{- $logo := site.Params.logo -}}
+{{- $logo_darkmode := site.Params.logo_darkmode -}}
+{{- $logo_width := site.Params.logo_width -}}
+{{- $logo_height := site.Params.logo_height -}}
+{{- $logo_text := site.Params.logo_text -}}
+
+{{- if $logo -}}
+  {{- $logo_path := printf "assets/%s" $logo -}}
+  {{- if fileExists $logo_path -}}
+    {{- $logo_image := resources.Get $logo -}}
+    {{- if $logo_image -}}
+      <img
+        loading="preload"
+        decoding="async"
+        class="inline-block max-w-full h-auto"
+        style="max-height: {{ $logo_height }}; width: auto;"
+        src="{{ $logo_image.RelPermalink }}"
+        alt="{{ site.Title }}"
+        {{- if $logo_width }} width="{{ $logo_width }}"{{ end -}}
+        {{- if $logo_height }} height="{{ $logo_height }}"{{ end -}}
+      />
+    {{- else -}}
+      <span>{{ $logo_text }}</span>
+    {{- end -}}
+  {{- else -}}
+    <span>{{ $logo_text }}</span>
+  {{- end -}}
+{{- else -}}
+  <span>{{ $logo_text }}</span>
+{{- end -}}

@@ -222,6 +222,20 @@ body:has(.hero-section) .header label[for="nav-toggle"] {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Logo sizing - prevent white space */
+.navbar-brand img {
+  max-height: 60px;
+  height: auto;
+  width: auto;
+  display: block;
+}
+
+/* Ensure header doesn't have excessive padding */
+.header {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 /* Mobile menu background */
 .header .navbar-nav {
   background: rgba(255, 255, 255, 0.95);
