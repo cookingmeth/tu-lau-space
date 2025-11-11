@@ -6,8 +6,9 @@ logo = "images/logo.png"
 logo_darkmode = "images/logo.png"
 # use `px` or `x` with logo_width, example: "100px".
 # Note: logo_width is not work with .svg file
-logo_width = "160px"
-logo_height = "32px"
+# Adjusted to match logo aspect ratio (228x200) and fit nicely in header
+logo_width = "auto"
+logo_height = "60px"
 # if logo_webp set false, will not generate WEBP version of logo | default is true
 logo_webp = true
 # logo text will only show when logo is missing.
