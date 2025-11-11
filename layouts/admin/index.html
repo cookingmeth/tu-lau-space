@@ -13,11 +13,62 @@
 
   <!-- Auth0 Authentication -->
   <script>
+    // Auth0 configuration from environment variables
+    const AUTH0_DOMAIN = '{{ getenv "AUTH0_DOMAIN" }}';
+    const AUTH0_CLIENT_ID = '{{ getenv "AUTH0_CLIENT_ID" }}';
+    const AUTH0_REDIRECT_URI = '{{ getenv "AUTH0_REDIRECT_URI" }}';
+
+    // Validate environment variables are set
+    function validateConfig() {
+      const missingVars = [];
+      if (!AUTH0_DOMAIN || AUTH0_DOMAIN.trim() === '') {
+        missingVars.push('AUTH0_DOMAIN');
+      }
+      if (!AUTH0_CLIENT_ID || AUTH0_CLIENT_ID.trim() === '') {
+        missingVars.push('AUTH0_CLIENT_ID');
+      }
+      if (!AUTH0_REDIRECT_URI || AUTH0_REDIRECT_URI.trim() === '') {
+        missingVars.push('AUTH0_REDIRECT_URI');
+      }
+      return missingVars;
+    }
+
+    const missingVars = validateConfig();
+
+    if (missingVars.length > 0) {
+      // Show error message if environment variables are not configured
+      document.body.innerHTML = `
+        <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; background: #fee; border: 2px solid #c33; border-radius: 8px;">
+          <h1 style="color: #c33; margin-top: 0;">⚠️ Configuration Error</h1>
+          <p><strong>The following Auth0 environment variables are not configured:</strong></p>
+          <ul style="background: white; padding: 15px 15px 15px 35px; border-radius: 4px; font-family: monospace;">
+            ${missingVars.map(v => `<li>${v}</li>`).join('')}
+          </ul>
+          <p>To fix this issue:</p>
+          <ol>
+            <li>Go to your Netlify dashboard</li>
+            <li>Navigate to <strong>Site settings → Environment variables</strong></li>
+            <li>Add the missing environment variables:
+              <ul style="margin-top: 10px;">
+                <li><code>AUTH0_DOMAIN</code> - Your Auth0 domain (e.g., <code>dev-xxxxx.auth0.com</code>)</li>
+                <li><code>AUTH0_CLIENT_ID</code> - Your Auth0 client ID</li>
+                <li><code>AUTH0_REDIRECT_URI</code> - Your admin callback URL (e.g., <code>https://tulau.space/admin/</code>)</li>
+              </ul>
+            </li>
+            <li>Trigger a new deploy</li>
+          </ol>
+          <p style="margin-bottom: 0;"><small>See <code>DECAP_CMS_SETUP.md</code> for detailed setup instructions.</small></p>
+        </div>
+      `;
+      console.error('Auth0 configuration error: Missing environment variables:', missingVars);
+      return;
+    }
+
     const auth0Config = {
-      domain: '{{ getenv "AUTH0_DOMAIN" }}',
-      clientId: '{{ getenv "AUTH0_CLIENT_ID" }}',
+      domain: AUTH0_DOMAIN,
+      clientId: AUTH0_CLIENT_ID,
       authorizationParams: {
-        redirect_uri: '{{ getenv "AUTH0_REDIRECT_URI" }}'
+        redirect_uri: AUTH0_REDIRECT_URI
       }
     };
 
@@ -52,6 +103,20 @@
         }
       } catch (error) {
         console.error('Auth0 initialization error:', error);
+
+        // Show user-friendly error message
+        document.body.innerHTML = `
+          <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; background: #fee; border: 2px solid #c33; border-radius: 8px;">
+            <h1 style="color: #c33; margin-top: 0;">⚠️ Authentication Error</h1>
+            <p><strong>Unable to initialize Auth0 authentication.</strong></p>
+            <p>Error: ${error.message || 'Unknown error'}</p>
+            <p>Please contact the site administrator.</p>
+            <details style="margin-top: 20px; background: white; padding: 10px; border-radius: 4px;">
+              <summary style="cursor: pointer; font-weight: bold;">Technical Details</summary>
+              <pre style="overflow: auto; font-size: 12px; margin-top: 10px;">${error.stack || error.toString()}</pre>
+            </details>
+          </div>
+        `;
       }
     }
 
