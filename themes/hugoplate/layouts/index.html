@@ -18,7 +18,7 @@
             <p class="mb-8 text-white/90 text-lg lg:text-xl leading-relaxed">
               {{ .content | markdownify }}
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex flex-col sm:flex-row gap-4 mb-12">
               {{ with .button }}
                 {{ if .enable }}
                   <a
@@ -46,6 +46,57 @@
                 {{ end }}
               {{ end }}
             </div>
+
+            <!-- Service Buttons in Hero -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              <!-- Đặt lịch workshop riêng tư -->
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
+                  <i class="fa fa-calendar text-xl"></i>
+                </div>
+                <h3 class="text-sm font-semibold text-white mb-2">Đặt lịch workshop<br>riêng tư</h3>
+                <a href="/services/private-workshop" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                  Đặt lịch ngay
+                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                </a>
+              </div>
+
+              <!-- Tư vấn workshop doanh nghiệp -->
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
+                  <i class="fa fa-envelope text-xl"></i>
+                </div>
+                <h3 class="text-sm font-semibold text-white mb-2">Tư vấn workshop<br>doanh nghiệp</h3>
+                <a href="/services/corporate-workshop" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                  Tìm hiểu thêm
+                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                </a>
+              </div>
+
+              <!-- Hợp tác với chúng tôi -->
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
+                  <i class="fa fa-handshake text-xl"></i>
+                </div>
+                <h3 class="text-sm font-semibold text-white mb-2">Hợp tác với<br>chúng tôi</h3>
+                <a href="/contact" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                  Liên hệ
+                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                </a>
+              </div>
+
+              <!-- Ghé thăm Từ Lâu Space -->
+              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 text-white mb-4">
+                  <i class="fa fa-map-marker-alt text-xl"></i>
+                </div>
+                <h3 class="text-sm font-semibold text-white mb-2">Ghé thăm<br>Từ Lâu Space</h3>
+                <a href="/about" class="text-white/80 hover:text-white text-xs inline-flex items-center">
+                  Tìm hiểu thêm
+                  <i class="fa fa-arrow-right pl-1 text-xs"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -53,65 +104,6 @@
   {{ end }}
   <!-- /Banner -->
 
-  <!-- CTA Section -->
-  <section class="section bg-light dark:bg-darkmode-light">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="col-12">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
-            <!-- Đặt lịch workshop riêng tư -->
-            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
-                <i class="fa fa-calendar text-2xl"></i>
-              </div>
-              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Đặt lịch workshop riêng tư</h3>
-              <a href="/services/private-workshop" class="btn btn-outline-primary btn-sm inline-flex items-center">
-                Đặt lịch ngay
-                <i class="fa fa-arrow-right pl-2 text-xs"></i>
-              </a>
-            </div>
-
-            <!-- Tư vấn workshop doanh nghiệp -->
-            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
-                <i class="fa fa-envelope text-2xl"></i>
-              </div>
-              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Tư vấn workshop doanh nghiệp</h3>
-              <a href="/services/corporate-workshop" class="btn btn-outline-primary btn-sm inline-flex items-center">
-                Tìm hiểu thêm
-                <i class="fa fa-arrow-right pl-2 text-xs"></i>
-              </a>
-            </div>
-
-            <!-- Hợp tác với chúng tôi -->
-            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
-                <i class="fa fa-handshake text-2xl"></i>
-              </div>
-              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Hợp tác với chúng tôi</h3>
-              <a href="/contact" class="btn btn-outline-primary btn-sm inline-flex items-center">
-                Liên hệ
-                <i class="fa fa-arrow-right pl-2 text-xs"></i>
-              </a>
-            </div>
-
-            <!-- Ghé thăm Từ Lâu Space -->
-            <div class="cta-card p-8 bg-white dark:bg-darkmode-body rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
-                <i class="fa fa-map-marker-alt text-2xl"></i>
-              </div>
-              <h3 class="h5 mb-4 font-semibold text-text-dark dark:text-darkmode-text-dark">Ghé thăm Từ Lâu Space</h3>
-              <a href="/about" class="btn btn-outline-primary btn-sm inline-flex items-center">
-                Tìm hiểu thêm
-                <i class="fa fa-arrow-right pl-2 text-xs"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /CTA Section -->
 
   <!-- Features / Why Choose Từ Lâu -->
   {{ range $i, $e:= .Params.features }}
