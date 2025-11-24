@@ -12,18 +12,18 @@ url = "/workshop-gom/"
 weight = 2
 
 [[main]]
+name = "ẢNH WORKSHOP"
+url = "https://drive.google.com/drive/u/0/folders/1dxhUJCzTqxvC7x7GAD7s8yFP2Z-FkT5K"
+weight = 3
+
+[[main]]
 name = "VỀ CHÚNG TÔI"
 url = "/about"
-weight = 3
+weight = 4
 
 [[main]]
 name = "LIÊN HỆ"
 url = "/contact"
-weight = 4
-
-[[main]]
-name = "ẢNH WORKSHOP"
-url = "https://drive.google.com/drive/u/0/folders/1dxhUJCzTqxvC7x7GAD7s8yFP2Z-FkT5K"
 weight = 5
 
 # footer menu
