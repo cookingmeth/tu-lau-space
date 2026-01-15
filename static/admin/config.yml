@@ -1,72 +1,558 @@
 backend:
   name: github
   repo: cookingmeth/tu-lau-space
-  branch: main # Branch to update (optional; defaults to master)
+  branch: main
 
 # Uncomment this for local development/testing
 # local_backend: true
 
-media_folder: "static/images" # Media files will be stored in the repo under static/images
-public_folder: "/images" # The src attribute for uploaded media will begin with /images
+media_folder: "static/images"
+public_folder: "/images"
 
 collections:
-  # Homepage
+  # ============================================
+  # HOMEPAGE CONFIGURATION
+  # ============================================
   - name: "homepage"
     label: "Homepage"
     files:
-      - label: "Homepage"
+      - label: "Homepage Content & Styling"
         name: "index"
         file: "content/english/_index.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
+
+          # SEO Section
           - label: "SEO"
             name: "seo"
             widget: "object"
+            collapsed: true
             fields:
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Keywords", name: "keywords", widget: "list" }
-          - label: "Banner"
+
+          # ========================================
+          # BANNER/HERO SECTION
+          # ========================================
+          - label: "Banner (Hero Section)"
             name: "banner"
             widget: "object"
+            collapsed: false
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Content", name: "content", widget: "text" }
-              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Background Image", name: "image", widget: "image", required: false }
+
+              # Banner Styling
+              - label: "Banner Styling"
+                name: "styling"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Background Color (if no image)"
+                    name: "background_color"
+                    widget: "string"
+                    default: "#121212"
+                    required: false
+                    hint: "Use hex color code (e.g., #121212) or leave empty for default"
+
+                  - label: "Overlay Opacity"
+                    name: "overlay_opacity"
+                    widget: "select"
+                    default: "medium"
+                    required: false
+                    options:
+                      - { label: "None (0%)", value: "none" }
+                      - { label: "Light (30%)", value: "light" }
+                      - { label: "Medium (50%)", value: "medium" }
+                      - { label: "Dark (70%)", value: "dark" }
+                      - { label: "Very Dark (90%)", value: "very-dark" }
+
+                  - label: "Text Color"
+                    name: "text_color"
+                    widget: "select"
+                    default: "white"
+                    required: false
+                    options:
+                      - { label: "White", value: "white" }
+                      - { label: "Black", value: "black" }
+                      - { label: "Primary Color", value: "primary" }
+
+                  - label: "Text Alignment"
+                    name: "text_align"
+                    widget: "select"
+                    default: "center"
+                    required: false
+                    options:
+                      - { label: "Left", value: "left" }
+                      - { label: "Center", value: "center" }
+                      - { label: "Right", value: "right" }
+
+                  - label: "Section Height"
+                    name: "height"
+                    widget: "select"
+                    default: "screen"
+                    required: false
+                    options:
+                      - { label: "Full Screen", value: "screen" }
+                      - { label: "Large (80vh)", value: "large" }
+                      - { label: "Medium (60vh)", value: "medium" }
+                      - { label: "Small (40vh)", value: "small" }
+
+              # Primary Button
               - label: "Primary Button"
                 name: "button"
                 widget: "object"
+                collapsed: true
                 fields:
-                  - { label: "Enable", name: "enable", widget: "boolean" }
-                  - { label: "Label", name: "label", widget: "string" }
-                  - { label: "Link", name: "link", widget: "string" }
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Label", name: "label", widget: "string", required: false }
+                  - { label: "Link", name: "link", widget: "string", required: false }
+                  - label: "Button Style"
+                    name: "style"
+                    widget: "select"
+                    default: "primary"
+                    required: false
+                    options:
+                      - { label: "Filled Primary", value: "primary" }
+                      - { label: "Outline Primary", value: "outline-primary" }
+                      - { label: "Filled White", value: "white" }
+                      - { label: "Outline White", value: "outline-white" }
+
+              # Secondary Button
               - label: "Secondary Button"
                 name: "secondary_button"
                 widget: "object"
+                collapsed: true
                 fields:
-                  - { label: "Enable", name: "enable", widget: "boolean" }
-                  - { label: "Label", name: "label", widget: "string" }
-                  - { label: "Link", name: "link", widget: "string" }
-          - label: "Features"
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Label", name: "label", widget: "string", required: false }
+                  - { label: "Link", name: "link", widget: "string", required: false }
+                  - label: "Button Style"
+                    name: "style"
+                    widget: "select"
+                    default: "outline-primary"
+                    required: false
+                    options:
+                      - { label: "Filled Primary", value: "primary" }
+                      - { label: "Outline Primary", value: "outline-primary" }
+                      - { label: "Filled White", value: "white" }
+                      - { label: "Outline White", value: "outline-white" }
+
+          # ========================================
+          # FEATURES/ABOUT SECTION
+          # ========================================
+          - label: "Features Section"
             name: "features"
             widget: "list"
+            collapsed: true
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image", name: "image", widget: "image", required: false }
               - { label: "Content", name: "content", widget: "text" }
-              - { label: "Bullet Points", name: "bulletpoints", widget: "list" }
-          - label: "Workshops Section"
+
+              # Section Styling
+              - label: "Section Styling"
+                name: "styling"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Background Type"
+                    name: "background_type"
+                    widget: "select"
+                    default: "gradient"
+                    required: false
+                    options:
+                      - { label: "Solid Color", value: "solid" }
+                      - { label: "Gradient", value: "gradient" }
+                      - { label: "Image", value: "image" }
+                      - { label: "None/Transparent", value: "none" }
+
+                  - label: "Background Color/Gradient Start"
+                    name: "background_color"
+                    widget: "string"
+                    default: "#A67C6B"
+                    required: false
+                    hint: "Hex color code (e.g., #A67C6B)"
+
+                  - label: "Gradient End Color"
+                    name: "gradient_end"
+                    widget: "string"
+                    default: "#C49585"
+                    required: false
+                    hint: "Only used if Background Type is Gradient"
+
+                  - label: "Gradient Direction"
+                    name: "gradient_direction"
+                    widget: "select"
+                    default: "to-r"
+                    required: false
+                    options:
+                      - { label: "Left to Right", value: "to-r" }
+                      - { label: "Top to Bottom", value: "to-b" }
+                      - { label: "Bottom to Top", value: "to-t" }
+                      - { label: "Diagonal (TL to BR)", value: "to-br" }
+
+                  - label: "Background Image"
+                    name: "background_image"
+                    widget: "image"
+                    required: false
+                    hint: "Only used if Background Type is Image"
+
+                  - label: "Text Color"
+                    name: "text_color"
+                    widget: "select"
+                    default: "white"
+                    required: false
+                    options:
+                      - { label: "White", value: "white" }
+                      - { label: "Black", value: "black" }
+                      - { label: "Dark Gray", value: "gray-800" }
+                      - { label: "Primary", value: "primary" }
+
+                  - label: "Section Padding"
+                    name: "padding"
+                    widget: "select"
+                    default: "large"
+                    required: false
+                    options:
+                      - { label: "None", value: "none" }
+                      - { label: "Small", value: "small" }
+                      - { label: "Medium", value: "medium" }
+                      - { label: "Large", value: "large" }
+                      - { label: "Extra Large", value: "xlarge" }
+
+                  - label: "Content Layout"
+                    name: "layout"
+                    widget: "select"
+                    default: "image-left"
+                    required: false
+                    options:
+                      - { label: "Image on Left", value: "image-left" }
+                      - { label: "Image on Right", value: "image-right" }
+                      - { label: "Image on Top", value: "image-top" }
+                      - { label: "Centered", value: "centered" }
+
+              # Nested Workshops
+              - label: "Workshops Grid"
+                name: "workshops"
+                widget: "list"
+                required: false
+                collapsed: true
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Description", name: "description", widget: "text", required: false }
+
+              # Bullet Points
+              - label: "Bullet Points"
+                name: "bulletpoints"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{fields.point}}"
+                field: { label: "Point", name: "point", widget: "string" }
+
+          # ========================================
+          # WORKSHOPS SHOWCASE SECTION
+          # ========================================
+          - label: "Workshops Showcase Section"
             name: "workshops"
             widget: "object"
+            collapsed: true
             fields:
-              - { label: "Enable", name: "enable", widget: "boolean" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Button Label", name: "buttonLabel", widget: "string" }
-              - { label: "Button URL", name: "buttonURL", widget: "string" }
+              - { label: "Enable Section", name: "enable", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Secondary Button Label", name: "secondaryButtonLabel", widget: "string" }
-              - { label: "Secondary Button URL", name: "secondaryButtonURL", widget: "string" }
+              - { label: "Primary Button Label", name: "buttonLabel", widget: "string" }
+              - { label: "Primary Button URL", name: "buttonURL", widget: "string" }
+              - { label: "Secondary Button Label", name: "secondaryButtonLabel", widget: "string", required: false }
+              - { label: "Secondary Button URL", name: "secondaryButtonURL", widget: "string", required: false }
 
-  # Blog Posts
+              # Section Styling
+              - label: "Section Styling"
+                name: "styling"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Background Color"
+                    name: "background_color"
+                    widget: "string"
+                    default: "#f6f6f6"
+                    required: false
+                    hint: "Hex color or Tailwind class (e.g., bg-light)"
+
+                  - label: "Grid Columns (Desktop)"
+                    name: "grid_columns"
+                    widget: "select"
+                    default: "4"
+                    required: false
+                    options:
+                      - { label: "2 Columns", value: "2" }
+                      - { label: "3 Columns", value: "3" }
+                      - { label: "4 Columns", value: "4" }
+                      - { label: "5 Columns", value: "5" }
+
+                  - label: "Card Style"
+                    name: "card_style"
+                    widget: "select"
+                    default: "gradient"
+                    required: false
+                    options:
+                      - { label: "Gradient Backgrounds", value: "gradient" }
+                      - { label: "White Cards", value: "white" }
+                      - { label: "Bordered Cards", value: "bordered" }
+                      - { label: "Shadow Cards", value: "shadow" }
+
+                  - label: "Card Hover Effect"
+                    name: "hover_effect"
+                    widget: "select"
+                    default: "scale"
+                    required: false
+                    options:
+                      - { label: "Scale Up", value: "scale" }
+                      - { label: "Shadow Grow", value: "shadow" }
+                      - { label: "Lift Up", value: "lift" }
+                      - { label: "None", value: "none" }
+
+                  - label: "Section Padding"
+                    name: "padding"
+                    widget: "select"
+                    default: "large"
+                    required: false
+                    options:
+                      - { label: "Small", value: "small" }
+                      - { label: "Medium", value: "medium" }
+                      - { label: "Large", value: "large" }
+                      - { label: "Extra Large", value: "xlarge" }
+
+  # ============================================
+  # SECTIONS (Testimonials, CTA, etc.)
+  # ============================================
+  - name: "sections"
+    label: "Page Sections"
+    files:
+      # TESTIMONIALS SECTION
+      - label: "Testimonials"
+        name: "testimonials"
+        file: "content/english/sections/testimonial.md"
+        fields:
+          - { label: "Enable Section", name: "enable", widget: "boolean", default: true }
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+
+          # Section Styling
+          - label: "Section Styling"
+            name: "styling"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - label: "Background Color"
+                name: "background_color"
+                widget: "string"
+                default: "#ffffff"
+                required: false
+                hint: "Hex color code"
+
+              - label: "Text Color"
+                name: "text_color"
+                widget: "select"
+                default: "dark"
+                required: false
+                options:
+                  - { label: "Dark", value: "dark" }
+                  - { label: "Light/White", value: "light" }
+                  - { label: "Primary", value: "primary" }
+
+              - label: "Section Padding"
+                name: "padding"
+                widget: "select"
+                default: "large"
+                required: false
+                options:
+                  - { label: "Small", value: "small" }
+                  - { label: "Medium", value: "medium" }
+                  - { label: "Large", value: "large" }
+                  - { label: "Extra Large", value: "xlarge" }
+
+              - label: "Carousel Dots Color"
+                name: "dots_color"
+                widget: "string"
+                default: "#121212"
+                required: false
+
+          # Testimonials List
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Designation/Role", name: "designation", widget: "string" }
+              - { label: "Avatar Image", name: "avatar", widget: "image" }
+              - { label: "Testimonial Content", name: "content", widget: "text" }
+              - label: "Rating (Optional)"
+                name: "rating"
+                widget: "number"
+                required: false
+                min: 1
+                max: 5
+                value_type: "int"
+
+          # Build Settings
+          - label: "Build Settings"
+            name: "build"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Render", name: "render", widget: "hidden", default: "never" }
+
+      # CALL TO ACTION SECTION
+      - label: "Call to Action"
+        name: "call_to_action"
+        file: "content/english/sections/call-to-action.md"
+        fields:
+          - { label: "Enable Section", name: "enable", widget: "boolean", default: true }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+
+          # Section Styling
+          - label: "Section Styling"
+            name: "styling"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - label: "Background Color"
+                name: "background_color"
+                widget: "string"
+                default: "#f6f6f6"
+                required: false
+
+              - label: "Layout"
+                name: "layout"
+                widget: "select"
+                default: "image-right"
+                required: false
+                options:
+                  - { label: "Image on Left", value: "image-left" }
+                  - { label: "Image on Right", value: "image-right" }
+                  - { label: "Image on Top", value: "image-top" }
+                  - { label: "Centered", value: "centered" }
+
+              - label: "Section Padding"
+                name: "padding"
+                widget: "select"
+                default: "large"
+                required: false
+                options:
+                  - { label: "Small", value: "small" }
+                  - { label: "Medium", value: "medium" }
+                  - { label: "Large", value: "large" }
+                  - { label: "Extra Large", value: "xlarge" }
+
+          # Button
+          - label: "Button"
+            name: "button"
+            widget: "object"
+            fields:
+              - { label: "Enable", name: "enable", widget: "boolean", default: true }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+              - label: "Button Style"
+                name: "style"
+                widget: "select"
+                default: "primary"
+                required: false
+                options:
+                  - { label: "Filled Primary", value: "primary" }
+                  - { label: "Outline Primary", value: "outline-primary" }
+
+          # Build Settings
+          - label: "Build Settings"
+            name: "build"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Render", name: "render", widget: "hidden", default: "never" }
+
+  # ============================================
+  # GLOBAL THEME SETTINGS
+  # ============================================
+  - name: "theme_settings"
+    label: "Theme & Styling"
+    files:
+      - label: "Colors & Fonts"
+        name: "theme"
+        file: "data/theme.json"
+        fields:
+          # Color Settings
+          - label: "Light Mode Colors"
+            name: "colors"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Primary Color", name: "primary", widget: "string", default: "#121212", hint: "Main brand color" }
+              - { label: "Body Background", name: "body", widget: "string", default: "#fff" }
+              - { label: "Border Color", name: "border", widget: "string", default: "#eaeaea" }
+              - { label: "Light Background", name: "light", widget: "string", default: "#f6f6f6" }
+              - { label: "Dark/Black", name: "dark", widget: "string", default: "#040404" }
+              - { label: "Text Color", name: "text", widget: "string", default: "#444444" }
+              - { label: "Text Dark (Headings)", name: "text_dark", widget: "string", default: "#040404" }
+              - { label: "Text Light (Secondary)", name: "text_light", widget: "string", default: "#717171" }
+
+          - label: "Dark Mode Colors"
+            name: "colors_dark"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Primary Color", name: "primary", widget: "string", default: "#fff" }
+              - { label: "Body Background", name: "body", widget: "string", default: "#1c1c1c" }
+              - { label: "Border Color", name: "border", widget: "string", default: "#3E3E3E" }
+              - { label: "Light Background", name: "light", widget: "string", default: "#222222" }
+              - { label: "Dark/White", name: "dark", widget: "string", default: "#fff" }
+              - { label: "Text Color", name: "text", widget: "string", default: "#B4AFB6" }
+              - { label: "Text Dark (Headings)", name: "text_dark", widget: "string", default: "#fff" }
+              - { label: "Text Light (Secondary)", name: "text_light", widget: "string", default: "#B4AFB6" }
+
+          # Font Settings
+          - label: "Typography"
+            name: "fonts"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Primary Font (Body Text)"
+                name: "font_primary"
+                widget: "object"
+                fields:
+                  - { label: "Font Family", name: "name", widget: "string", default: "Heebo:wght@400;600" }
+                  - { label: "Type", name: "type", widget: "select", options: ["sans-serif", "serif", "monospace"], default: "sans-serif" }
+
+              - label: "Secondary Font"
+                name: "font_secondary"
+                widget: "object"
+                fields:
+                  - { label: "Font Family", name: "name", widget: "string", default: "Signika:wght@500;700" }
+                  - { label: "Type", name: "type", widget: "select", options: ["sans-serif", "serif", "monospace"], default: "sans-serif" }
+
+          - label: "Font Scale"
+            name: "font_scale"
+            widget: "select"
+            hint: "Controls how much larger each heading level is compared to body text"
+            default: "1.2"
+            options:
+              - { label: "Small (1.15)", value: "1.15" }
+              - { label: "Medium (1.2)", value: "1.2" }
+              - { label: "Large (1.25)", value: "1.25" }
+              - { label: "Extra Large (1.333)", value: "1.333" }
+
+  # ============================================
+  # BLOG POSTS
+  # ============================================
   - name: "blog"
     label: "Blog"
     folder: "content/english/blog"
@@ -84,7 +570,9 @@ collections:
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  # Pages
+  # ============================================
+  # PAGES
+  # ============================================
   - name: "pages"
     label: "Pages"
     folder: "content/english/pages"
@@ -96,46 +584,15 @@ collections:
         name: "seo"
         widget: "object"
         required: false
+        collapsed: true
         fields:
           - { label: "Description", name: "description", widget: "text", required: false }
           - { label: "Keywords", name: "keywords", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  # Sections
-  - name: "sections"
-    label: "Sections"
-    files:
-      - label: "Testimonials"
-        name: "testimonials"
-        file: "content/english/sections/testimonial.md"
-        fields:
-          - { label: "Enable", name: "enable", widget: "boolean" }
-          - { label: "Title", name: "title", widget: "string" }
-          - label: "Testimonials"
-            name: "testimonial_item"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Designation", name: "designation", widget: "string" }
-              - { label: "Avatar", name: "avatar", widget: "image" }
-              - { label: "Content", name: "content", widget: "text" }
-      - label: "Call to Action"
-        name: "call_to_action"
-        file: "content/english/sections/call-to-action.md"
-        fields:
-          - { label: "Enable", name: "enable", widget: "boolean" }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
-          - { label: "Image", name: "image", widget: "image" }
-          - label: "Button"
-            name: "button"
-            widget: "object"
-            fields:
-              - { label: "Enable", name: "enable", widget: "boolean" }
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "Link", name: "link", widget: "string" }
-
-  # Services
+  # ============================================
+  # SERVICES
+  # ============================================
   - name: "services"
     label: "Services"
     folder: "content/english/services"
@@ -149,7 +606,9 @@ collections:
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  # Workshops
+  # ============================================
+  # WORKSHOPS
+  # ============================================
   - name: "workshops"
     label: "Workshops"
     folder: "content/english/workshops"
@@ -160,10 +619,14 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Price", name: "price", widget: "string", required: false }
+      - { label: "Duration", name: "duration", widget: "string", required: false }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  # Authors
+  # ============================================
+  # AUTHORS
+  # ============================================
   - name: "authors"
     label: "Authors"
     folder: "content/english/authors"

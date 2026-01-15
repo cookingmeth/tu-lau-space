@@ -1,0 +1,185 @@
+backend:
+  name: github
+  repo: cookingmeth/tu-lau-space
+  branch: main # Branch to update (optional; defaults to master)
+
+# Uncomment this for local development/testing
+# local_backend: true
+
+media_folder: "static/images" # Media files will be stored in the repo under static/images
+public_folder: "/images" # The src attribute for uploaded media will begin with /images
+
+collections:
+  # Homepage
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Homepage"
+        name: "index"
+        file: "content/english/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Keywords", name: "keywords", widget: "list" }
+          - label: "Banner"
+            name: "banner"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Content", name: "content", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - label: "Primary Button"
+                name: "button"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean" }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+              - label: "Secondary Button"
+                name: "secondary_button"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean" }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Content", name: "content", widget: "text" }
+              - { label: "Bullet Points", name: "bulletpoints", widget: "list" }
+          - label: "Workshops Section"
+            name: "workshops"
+            widget: "object"
+            fields:
+              - { label: "Enable", name: "enable", widget: "boolean" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Button Label", name: "buttonLabel", widget: "string" }
+              - { label: "Button URL", name: "buttonURL", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Secondary Button Label", name: "secondaryButtonLabel", widget: "string" }
+              - { label: "Secondary Button URL", name: "secondaryButtonURL", widget: "string" }
+
+  # Blog Posts
+  - name: "blog"
+    label: "Blog"
+    folder: "content/english/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Categories", name: "categories", widget: "list", required: false }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Pages
+  - name: "pages"
+    label: "Pages"
+    folder: "content/english/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Keywords", name: "keywords", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Sections
+  - name: "sections"
+    label: "Sections"
+    files:
+      - label: "Testimonials"
+        name: "testimonials"
+        file: "content/english/sections/testimonial.md"
+        fields:
+          - { label: "Enable", name: "enable", widget: "boolean" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Testimonials"
+            name: "testimonial_item"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Designation", name: "designation", widget: "string" }
+              - { label: "Avatar", name: "avatar", widget: "image" }
+              - { label: "Content", name: "content", widget: "text" }
+      - label: "Call to Action"
+        name: "call_to_action"
+        file: "content/english/sections/call-to-action.md"
+        fields:
+          - { label: "Enable", name: "enable", widget: "boolean" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - label: "Button"
+            name: "button"
+            widget: "object"
+            fields:
+              - { label: "Enable", name: "enable", widget: "boolean" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+
+  # Services
+  - name: "services"
+    label: "Services"
+    folder: "content/english/services"
+    create: true
+    slug: "{{slug}}"
+    filter: { field: "draft", value: false }
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Workshops
+  - name: "workshops"
+    label: "Workshops"
+    folder: "content/english/workshops"
+    create: true
+    slug: "{{slug}}"
+    filter: { field: "draft", value: false }
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Authors
+  - name: "authors"
+    label: "Authors"
+    folder: "content/english/authors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Email", name: "email", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - label: "Social Links"
+        name: "social"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Icon", name: "icon", widget: "string" }
+          - { label: "Link", name: "link", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
