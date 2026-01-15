@@ -248,26 +248,41 @@
       }
     `;
 
-    // Wait for CMS to be ready
-    window.CMS_MANUAL_INIT = true;
-
+    // Wait for CMS to be ready - do NOT use manual init
     document.addEventListener('DOMContentLoaded', function() {
+      // Wait a bit for CMS to auto-initialize
       setTimeout(function() {
         if (!window.CMS) {
           console.error('❌ CMS not loaded');
           return;
         }
 
-        console.log('✅ CMS loaded, initializing...');
+        console.log('✅ CMS loaded');
 
-        // Register styles
-        CMS.registerPreviewStyle(previewStyles, { raw: true });
-        console.log('✅ Styles registered');
+        // Register styles - this should work even after init
+        try {
+          CMS.registerPreviewStyle(previewStyles, { raw: true });
+          console.log('✅ Styles registered');
+        } catch (error) {
+          console.error('❌ Error registering styles:', error);
+        }
 
-        // Initialize CMS
-        CMS.init();
-        console.log('✅ CMS initialized');
-      }, 500);
+        // Also try injecting directly into preview frames
+        setTimeout(function() {
+          var frames = document.querySelectorAll('iframe');
+          frames.forEach(function(frame) {
+            try {
+              var doc = frame.contentDocument || frame.contentWindow.document;
+              var style = doc.createElement('style');
+              style.textContent = previewStyles;
+              doc.head.appendChild(style);
+              console.log('✅ Styles injected into iframe');
+            } catch (e) {
+              console.log('⚠️ Could not inject into iframe (CORS)');
+            }
+          });
+        }, 2000);
+      }, 1000);
     });
   </script>
 </body>
