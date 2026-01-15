@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: cookingmeth/tu-lau-space
+  name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
 # Uncomment this for local development/testing
