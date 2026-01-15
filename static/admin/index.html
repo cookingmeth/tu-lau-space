@@ -4,10 +4,775 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Content Manager</title>
+  <title>Content Manager - Từ Lâu Space</title>
+
+  <!-- Google Fonts matching the site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Signika:wght@500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ====================================
+       WYSIWYG Preview Styles
+       Matching the actual site design
+       ==================================== */
+
+    /* Base Typography - matching theme.json */
+    .cms-preview-container,
+    .cms-preview-content {
+      font-family: 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444444;
+      background-color: #fff;
+    }
+
+    /* Headings - using Playfair Display */
+    .cms-preview-content h1,
+    .cms-preview-content h2,
+    .cms-preview-content h3,
+    .cms-preview-content h4,
+    .cms-preview-content h5,
+    .cms-preview-content h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: #040404;
+      margin-top: 1.5em;
+      margin-bottom: 0.75em;
+      line-height: 1.3;
+    }
+
+    .cms-preview-content h1 { font-size: 2.986rem; }
+    .cms-preview-content h2 { font-size: 2.488rem; }
+    .cms-preview-content h3 { font-size: 2.074rem; }
+    .cms-preview-content h4 { font-size: 1.728rem; }
+    .cms-preview-content h5 { font-size: 1.44rem; }
+    .cms-preview-content h6 { font-size: 1.2rem; }
+
+    /* Paragraphs */
+    .cms-preview-content p {
+      margin-bottom: 1.25em;
+      color: #444444;
+    }
+
+    /* Links */
+    .cms-preview-content a {
+      color: #121212;
+      text-decoration: underline;
+      transition: opacity 0.2s;
+    }
+
+    .cms-preview-content a:hover {
+      opacity: 0.7;
+    }
+
+    /* Lists */
+    .cms-preview-content ul,
+    .cms-preview-content ol {
+      margin-left: 1.5em;
+      margin-bottom: 1.25em;
+    }
+
+    .cms-preview-content li {
+      margin-bottom: 0.5em;
+    }
+
+    /* Blockquotes */
+    .cms-preview-content blockquote {
+      border-left: 4px solid #121212;
+      padding-left: 1.5em;
+      margin: 1.5em 0;
+      font-style: italic;
+      color: #717171;
+    }
+
+    /* Code */
+    .cms-preview-content code {
+      background-color: #f6f6f6;
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .cms-preview-content pre {
+      background-color: #f6f6f6;
+      padding: 1em;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.25em;
+    }
+
+    .cms-preview-content pre code {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    /* Images */
+    .cms-preview-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5em 0;
+    }
+
+    /* HR */
+    .cms-preview-content hr {
+      border: none;
+      border-top: 2px solid #eaeaea;
+      margin: 2em 0;
+    }
+
+    /* Tables */
+    .cms-preview-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5em 0;
+    }
+
+    .cms-preview-content th,
+    .cms-preview-content td {
+      padding: 0.75em;
+      border: 1px solid #eaeaea;
+      text-align: left;
+    }
+
+    .cms-preview-content th {
+      background-color: #f6f6f6;
+      font-weight: 600;
+      color: #040404;
+    }
+
+    /* Buttons Preview */
+    .cms-preview-content .button,
+    .cms-preview-content button {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background-color: #121212;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cms-preview-content .button:hover,
+    .cms-preview-content button:hover {
+      opacity: 0.8;
+    }
+
+    /* Section Preview Styles */
+    .section-preview {
+      padding: 3em 1.5em;
+      margin: 1em 0;
+      border-radius: 8px;
+      border: 1px dashed #eaeaea;
+    }
+
+    .section-preview.banner {
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #f6f6f6 0%, #ffffff 100%);
+    }
+
+    .section-preview.features {
+      background-color: #f6f6f6;
+    }
+
+    /* Workshop Card Preview */
+    .workshop-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      margin-bottom: 1.5em;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .workshop-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin: 0;
+    }
+
+    .workshop-card-content {
+      padding: 1.5em;
+    }
+
+    .workshop-card h3 {
+      margin-top: 0;
+      font-size: 1.44rem;
+    }
+
+    /* Service Card Preview */
+    .service-card {
+      background: linear-gradient(135deg, #f6f6f6 0%, #ffffff 100%);
+      border-radius: 12px;
+      padding: 2em;
+      margin-bottom: 1.5em;
+      border: 1px solid #eaeaea;
+    }
+
+    /* Testimonial Preview */
+    .testimonial-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1.5em;
+    }
+
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1em;
+    }
+
+    .testimonial-rating {
+      color: #F5C96C;
+      margin: 0.5em 0;
+    }
+
+    /* Blog Post Preview */
+    .blog-post-preview {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2em;
+    }
+
+    .blog-featured-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 2em;
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 1em;
+      font-size: 0.9em;
+      color: #717171;
+      margin-bottom: 2em;
+      flex-wrap: wrap;
+    }
+
+    .blog-category,
+    .blog-tag {
+      background-color: #f6f6f6;
+      padding: 0.3em 0.8em;
+      border-radius: 15px;
+      font-size: 0.85em;
+    }
+
+    /* Author Preview */
+    .author-preview {
+      display: flex;
+      align-items: center;
+      gap: 1.5em;
+      padding: 1.5em;
+      background: #f6f6f6;
+      border-radius: 12px;
+      margin: 1.5em 0;
+    }
+
+    .author-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-social {
+      display: flex;
+      gap: 1em;
+      margin-top: 0.5em;
+    }
+
+    .author-social a {
+      color: #121212;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    /* Color Palette Preview */
+    .color-preview {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid #eaeaea;
+      margin-right: 0.5em;
+      vertical-align: middle;
+    }
+
+    /* Spacing utilities for preview */
+    .preview-section {
+      margin: 2em 0;
+      padding: 1.5em;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      padding: 0.3em 0.8em;
+      border-radius: 15px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+
+    .badge-draft {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-published {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+
+    /* Responsive preview */
+    @media (max-width: 768px) {
+      .cms-preview-content h1 { font-size: 2.074rem; }
+      .cms-preview-content h2 { font-size: 1.728rem; }
+      .cms-preview-content h3 { font-size: 1.44rem; }
+
+      .author-preview {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .blog-meta {
+        flex-direction: column;
+      }
+    }
+
+    /* CMS-specific enhancements */
+    .cms-editor-container {
+      background-color: #f6f6f6;
+    }
+
+    /* Make preview pane more prominent */
+    [class*="PreviewPaneFrame"] {
+      background: white;
+      padding: 2em;
+    }
+
+    /* Style the preview frame content */
+    body[class*="cms-preview"] {
+      font-family: 'Heebo', sans-serif;
+      color: #444444;
+      background: white;
+      padding: 2em;
+    }
+  </style>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Custom Preview Templates -->
+  <script>
+    // Wait for CMS to load - with error handling
+    function initializeCMS() {
+      try {
+        if (!window.CMS) {
+          console.error('CMS not loaded');
+          return;
+        }
+
+        // Register custom preview styles
+        CMS.registerPreviewStyle("/admin/preview.css");
+
+        // Also register inline styles to ensure they load
+        var styleContent = `
+          body {
+            font-family: 'Heebo', sans-serif !important;
+            color: #444444 !important;
+            background: white !important;
+          }
+          .cms-preview-content {
+            font-family: 'Heebo', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444444;
+          }
+        `;
+        CMS.registerPreviewStyle(styleContent, { raw: true });
+
+      // Helper function for React createElement
+      var h = window.h;
+      if (!h) {
+        // For Decap CMS 3.x, use CMS.h
+        h = CMS.h || React.createElement;
+      }
+      console.log('Preview helper initialized:', typeof h);
+
+      // Polyfill for createClass if not available
+      var createClass = window.createClass || CMS.createClass || function(spec) {
+        return function(props) {
+          var instance = Object.create(spec);
+          instance.props = props;
+          return instance.render();
+        };
+      };
+
+      // Custom preview template for blog posts
+      var BlogPostPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var image = entry.getIn(['data', 'image']);
+          var title = entry.getIn(['data', 'title'], '');
+          var body = this.props.widgetFor('body');
+          var date = entry.getIn(['data', 'date']);
+          var categories = entry.getIn(['data', 'categories']);
+          var tags = entry.getIn(['data', 'tags']);
+          var draft = entry.getIn(['data', 'draft']);
+
+          var metaElements = [];
+          if (date) {
+            metaElements.push(
+              h('span', { key: 'date' }, '📅 ' + new Date(date).toLocaleDateString('vi-VN'))
+            );
+          }
+          if (categories && categories.size > 0) {
+            metaElements.push(
+              h('div', { key: 'cat', className: 'blog-category' }, '🏷️ ' + categories.join(', '))
+            );
+          }
+          if (tags && tags.size > 0) {
+            metaElements.push(
+              h('div', { key: 'tags', className: 'blog-tag' }, tags.join(', '))
+            );
+          }
+
+          return h('div', { className: 'blog-post-preview cms-preview-content' },
+            draft && h('div', { className: 'badge badge-draft', style: { marginBottom: '1em' } }, 'DRAFT'),
+            image && h('img', { src: image, className: 'blog-featured-image', alt: title }),
+            metaElements.length > 0 && h('div', { className: 'blog-meta' }, metaElements),
+            h('h1', {}, title),
+            h('div', {}, body)
+          );
+        }
+      });
+
+      // Custom preview template for workshops
+      var WorkshopPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var image = entry.getIn(['data', 'image']);
+          var title = entry.getIn(['data', 'title'], '');
+          var description = entry.getIn(['data', 'description']);
+          var price = entry.getIn(['data', 'price']);
+          var duration = entry.getIn(['data', 'duration']);
+          var categories = entry.getIn(['data', 'categories']);
+          var body = this.props.widgetFor('body');
+
+          var metaInfo = [];
+          if (price) {
+            metaInfo.push(h('span', { key: 'price' }, '💰 ' + price));
+          }
+          if (duration) {
+            metaInfo.push(h('span', { key: 'duration' }, '⏱️ ' + duration));
+          }
+
+          return h('div', { className: 'workshop-card cms-preview-content' },
+            image && h('img', { src: image, alt: title }),
+            h('div', { className: 'workshop-card-content' },
+              categories && categories.size > 0 && h('div', { style: { marginBottom: '0.5em' } },
+                categories.map(function(cat, i) {
+                  return h('span', {
+                    key: i,
+                    className: 'workshop-badge',
+                    style: { marginRight: '0.5em' }
+                  }, cat);
+                }).toArray()
+              ),
+              h('h3', {}, title),
+              description && h('p', {}, description),
+              metaInfo.length > 0 && h('div', {
+                style: {
+                  display: 'flex',
+                  gap: '1em',
+                  fontSize: '0.9em',
+                  color: '#717171',
+                  marginTop: '1em'
+                }
+              }, metaInfo),
+              h('div', { style: { marginTop: '1.5em' } }, body)
+            )
+          );
+        }
+      });
+
+      // Custom preview template for services
+      var ServicePreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var image = entry.getIn(['data', 'image']);
+          var title = entry.getIn(['data', 'title'], '');
+          var description = entry.getIn(['data', 'description']);
+          var body = this.props.widgetFor('body');
+
+          return h('div', { className: 'service-card cms-preview-content' },
+            image && h('img', {
+              src: image,
+              alt: title,
+              style: { borderRadius: '12px', marginBottom: '1em' }
+            }),
+            h('h2', {}, title),
+            description && h('p', {
+              style: { fontSize: '1.1em', color: '#717171' }
+            }, description),
+            h('div', { style: { marginTop: '1.5em' } }, body)
+          );
+        }
+      });
+
+      // Custom preview template for authors
+      var AuthorPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var image = entry.getIn(['data', 'image']);
+          var title = entry.getIn(['data', 'title'], '');
+          var email = entry.getIn(['data', 'email']);
+          var description = entry.getIn(['data', 'description']);
+          var social = entry.getIn(['data', 'social']);
+          var body = this.props.widgetFor('body');
+
+          var socialLinks = null;
+          if (social && social.size > 0) {
+            socialLinks = h('div', { className: 'author-social' },
+              social.map(function(item, i) {
+                return h('a', {
+                  key: i,
+                  href: item.get('link'),
+                  target: '_blank',
+                  rel: 'noopener noreferrer'
+                },
+                  h('i', { className: 'fa fa-' + item.get('icon') })
+                );
+              }).toArray()
+            );
+          }
+
+          return h('div', { className: 'author-preview cms-preview-content' },
+            image && h('img', {
+              src: image,
+              className: 'author-avatar',
+              alt: title
+            }),
+            h('div', {},
+              h('h2', { style: { marginTop: 0 } }, title),
+              description && h('p', {}, description),
+              email && h('p', { style: { fontSize: '0.9em' } }, '📧 ' + email),
+              socialLinks
+            ),
+            body && h('div', { style: { marginTop: '1.5em' } }, body)
+          );
+        }
+      });
+
+      // Custom preview for testimonials section
+      var TestimonialPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var title = entry.getIn(['data', 'title'], '');
+          var description = entry.getIn(['data', 'description']);
+          var testimonials = entry.getIn(['data', 'testimonials']);
+
+          return h('div', {
+            className: 'cms-preview-content',
+            style: { padding: '2em', backgroundColor: '#fff' }
+          },
+            h('h2', { style: { textAlign: 'center' } }, title),
+            description && h('p', {
+              style: { textAlign: 'center', color: '#717171', marginBottom: '2em' }
+            }, description),
+            testimonials && h('div', {
+              style: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '2em',
+                marginTop: '2em'
+              }
+            },
+              testimonials.map(function(item, i) {
+                var rating = item.get('rating');
+                var stars = '';
+                if (rating) {
+                  for (var j = 0; j < rating; j++) {
+                    stars += '⭐';
+                  }
+                }
+
+                return h('div', {
+                  key: i,
+                  className: 'testimonial-card'
+                },
+                  item.get('avatar') && h('img', {
+                    src: item.get('avatar'),
+                    className: 'testimonial-avatar',
+                    alt: item.get('name')
+                  }),
+                  h('div', { className: 'testimonial-rating' }, stars),
+                  h('p', { style: { fontStyle: 'italic' } }, '"' + item.get('content') + '"'),
+                  h('div', { style: { fontWeight: 600, marginTop: '1em' } }, item.get('name')),
+                  h('div', { style: { fontSize: '0.9em', color: '#717171' } }, item.get('designation'))
+                );
+              }).toArray()
+            )
+          );
+        }
+      });
+
+      // General page preview
+      var PagePreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var title = entry.getIn(['data', 'title'], '');
+          var description = entry.getIn(['data', 'description']);
+          var image = entry.getIn(['data', 'image']);
+          var body = this.props.widgetFor('body');
+
+          return h('div', {
+            className: 'cms-preview-content',
+            style: { maxWidth: '800px', margin: '0 auto', padding: '2em' }
+          },
+            image && h('img', {
+              src: image,
+              alt: title,
+              style: { width: '100%', marginBottom: '2em' }
+            }),
+            h('h1', {}, title),
+            description && h('p', {
+              style: { fontSize: '1.1em', color: '#717171', marginBottom: '2em' }
+            }, description),
+            h('div', {}, body)
+          );
+        }
+      });
+
+      // Homepage preview
+      var HomepagePreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var title = entry.getIn(['data', 'title'], '');
+          var banner = entry.getIn(['data', 'banner']);
+          var features = entry.getIn(['data', 'features']);
+
+          var elements = [
+            h('h1', { key: 'title', style: { textAlign: 'center', marginBottom: '2em' } }, title)
+          ];
+
+          if (banner) {
+            elements.push(
+              h('div', {
+                key: 'banner',
+                className: 'section-preview banner',
+                style: banner.get('image') ? {
+                  backgroundImage: 'url(' + banner.get('image') + ')',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                } : {}
+              },
+                h('div', { style: { maxWidth: '800px', padding: '2em' } },
+                  h('h2', { style: { color: '#fff', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' } },
+                    banner.get('title')),
+                  h('p', { style: { color: '#fff', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' } },
+                    banner.get('content'))
+                )
+              )
+            );
+          }
+
+          if (features && features.size > 0) {
+            elements.push(
+              h('div', {
+                key: 'features',
+                style: { marginTop: '3em' }
+              },
+                h('h2', { style: { textAlign: 'center', marginBottom: '2em' } }, 'Features'),
+                h('div', {
+                  style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '2em'
+                  }
+                },
+                  features.slice(0, 3).map(function(feature, i) {
+                    return h('div', {
+                      key: i,
+                      className: 'card'
+                    },
+                      feature.get('image') && h('img', {
+                        src: feature.get('image'),
+                        alt: feature.get('title'),
+                        style: { marginBottom: '1em' }
+                      }),
+                      h('h3', {}, feature.get('title')),
+                      h('p', {}, feature.get('content'))
+                    );
+                  }).toArray()
+                )
+              )
+            );
+          }
+
+          return h('div', { className: 'cms-preview-content' }, elements);
+        }
+      });
+
+      // Register all preview templates
+      CMS.registerPreviewTemplate('blog', BlogPostPreview);
+      CMS.registerPreviewTemplate('workshops', WorkshopPreview);
+      CMS.registerPreviewTemplate('services', ServicePreview);
+      CMS.registerPreviewTemplate('authors', AuthorPreview);
+      CMS.registerPreviewTemplate('pages', PagePreview);
+      CMS.registerPreviewTemplate('listing_pages', PagePreview);
+      CMS.registerPreviewTemplate('homepage', HomepagePreview);
+      CMS.registerPreviewTemplate('sections', TestimonialPreview);
+
+      console.log('✅ CMS Preview Templates Registered Successfully');
+      } catch (error) {
+        console.error('Error initializing CMS preview:', error);
+      }
+    }
+
+    // Try to initialize immediately if CMS is already loaded
+    if (window.CMS) {
+      initializeCMS();
+    } else {
+      // Otherwise wait for DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.CMS) {
+          initializeCMS();
+        } else {
+          // Final fallback - wait for window load
+          window.addEventListener('load', function() {
+            setTimeout(initializeCMS, 1000);
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>

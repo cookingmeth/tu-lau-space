@@ -330,6 +330,73 @@ collections:
                       - { label: "Extra Large", value: "xlarge" }
 
   # ============================================
+  # LISTING PAGES (About, Contact, Blog, etc.)
+  # ============================================
+  - name: "listing_pages"
+    label: "Listing Pages"
+    files:
+      # ABOUT PAGE
+      - label: "About Page"
+        name: "about"
+        file: "content/english/about/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Featured Image", name: "image", widget: "image", required: false }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false }
+          - { label: "Body Content", name: "body", widget: "markdown" }
+
+      # CONTACT PAGE
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/english/contact/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false }
+          - { label: "Body Content", name: "body", widget: "markdown" }
+
+      # BLOG LISTING PAGE
+      - label: "Blog Listing Page"
+        name: "blog_index"
+        file: "content/english/blog/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body Content (Optional)", name: "body", widget: "markdown", required: false }
+
+      # SERVICES LISTING PAGE
+      - label: "Services Listing Page"
+        name: "services_index"
+        file: "content/english/services/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false }
+          - { label: "Body Content", name: "body", widget: "markdown" }
+
+      # WORKSHOPS LISTING PAGE
+      - label: "Workshops Listing Page"
+        name: "workshops_index"
+        file: "content/english/workshops/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false }
+          - { label: "Body Content", name: "body", widget: "markdown" }
+
+      # AUTHORS LISTING PAGE
+      - label: "Authors Listing Page"
+        name: "authors_index"
+        file: "content/english/authors/_index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body Content (Optional)", name: "body", widget: "markdown", required: false }
+
+  # ============================================
   # SECTIONS (Testimonials, CTA, etc.)
   # ============================================
   - name: "sections"
@@ -602,6 +669,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Keywords", name: "keywords", widget: "list", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
@@ -618,7 +686,9 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Keywords", name: "keywords", widget: "list", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Categories", name: "categories", widget: "list", required: false, hint: "Add categories like 'Gốm', 'Hương thơm', etc." }
       - { label: "Price", name: "price", widget: "string", required: false }
       - { label: "Duration", name: "duration", widget: "string", required: false }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
@@ -646,3 +716,194 @@ collections:
           - { label: "Icon", name: "icon", widget: "string" }
           - { label: "Link", name: "link", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  # ============================================
+  # SITE SETTINGS
+  # ============================================
+  - name: "site_settings"
+    label: "Site Settings"
+    files:
+      # SITE PARAMETERS
+      - label: "Site Parameters"
+        name: "params"
+        file: "config/_default/params.toml"
+        fields:
+          # Logo & Branding
+          - label: "Logo & Branding"
+            name: "logo_settings"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Favicon", name: "favicon", widget: "image", default: "images/logo.png" }
+              - { label: "Logo", name: "logo", widget: "image", default: "images/logo.png" }
+              - { label: "Logo (Dark Mode)", name: "logo_darkmode", widget: "image", default: "images/logo.png" }
+              - { label: "Logo Width", name: "logo_width", widget: "string", default: "auto", hint: "Use px or x, e.g., 100px or auto" }
+              - { label: "Logo Height", name: "logo_height", widget: "string", default: "60px" }
+              - { label: "Generate WebP Logo", name: "logo_webp", widget: "boolean", default: true }
+              - { label: "Logo Text (Fallback)", name: "logo_text", widget: "string", default: "Hugoplate" }
+
+          # Navigation
+          - label: "Navigation"
+            name: "navigation"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Fixed Navbar", name: "navbar_fixed", widget: "boolean", default: true }
+              - label: "Navigation Button"
+                name: "navigation_button"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Label", name: "label", widget: "string", required: false }
+                  - { label: "Link", name: "link", widget: "string", required: false }
+
+          # Theme Settings
+          - label: "Theme"
+            name: "theme_settings"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Theme Switcher", name: "theme_switcher", widget: "boolean", default: false }
+              - label: "Default Theme"
+                name: "theme_default"
+                widget: "select"
+                default: "light"
+                options: ["light", "dark", "system"]
+
+          # Site Info
+          - label: "Site Information"
+            name: "site_info"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Copyright Text", name: "copyright", widget: "string", default: "Made with <3 by 2Hi Closet" }
+              - { label: "Main Sections", name: "mainSections", widget: "list", default: ["blog"] }
+              - { label: "Contact Form Action URL", name: "contact_form_action", widget: "string", default: "#", hint: "Use Airform.io or Formspree.io URL" }
+              - { label: "Google Tag Manager ID", name: "google_tag_manager", widget: "string", required: false }
+              - { label: "Google AdSense ID", name: "google_adsense", widget: "string", required: false }
+              - { label: "Custom Script", name: "custom_script", widget: "text", required: false, hint: "Add custom JavaScript code" }
+
+          # SEO Metadata
+          - label: "SEO Metadata"
+            name: "metadata"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Keywords", name: "keywords", widget: "list" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Twitter Handle", name: "twitter", widget: "string", required: false }
+              - { label: "OG Image", name: "image", widget: "image", default: "images/og-image.png" }
+
+          # Site Verification
+          - label: "Site Verification"
+            name: "site_verification"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Google Verification", name: "google", widget: "string", required: false }
+              - { label: "Bing Verification", name: "bing", widget: "string", required: false }
+              - { label: "Baidu Verification", name: "baidu", widget: "string", required: false }
+              - { label: "Facebook Verification", name: "facebook", widget: "string", required: false }
+              - { label: "Mastodon Verification", name: "mastodon", widget: "string", required: false }
+
+          # Features
+          - label: "Features"
+            name: "features"
+            widget: "object"
+            collapsed: true
+            fields:
+              # Preloader
+              - label: "Preloader"
+                name: "preloader"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Preloader Image", name: "preloader", widget: "image", required: false }
+
+              # Search
+              - label: "Search"
+                name: "search"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Primary Color", name: "primary_color", widget: "string", default: "#121212" }
+                  - { label: "Include Sections", name: "include_sections", widget: "list", default: ["blog"] }
+                  - { label: "Show Image", name: "show_image", widget: "boolean", default: true }
+                  - { label: "Show Description", name: "show_description", widget: "boolean", default: true }
+                  - { label: "Show Tags", name: "show_tags", widget: "boolean", default: true }
+                  - { label: "Show Categories", name: "show_categories", widget: "boolean", default: true }
+
+              # Announcement
+              - label: "Announcement Bar"
+                name: "announcement"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Expire Days", name: "expire_days", widget: "number", default: 7 }
+                  - { label: "Content", name: "content", widget: "text", required: false }
+
+              # Cookies
+              - label: "Cookie Consent"
+                name: "cookies"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Expire Days", name: "expire_days", widget: "number", default: 60 }
+                  - { label: "Content", name: "content", widget: "text", required: false }
+                  - { label: "Button Text", name: "button", widget: "string", default: "I Accept" }
+
+              # Subscription
+              - label: "Newsletter Subscription"
+                name: "subscription"
+                widget: "object"
+                fields:
+                  - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                  - { label: "Mailchimp Form Action", name: "mailchimp_form_action", widget: "string", required: false }
+                  - { label: "Mailchimp Form Name", name: "mailchimp_form_name", widget: "string", required: false }
+
+          # Widgets
+          - label: "Sidebar Widgets"
+            name: "widgets"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Sidebar"
+                name: "sidebar"
+                widget: "list"
+                default: ["categories", "tags"]
+
+          # Google Map
+          - label: "Google Map"
+            name: "google_map"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Enable", name: "enable", widget: "boolean", default: false }
+              - { label: "Map API Key", name: "map_api_key", widget: "string", required: false }
+              - { label: "Map Latitude", name: "map_latitude", widget: "string", required: false }
+              - { label: "Map Longitude", name: "map_longitude", widget: "string", required: false }
+              - { label: "Map Marker", name: "map_marker", widget: "image", required: false }
+
+      # NAVIGATION MENUS
+      - label: "Navigation Menus"
+        name: "menus"
+        file: "config/_default/menus.en.toml"
+        fields:
+          # Main Menu
+          - label: "Main Menu (Header)"
+            name: "main"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Weight (Order)", name: "weight", widget: "number" }
+
+          # Footer Menu
+          - label: "Footer Menu"
+            name: "footer"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Weight (Order)", name: "weight", widget: "number" }
