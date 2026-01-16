@@ -20,31 +20,33 @@ collections:
   - name: "homepage"
     label: "Homepage"
     files:
-      - label: "Homepage Content & Styling"
+      - label: "Homepage Sections"
         name: "index"
         file: "content/english/_index.md"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
 
           # SEO Section
-          - label: "SEO"
+          - label: "SEO Settings"
             name: "seo"
             widget: "object"
             collapsed: true
             fields:
-              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Meta Description", name: "description", widget: "text" }
               - { label: "Keywords", name: "keywords", widget: "list" }
 
           # ========================================
-          # BANNER/HERO SECTION
+          # SECTION 1: HERO/BANNER
           # ========================================
-          - label: "Banner (Hero Section)"
+          - label: "━━━ Section 1: Hero/Banner ━━━"
             name: "banner"
             widget: "object"
             collapsed: false
+            summary: "Hero: {{fields.title}}"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Content", name: "content", widget: "text" }
+              - { label: "Enable Section", name: "enable", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Content", name: "content", widget: "text" }
               - { label: "Background Image", name: "image", widget: "image", required: false }
 
               # Banner Styling
@@ -145,16 +147,18 @@ collections:
                       - { label: "Outline White", value: "outline-white" }
 
           # ========================================
-          # FEATURES/ABOUT SECTION
+          # SECTION 2: ABOUT / WHY CHOOSE US
           # ========================================
-          - label: "Features Section"
-            name: "features"
-            widget: "list"
+          - label: "━━━ Section 2: About/Why Choose ━━━"
+            name: "about_section"
+            widget: "object"
             collapsed: true
+            summary: "About: {{fields.title}}"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Image", name: "image", widget: "image", required: false }
-              - { label: "Content", name: "content", widget: "text" }
+              - { label: "Enable Section", name: "enable", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Content", name: "content", widget: "text" }
+              - { label: "Featured Image", name: "image", widget: "image", required: false }
 
               # Section Styling
               - label: "Section Styling"
@@ -239,8 +243,149 @@ collections:
                       - { label: "Image on Top", value: "image-top" }
                       - { label: "Centered", value: "centered" }
 
-              # Nested Workshops
-              - label: "Workshops Grid"
+              # Call-to-Action Buttons
+              - label: "Call-to-Action Buttons"
+                name: "buttons"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Primary Button"
+                    name: "primary"
+                    widget: "object"
+                    collapsed: true
+                    fields:
+                      - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                      - { label: "Label", name: "label", widget: "string", required: false }
+                      - { label: "Link", name: "link", widget: "string", required: false }
+                      - label: "Button Style"
+                        name: "style"
+                        widget: "select"
+                        default: "primary"
+                        required: false
+                        options:
+                          - { label: "Filled Primary", value: "primary" }
+                          - { label: "Outline Primary", value: "outline-primary" }
+
+                  - label: "Secondary Button"
+                    name: "secondary"
+                    widget: "object"
+                    collapsed: true
+                    fields:
+                      - { label: "Enable", name: "enable", widget: "boolean", default: false }
+                      - { label: "Label", name: "label", widget: "string", required: false }
+                      - { label: "Link", name: "link", widget: "string", required: false }
+                      - label: "Button Style"
+                        name: "style"
+                        widget: "select"
+                        default: "outline-primary"
+                        required: false
+                        options:
+                          - { label: "Filled Primary", value: "primary" }
+                          - { label: "Outline Primary", value: "outline-primary" }
+
+              # Feature Highlights/Bullet Points
+              - label: "Feature Highlights / Bullet Points"
+                name: "bulletpoints"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{fields.point}}"
+                field: { label: "Point", name: "point", widget: "string" }
+
+          # ========================================
+          # SECTION 3: WORKSHOPS FEATURE CARDS
+          # ========================================
+          - label: "━━━ Section 3: Workshops Feature Cards ━━━"
+            name: "workshops_cards"
+            widget: "object"
+            collapsed: true
+            summary: "Workshop Cards: {{fields.title}}"
+            fields:
+              - { label: "Enable Section", name: "enable", widget: "boolean", default: true }
+              - { label: "Section Title", name: "title", widget: "string", required: false, hint: "Optional heading above the cards" }
+              - { label: "Section Description", name: "description", widget: "text", required: false }
+
+              # Workshop Cards List
+              - label: "Workshop Cards"
+                name: "cards"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Card Title", name: "title", widget: "string" }
+                  - { label: "Card Image", name: "image", widget: "image", required: false }
+                  - { label: "Description", name: "description", widget: "text", required: false }
+
+              # Section Styling
+              - label: "Section Styling"
+                name: "styling"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - label: "Background Color"
+                    name: "background_color"
+                    widget: "string"
+                    default: "#ffffff"
+                    required: false
+                    hint: "Hex color code (e.g., #ffffff)"
+
+                  - label: "Text Color"
+                    name: "text_color"
+                    widget: "select"
+                    default: "dark"
+                    required: false
+                    options:
+                      - { label: "Dark", value: "dark" }
+                      - { label: "Light/White", value: "light" }
+                      - { label: "Primary", value: "primary" }
+
+                  - label: "Section Padding"
+                    name: "padding"
+                    widget: "select"
+                    default: "large"
+                    required: false
+                    options:
+                      - { label: "None", value: "none" }
+                      - { label: "Small", value: "small" }
+                      - { label: "Medium", value: "medium" }
+                      - { label: "Large", value: "large" }
+                      - { label: "Extra Large", value: "xlarge" }
+
+                  - label: "Grid Columns (Desktop)"
+                    name: "grid_columns"
+                    widget: "select"
+                    default: "3"
+                    required: false
+                    options:
+                      - { label: "2 Columns", value: "2" }
+                      - { label: "3 Columns", value: "3" }
+                      - { label: "4 Columns", value: "4" }
+
+                  - label: "Card Style"
+                    name: "card_style"
+                    widget: "select"
+                    default: "bordered"
+                    required: false
+                    options:
+                      - { label: "White with Border", value: "bordered" }
+                      - { label: "White with Shadow", value: "shadow" }
+                      - { label: "Transparent", value: "transparent" }
+
+          # Keep old features structure for backward compatibility
+          - label: "⚠️ Legacy Features (DO NOT USE)"
+            name: "features"
+            widget: "list"
+            required: false
+            collapsed: true
+            hint: "This field exists for backward compatibility only. Please use the new sections above instead."
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Content", name: "content", widget: "text" }
+              - label: "Workshops"
                 name: "workshops"
                 widget: "list"
                 required: false
@@ -249,8 +394,6 @@ collections:
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Image", name: "image", widget: "image", required: false }
                   - { label: "Description", name: "description", widget: "text", required: false }
-
-              # Bullet Points
               - label: "Bullet Points"
                 name: "bulletpoints"
                 widget: "list"
@@ -260,16 +403,17 @@ collections:
                 field: { label: "Point", name: "point", widget: "string" }
 
           # ========================================
-          # WORKSHOPS SHOWCASE SECTION
+          # SECTION 4: WORKSHOPS SHOWCASE/LISTING
           # ========================================
-          - label: "Workshops Showcase Section"
+          - label: "━━━ Section 4: Workshops Showcase ━━━"
             name: "workshops"
             widget: "object"
             collapsed: true
+            summary: "Workshops: {{fields.title}}"
             fields:
               - { label: "Enable Section", name: "enable", widget: "boolean", default: true }
               - { label: "Section Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Section Description", name: "description", widget: "text", hint: "Long text listing all workshop types" }
               - { label: "Primary Button Label", name: "buttonLabel", widget: "string" }
               - { label: "Primary Button URL", name: "buttonURL", widget: "string" }
               - { label: "Secondary Button Label", name: "secondaryButtonLabel", widget: "string", required: false }
