@@ -9,6 +9,10 @@ backend:
 media_folder: "static/images"
 public_folder: "/images"
 
+# Editor Configuration
+editor:
+  preview: true
+
 collections:
   # ============================================
   # HOMEPAGE CONFIGURATION
