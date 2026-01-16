@@ -18,7 +18,7 @@ collections:
   # HOMEPAGE CONFIGURATION
   # ============================================
   - name: "homepage"
-    label: "Homepage"
+    label: "🏠 1. Homepage"
     files:
       - label: "Homepage Sections"
         name: "index"
@@ -481,7 +481,7 @@ collections:
   # LISTING PAGES (About, Contact, Blog, etc.)
   # ============================================
   - name: "listing_pages"
-    label: "Listing Pages"
+    label: "📄 2. Main Pages"
     files:
       # ABOUT PAGE
       - label: "About Page"
@@ -548,7 +548,7 @@ collections:
   # SECTIONS (Testimonials, CTA, etc.)
   # ============================================
   - name: "sections"
-    label: "Page Sections"
+    label: "🧩 3. Page Sections"
     files:
       # TESTIMONIALS SECTION
       - label: "Testimonials"
@@ -699,7 +699,7 @@ collections:
   # GLOBAL THEME SETTINGS
   # ============================================
   - name: "theme_settings"
-    label: "Theme & Styling"
+    label: "🎨 4. Theme & Styling"
     files:
       - label: "Colors & Fonts"
         name: "theme"
@@ -769,7 +769,7 @@ collections:
   # BLOG POSTS
   # ============================================
   - name: "blog"
-    label: "Blog"
+    label: "📝 5. Blog Posts"
     folder: "content/english/blog"
     create: true
     slug: "{{slug}}"
@@ -789,7 +789,7 @@ collections:
   # PAGES
   # ============================================
   - name: "pages"
-    label: "Pages"
+    label: "📄 6. Custom Pages"
     folder: "content/english/pages"
     create: true
     slug: "{{slug}}"
@@ -809,7 +809,7 @@ collections:
   # SERVICES
   # ============================================
   - name: "services"
-    label: "Services"
+    label: "📦 7. Services"
     folder: "content/english/services"
     create: true
     slug: "{{slug}}"
@@ -826,7 +826,7 @@ collections:
   # WORKSHOPS
   # ============================================
   - name: "workshops"
-    label: "Workshops"
+    label: "🎨 8. Workshops"
     folder: "content/english/workshops"
     create: true
     slug: "{{slug}}"
@@ -846,7 +846,7 @@ collections:
   # AUTHORS
   # ============================================
   - name: "authors"
-    label: "Authors"
+    label: "👥 9. Authors"
     folder: "content/english/authors"
     create: true
     slug: "{{slug}}"
@@ -869,7 +869,7 @@ collections:
   # SITE SETTINGS
   # ============================================
   - name: "site_settings"
-    label: "Site Settings"
+    label: "⚙️ 10. Site Settings"
     files:
       # SITE PARAMETERS
       - label: "Site Parameters"
