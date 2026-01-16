@@ -11,10 +11,99 @@
   <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
 
   <script>
-    // Register preview styles after CMS loads
+    // Register preview styles
     if (window.CMS) {
       CMS.registerPreviewStyle('/admin/preview.css');
       console.log('✅ Preview styles registered');
+
+      // Get React and createElement from CMS
+      var h = window.CMS.h || window.h || window.React.createElement;
+      var createClass = window.createReactClass;
+
+      // Register custom preview template for homepage to handle images properly
+      var HomepagePreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var banner = entry.getIn(['data', 'banner']);
+          var features = entry.getIn(['data', 'features']);
+
+          var bannerSection = null;
+          if (banner) {
+            var bannerImage = banner.get('image');
+            bannerSection = h('section', { className: 'banner', style: { marginBottom: '2em' } },
+              bannerImage ? h('img', {
+                src: bannerImage,
+                alt: banner.get('title') || 'Banner',
+                style: { maxWidth: '100%', height: 'auto', marginBottom: '1em', borderRadius: '8px' }
+              }) : null,
+              h('h1', {}, banner.get('title')),
+              h('p', {}, banner.get('content'))
+            );
+          }
+
+          var featuresSection = null;
+          if (features) {
+            featuresSection = h('section', { className: 'features' },
+              features.toJS().map(function(feature, idx) {
+                var workshopsGrid = null;
+                if (feature.workshops && feature.workshops.length > 0) {
+                  workshopsGrid = h('div', {
+                    className: 'workshops-grid',
+                    style: {
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                      gap: '1em',
+                      marginTop: '1em'
+                    }
+                  }, feature.workshops.map(function(workshop, widx) {
+                    return h('div', {
+                      key: 'workshop-' + widx,
+                      style: { border: '1px solid #eee', padding: '1em', borderRadius: '8px' }
+                    },
+                      workshop.image ? h('img', {
+                        src: workshop.image,
+                        alt: workshop.title || 'Workshop',
+                        style: { maxWidth: '100%', height: 'auto', marginBottom: '0.5em', borderRadius: '8px' }
+                      }) : null,
+                      h('h3', {}, workshop.title),
+                      h('p', {}, workshop.description)
+                    );
+                  }));
+                }
+
+                var bulletList = null;
+                if (feature.bulletpoints && feature.bulletpoints.length > 0) {
+                  bulletList = h('ul', { style: { marginTop: '1em' } },
+                    feature.bulletpoints.map(function(point, pidx) {
+                      return h('li', { key: 'bullet-' + pidx }, point);
+                    })
+                  );
+                }
+
+                return h('div', { key: 'feature-' + idx, style: { marginBottom: '3em' } },
+                  h('h2', {}, feature.title),
+                  feature.image ? h('img', {
+                    src: feature.image,
+                    alt: feature.title || 'Feature',
+                    style: { maxWidth: '100%', height: 'auto', marginBottom: '1em', borderRadius: '8px' }
+                  }) : null,
+                  h('p', {}, feature.content),
+                  workshopsGrid,
+                  bulletList
+                );
+              })
+            );
+          }
+
+          return h('div', { className: 'cms-preview' },
+            bannerSection,
+            featuresSection
+          );
+        }
+      });
+
+      CMS.registerPreviewTemplate('homepage', HomepagePreview);
+      console.log('✅ Custom preview template registered for homepage');
     }
   </script>
 </body>
